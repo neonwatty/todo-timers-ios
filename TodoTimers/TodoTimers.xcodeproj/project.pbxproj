@@ -1,0 +1,1038 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CBCAE5672EA05932000F9C80 /* TodoTimers Watch App Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CBCAE5472EA05930000F9C80 /* TodoTimers Watch App Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CBCAE5CD2EA0652E000F9C80 /* TodoItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C42EA0652E000F9C80 /* TodoItemDTO.swift */; };
+		CBCAE5CE2EA0652E000F9C80 /* WatchPayloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C52EA0652E000F9C80 /* WatchPayloads.swift */; };
+		CBCAE5CF2EA0652E000F9C80 /* TimerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C32EA0652E000F9C80 /* TimerDTO.swift */; };
+		CBCAE5D02EA0652E000F9C80 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C72EA0652E000F9C80 /* ValidationError.swift */; };
+		CBCAE5D12EA0652E000F9C80 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C92EA0652E000F9C80 /* Timer.swift */; };
+		CBCAE5D22EA0652E000F9C80 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5CA2EA0652E000F9C80 /* TodoItem.swift */; };
+		CBCAE5D32EA0652E000F9C80 /* TodoItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C42EA0652E000F9C80 /* TodoItemDTO.swift */; };
+		CBCAE5D42EA0652E000F9C80 /* WatchPayloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C52EA0652E000F9C80 /* WatchPayloads.swift */; };
+		CBCAE5D52EA0652E000F9C80 /* TimerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C32EA0652E000F9C80 /* TimerDTO.swift */; };
+		CBCAE5D62EA0652E000F9C80 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C72EA0652E000F9C80 /* ValidationError.swift */; };
+		CBCAE5D72EA0652E000F9C80 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C92EA0652E000F9C80 /* Timer.swift */; };
+		CBCAE5D82EA0652E000F9C80 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5CA2EA0652E000F9C80 /* TodoItem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBCAE5272EA058EC000F9C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBCAE5112EA058EB000F9C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBCAE5182EA058EB000F9C80;
+			remoteInfo = TodoTimers;
+		};
+		CBCAE5312EA058EC000F9C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBCAE5112EA058EB000F9C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBCAE5182EA058EB000F9C80;
+			remoteInfo = TodoTimers;
+		};
+		CBCAE5542EA05932000F9C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBCAE5112EA058EB000F9C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBCAE5462EA05930000F9C80;
+			remoteInfo = "TodoTimers Watch App Watch App";
+		};
+		CBCAE55E2EA05932000F9C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBCAE5112EA058EB000F9C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBCAE5462EA05930000F9C80;
+			remoteInfo = "TodoTimers Watch App Watch App";
+		};
+		CBCAE5652EA05932000F9C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBCAE5112EA058EB000F9C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBCAE5462EA05930000F9C80;
+			remoteInfo = "TodoTimers Watch App Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CBCAE56B2EA05932000F9C80 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CBCAE5672EA05932000F9C80 /* TodoTimers Watch App Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CBCAE5192EA058EB000F9C80 /* TodoTimers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoTimers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCAE5262EA058EC000F9C80 /* TodoTimersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTimersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCAE5302EA058EC000F9C80 /* TodoTimersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTimersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCAE5472EA05930000F9C80 /* TodoTimers Watch App Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TodoTimers Watch App Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCAE5532EA05932000F9C80 /* TodoTimers Watch App Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TodoTimers Watch App Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCAE55D2EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TodoTimers Watch App Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCAE5C32EA0652E000F9C80 /* TimerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDTO.swift; sourceTree = "<group>"; };
+		CBCAE5C42EA0652E000F9C80 /* TodoItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDTO.swift; sourceTree = "<group>"; };
+		CBCAE5C52EA0652E000F9C80 /* WatchPayloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPayloads.swift; sourceTree = "<group>"; };
+		CBCAE5C72EA0652E000F9C80 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		CBCAE5C92EA0652E000F9C80 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		CBCAE5CA2EA0652E000F9C80 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CBCAE5752EA05AF3000F9C80 /* Exceptions for "TodoTimers" folder in "TodoTimers" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CBCAE5182EA058EB000F9C80 /* TodoTimers */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CBCAE51B2EA058EB000F9C80 /* TodoTimers */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CBCAE5752EA05AF3000F9C80 /* Exceptions for "TodoTimers" folder in "TodoTimers" target */,
+			);
+			path = TodoTimers;
+			sourceTree = "<group>";
+		};
+		CBCAE5292EA058EC000F9C80 /* TodoTimersTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TodoTimersTests;
+			sourceTree = "<group>";
+		};
+		CBCAE5332EA058EC000F9C80 /* TodoTimersUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TodoTimersUITests;
+			sourceTree = "<group>";
+		};
+		CBCAE5482EA05930000F9C80 /* TodoTimers Watch App Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "TodoTimers Watch App Watch App";
+			sourceTree = "<group>";
+		};
+		CBCAE5562EA05932000F9C80 /* TodoTimers Watch App Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "TodoTimers Watch App Watch AppTests";
+			sourceTree = "<group>";
+		};
+		CBCAE5602EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "TodoTimers Watch App Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBCAE5162EA058EB000F9C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5232EA058EC000F9C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE52D2EA058EC000F9C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5442EA05930000F9C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5502EA05932000F9C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE55A2EA05932000F9C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBCAE5102EA058EB000F9C80 = {
+			isa = PBXGroup;
+			children = (
+				CBCAE5CC2EA0652E000F9C80 /* Shared */,
+				CBCAE51B2EA058EB000F9C80 /* TodoTimers */,
+				CBCAE5292EA058EC000F9C80 /* TodoTimersTests */,
+				CBCAE5332EA058EC000F9C80 /* TodoTimersUITests */,
+				CBCAE5482EA05930000F9C80 /* TodoTimers Watch App Watch App */,
+				CBCAE5562EA05932000F9C80 /* TodoTimers Watch App Watch AppTests */,
+				CBCAE5602EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests */,
+				CBCAE51A2EA058EB000F9C80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBCAE51A2EA058EB000F9C80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBCAE5192EA058EB000F9C80 /* TodoTimers.app */,
+				CBCAE5262EA058EC000F9C80 /* TodoTimersTests.xctest */,
+				CBCAE5302EA058EC000F9C80 /* TodoTimersUITests.xctest */,
+				CBCAE5472EA05930000F9C80 /* TodoTimers Watch App Watch App.app */,
+				CBCAE5532EA05932000F9C80 /* TodoTimers Watch App Watch AppTests.xctest */,
+				CBCAE55D2EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBCAE5C62EA0652E000F9C80 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				CBCAE5C32EA0652E000F9C80 /* TimerDTO.swift */,
+				CBCAE5C42EA0652E000F9C80 /* TodoItemDTO.swift */,
+				CBCAE5C52EA0652E000F9C80 /* WatchPayloads.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		CBCAE5C82EA0652E000F9C80 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CBCAE5C72EA0652E000F9C80 /* ValidationError.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CBCAE5CB2EA0652E000F9C80 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBCAE5C92EA0652E000F9C80 /* Timer.swift */,
+				CBCAE5CA2EA0652E000F9C80 /* TodoItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBCAE5CC2EA0652E000F9C80 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CBCAE5C62EA0652E000F9C80 /* DTOs */,
+				CBCAE5C82EA0652E000F9C80 /* Extensions */,
+				CBCAE5CB2EA0652E000F9C80 /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBCAE5182EA058EB000F9C80 /* TodoTimers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBCAE53A2EA058EC000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers" */;
+			buildPhases = (
+				CBCAE5152EA058EB000F9C80 /* Sources */,
+				CBCAE5162EA058EB000F9C80 /* Frameworks */,
+				CBCAE5172EA058EB000F9C80 /* Resources */,
+				CBCAE56B2EA05932000F9C80 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBCAE5662EA05932000F9C80 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CBCAE51B2EA058EB000F9C80 /* TodoTimers */,
+			);
+			name = TodoTimers;
+			packageProductDependencies = (
+			);
+			productName = TodoTimers;
+			productReference = CBCAE5192EA058EB000F9C80 /* TodoTimers.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBCAE5252EA058EC000F9C80 /* TodoTimersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBCAE53D2EA058EC000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimersTests" */;
+			buildPhases = (
+				CBCAE5222EA058EC000F9C80 /* Sources */,
+				CBCAE5232EA058EC000F9C80 /* Frameworks */,
+				CBCAE5242EA058EC000F9C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBCAE5282EA058EC000F9C80 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CBCAE5292EA058EC000F9C80 /* TodoTimersTests */,
+			);
+			name = TodoTimersTests;
+			packageProductDependencies = (
+			);
+			productName = TodoTimersTests;
+			productReference = CBCAE5262EA058EC000F9C80 /* TodoTimersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CBCAE52F2EA058EC000F9C80 /* TodoTimersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBCAE5402EA058EC000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimersUITests" */;
+			buildPhases = (
+				CBCAE52C2EA058EC000F9C80 /* Sources */,
+				CBCAE52D2EA058EC000F9C80 /* Frameworks */,
+				CBCAE52E2EA058EC000F9C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBCAE5322EA058EC000F9C80 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CBCAE5332EA058EC000F9C80 /* TodoTimersUITests */,
+			);
+			name = TodoTimersUITests;
+			packageProductDependencies = (
+			);
+			productName = TodoTimersUITests;
+			productReference = CBCAE5302EA058EC000F9C80 /* TodoTimersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		CBCAE5462EA05930000F9C80 /* TodoTimers Watch App Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBCAE5682EA05932000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers Watch App Watch App" */;
+			buildPhases = (
+				CBCAE5432EA05930000F9C80 /* Sources */,
+				CBCAE5442EA05930000F9C80 /* Frameworks */,
+				CBCAE5452EA05930000F9C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CBCAE5482EA05930000F9C80 /* TodoTimers Watch App Watch App */,
+			);
+			name = "TodoTimers Watch App Watch App";
+			packageProductDependencies = (
+			);
+			productName = "TodoTimers Watch App Watch App";
+			productReference = CBCAE5472EA05930000F9C80 /* TodoTimers Watch App Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBCAE5522EA05932000F9C80 /* TodoTimers Watch App Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBCAE56C2EA05932000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers Watch App Watch AppTests" */;
+			buildPhases = (
+				CBCAE54F2EA05932000F9C80 /* Sources */,
+				CBCAE5502EA05932000F9C80 /* Frameworks */,
+				CBCAE5512EA05932000F9C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBCAE5552EA05932000F9C80 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CBCAE5562EA05932000F9C80 /* TodoTimers Watch App Watch AppTests */,
+			);
+			name = "TodoTimers Watch App Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "TodoTimers Watch App Watch AppTests";
+			productReference = CBCAE5532EA05932000F9C80 /* TodoTimers Watch App Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CBCAE55C2EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBCAE56F2EA05932000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers Watch App Watch AppUITests" */;
+			buildPhases = (
+				CBCAE5592EA05932000F9C80 /* Sources */,
+				CBCAE55A2EA05932000F9C80 /* Frameworks */,
+				CBCAE55B2EA05932000F9C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBCAE55F2EA05932000F9C80 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CBCAE5602EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests */,
+			);
+			name = "TodoTimers Watch App Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "TodoTimers Watch App Watch AppUITests";
+			productReference = CBCAE55D2EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBCAE5112EA058EB000F9C80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					CBCAE5182EA058EB000F9C80 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					CBCAE5252EA058EC000F9C80 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = CBCAE5182EA058EB000F9C80;
+					};
+					CBCAE52F2EA058EC000F9C80 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = CBCAE5182EA058EB000F9C80;
+					};
+					CBCAE5462EA05930000F9C80 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					CBCAE5522EA05932000F9C80 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = CBCAE5462EA05930000F9C80;
+					};
+					CBCAE55C2EA05932000F9C80 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = CBCAE5462EA05930000F9C80;
+					};
+				};
+			};
+			buildConfigurationList = CBCAE5142EA058EB000F9C80 /* Build configuration list for PBXProject "TodoTimers" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBCAE5102EA058EB000F9C80;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = CBCAE51A2EA058EB000F9C80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBCAE5182EA058EB000F9C80 /* TodoTimers */,
+				CBCAE5252EA058EC000F9C80 /* TodoTimersTests */,
+				CBCAE52F2EA058EC000F9C80 /* TodoTimersUITests */,
+				CBCAE5462EA05930000F9C80 /* TodoTimers Watch App Watch App */,
+				CBCAE5522EA05932000F9C80 /* TodoTimers Watch App Watch AppTests */,
+				CBCAE55C2EA05932000F9C80 /* TodoTimers Watch App Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBCAE5172EA058EB000F9C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5242EA058EC000F9C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE52E2EA058EC000F9C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5452EA05930000F9C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5512EA05932000F9C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE55B2EA05932000F9C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBCAE5152EA058EB000F9C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBCAE5CD2EA0652E000F9C80 /* TodoItemDTO.swift in Sources */,
+				CBCAE5CE2EA0652E000F9C80 /* WatchPayloads.swift in Sources */,
+				CBCAE5CF2EA0652E000F9C80 /* TimerDTO.swift in Sources */,
+				CBCAE5D02EA0652E000F9C80 /* ValidationError.swift in Sources */,
+				CBCAE5D12EA0652E000F9C80 /* Timer.swift in Sources */,
+				CBCAE5D22EA0652E000F9C80 /* TodoItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5222EA058EC000F9C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE52C2EA058EC000F9C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5432EA05930000F9C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBCAE5D32EA0652E000F9C80 /* TodoItemDTO.swift in Sources */,
+				CBCAE5D42EA0652E000F9C80 /* WatchPayloads.swift in Sources */,
+				CBCAE5D52EA0652E000F9C80 /* TimerDTO.swift in Sources */,
+				CBCAE5D62EA0652E000F9C80 /* ValidationError.swift in Sources */,
+				CBCAE5D72EA0652E000F9C80 /* Timer.swift in Sources */,
+				CBCAE5D82EA0652E000F9C80 /* TodoItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE54F2EA05932000F9C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCAE5592EA05932000F9C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBCAE5282EA058EC000F9C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBCAE5182EA058EB000F9C80 /* TodoTimers */;
+			targetProxy = CBCAE5272EA058EC000F9C80 /* PBXContainerItemProxy */;
+		};
+		CBCAE5322EA058EC000F9C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBCAE5182EA058EB000F9C80 /* TodoTimers */;
+			targetProxy = CBCAE5312EA058EC000F9C80 /* PBXContainerItemProxy */;
+		};
+		CBCAE5552EA05932000F9C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBCAE5462EA05930000F9C80 /* TodoTimers Watch App Watch App */;
+			targetProxy = CBCAE5542EA05932000F9C80 /* PBXContainerItemProxy */;
+		};
+		CBCAE55F2EA05932000F9C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBCAE5462EA05930000F9C80 /* TodoTimers Watch App Watch App */;
+			targetProxy = CBCAE55E2EA05932000F9C80 /* PBXContainerItemProxy */;
+		};
+		CBCAE5662EA05932000F9C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBCAE5462EA05930000F9C80 /* TodoTimers Watch App Watch App */;
+			targetProxy = CBCAE5652EA05932000F9C80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CBCAE5382EA058EC000F9C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CBCAE5392EA058EC000F9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBCAE53B2EA058EC000F9C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TodoTimers/TodoTimers.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoTimers/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBCAE53C2EA058EC000F9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TodoTimers/TodoTimers.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoTimers/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBCAE53E2EA058EC000F9C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoTimers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TodoTimers";
+			};
+			name = Debug;
+		};
+		CBCAE53F2EA058EC000F9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoTimers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TodoTimers";
+			};
+			name = Release;
+		};
+		CBCAE5412EA058EC000F9C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TodoTimers;
+			};
+			name = Debug;
+		};
+		CBCAE5422EA058EC000F9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TodoTimers;
+			};
+			name = Release;
+		};
+		CBCAE5692EA05932000F9C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TodoTimers Watch App Watch App/TodoTimers Watch App Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "TodoTimers Watch App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = neonwatty.TodoTimers;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimers.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		CBCAE56A2EA05932000F9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TodoTimers Watch App Watch App/TodoTimers Watch App Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "TodoTimers Watch App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = neonwatty.TodoTimers;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = neonwatty.TodoTimers.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		CBCAE56D2EA05932000F9C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "neonwatty.TodoTimers-Watch-App-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoTimers Watch App Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TodoTimers Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		CBCAE56E2EA05932000F9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "neonwatty.TodoTimers-Watch-App-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoTimers Watch App Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TodoTimers Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		CBCAE5702EA05932000F9C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "neonwatty.TodoTimers-Watch-App-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "TodoTimers Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		CBCAE5712EA05932000F9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZMCUYS3AQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "neonwatty.TodoTimers-Watch-App-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "TodoTimers Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBCAE5142EA058EB000F9C80 /* Build configuration list for PBXProject "TodoTimers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCAE5382EA058EC000F9C80 /* Debug */,
+				CBCAE5392EA058EC000F9C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBCAE53A2EA058EC000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCAE53B2EA058EC000F9C80 /* Debug */,
+				CBCAE53C2EA058EC000F9C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBCAE53D2EA058EC000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCAE53E2EA058EC000F9C80 /* Debug */,
+				CBCAE53F2EA058EC000F9C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBCAE5402EA058EC000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCAE5412EA058EC000F9C80 /* Debug */,
+				CBCAE5422EA058EC000F9C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBCAE5682EA05932000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers Watch App Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCAE5692EA05932000F9C80 /* Debug */,
+				CBCAE56A2EA05932000F9C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBCAE56C2EA05932000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers Watch App Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCAE56D2EA05932000F9C80 /* Debug */,
+				CBCAE56E2EA05932000F9C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBCAE56F2EA05932000F9C80 /* Build configuration list for PBXNativeTarget "TodoTimers Watch App Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCAE5702EA05932000F9C80 /* Debug */,
+				CBCAE5712EA05932000F9C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBCAE5112EA058EB000F9C80 /* Project object */;
+}
