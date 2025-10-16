@@ -20,6 +20,8 @@
 		CBCAE5D62EA0652E000F9C80 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C72EA0652E000F9C80 /* ValidationError.swift */; };
 		CBCAE5D72EA0652E000F9C80 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5C92EA0652E000F9C80 /* Timer.swift */; };
 		CBCAE5D82EA0652E000F9C80 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5CA2EA0652E000F9C80 /* TodoItem.swift */; };
+		CBCAE5F62EA06F86000F9C80 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5F52EA06F86000F9C80 /* ColorExtension.swift */; };
+		CBCAE5F72EA06F86000F9C80 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAE5F52EA06F86000F9C80 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,7 @@
 		CBCAE5C72EA0652E000F9C80 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		CBCAE5C92EA0652E000F9C80 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		CBCAE5CA2EA0652E000F9C80 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		CBCAE5F52EA06F86000F9C80 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -238,6 +241,7 @@
 		CBCAE5CC2EA0652E000F9C80 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CBCAE5F52EA06F86000F9C80 /* ColorExtension.swift */,
 				CBCAE5C62EA0652E000F9C80 /* DTOs */,
 				CBCAE5C82EA0652E000F9C80 /* Extensions */,
 				CBCAE5CB2EA0652E000F9C80 /* Models */,
@@ -495,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBCAE5CD2EA0652E000F9C80 /* TodoItemDTO.swift in Sources */,
+				CBCAE5F72EA06F86000F9C80 /* ColorExtension.swift in Sources */,
 				CBCAE5CE2EA0652E000F9C80 /* WatchPayloads.swift in Sources */,
 				CBCAE5CF2EA0652E000F9C80 /* TimerDTO.swift in Sources */,
 				CBCAE5D02EA0652E000F9C80 /* ValidationError.swift in Sources */,
@@ -524,6 +529,7 @@
 				CBCAE5D32EA0652E000F9C80 /* TodoItemDTO.swift in Sources */,
 				CBCAE5D42EA0652E000F9C80 /* WatchPayloads.swift in Sources */,
 				CBCAE5D52EA0652E000F9C80 /* TimerDTO.swift in Sources */,
+				CBCAE5F62EA06F86000F9C80 /* ColorExtension.swift in Sources */,
 				CBCAE5D62EA0652E000F9C80 /* ValidationError.swift in Sources */,
 				CBCAE5D72EA0652E000F9C80 /* Timer.swift in Sources */,
 				CBCAE5D82EA0652E000F9C80 /* TodoItem.swift in Sources */,

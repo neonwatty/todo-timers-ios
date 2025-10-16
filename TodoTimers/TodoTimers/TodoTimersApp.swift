@@ -12,7 +12,7 @@ import SwiftData
 struct TodoTimersApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TimerListView()
         }
         .modelContainer(for: [Timer.self, TodoItem.self])
     }
