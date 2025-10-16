@@ -224,6 +224,7 @@
 		CBCAE5C82EA0652E000F9C80 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CBCAE5F52EA06F86000F9C80 /* ColorExtension.swift */,
 				CBCAE5C72EA0652E000F9C80 /* ValidationError.swift */,
 			);
 			path = Extensions;
@@ -241,7 +242,6 @@
 		CBCAE5CC2EA0652E000F9C80 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				CBCAE5F52EA06F86000F9C80 /* ColorExtension.swift */,
 				CBCAE5C62EA0652E000F9C80 /* DTOs */,
 				CBCAE5C82EA0652E000F9C80 /* Extensions */,
 				CBCAE5CB2EA0652E000F9C80 /* Models */,

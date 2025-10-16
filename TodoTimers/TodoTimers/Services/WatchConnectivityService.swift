@@ -190,7 +190,7 @@ final class WatchConnectivityService: NSObject, ObservableObject {
                 existing.updatedAt = dto.updatedAt
 
                 // Update todo items
-                mergeTodoItems(existing, dtoTodos: dto.todoItems, in: context)
+                try mergeTodoItems(existing, dtoTodos: dto.todoItems, in: context)
 
                 try context.save()
             }
@@ -231,10 +231,10 @@ final class WatchConnectivityService: NSObject, ObservableObject {
                     id: dtoTodo.id,
                     text: dtoTodo.text,
                     isCompleted: dtoTodo.isCompleted,
-                    sortOrder: dtoTodo.sortOrder,
-                    createdAt: dtoTodo.createdAt,
-                    updatedAt: dtoTodo.updatedAt
+                    sortOrder: dtoTodo.sortOrder
                 )
+                newTodo.createdAt = dtoTodo.createdAt
+                newTodo.updatedAt = dtoTodo.updatedAt
                 timer.todoItems.append(newTodo)
             }
         }
