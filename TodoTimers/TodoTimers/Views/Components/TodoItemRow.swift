@@ -40,13 +40,15 @@ struct TodoItemRow: View {
         todo.updatedAt = Date()
         todo.timer?.updatedAt = Date()
 
-        // TODO: Sync to Watch (Phase 4)
-        // WatchConnectivityService.shared.sendQuickAction(
-        //     action: .todoToggled,
-        //     timerID: todo.timer?.id ?? UUID(),
-        //     todoID: todo.id,
-        //     todoCompleted: todo.isCompleted
-        // )
+        // Sync to Watch
+        if let timerID = todo.timer?.id {
+            WatchConnectivityService.shared.sendQuickAction(
+                action: .todoToggled,
+                timerID: timerID,
+                todoID: todo.id,
+                todoCompleted: todo.isCompleted
+            )
+        }
 
         // Haptic feedback
         UIImpactFeedbackGenerator(style: .light).impactOccurred()

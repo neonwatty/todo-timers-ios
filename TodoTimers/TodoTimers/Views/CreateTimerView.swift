@@ -142,8 +142,8 @@ struct CreateTimerView: View {
         do {
             try modelContext.save()
 
-            // TODO: Sync to Watch (Phase 4)
-            // WatchConnectivityService.shared.sendTimerUpdate(timer, type: .created)
+            // Sync to Watch
+            WatchConnectivityService.shared.sendTimerUpdate(timer, type: .created)
 
             dismiss()
         } catch {

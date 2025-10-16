@@ -59,8 +59,8 @@ struct TimerListView: View {
     }
 
     private func syncTimers() {
-        // TODO: Trigger Watch Connectivity sync (Phase 4)
-        // WatchConnectivityService.shared.syncAllTimers(timers)
+        // Trigger Watch Connectivity sync
+        WatchConnectivityService.shared.sendFullSync()
     }
 }
 
