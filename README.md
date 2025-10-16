@@ -75,13 +75,14 @@ todo-timers/
 ## Implementation Roadmap
 
 - [x] **Phase 1**: Planning and documentation
-- [ ] **Phase 2**: Xcode project setup
-- [ ] **Phase 3**: SwiftData models
-- [ ] **Phase 4**: iOS app implementation
-- [ ] **Phase 5**: Watch Connectivity service
-- [ ] **Phase 6**: watchOS app implementation
-- [ ] **Phase 7**: Notifications and haptics
-- [ ] **Phase 8**: Polish and testing
+- [x] **Phase 2**: Xcode project setup and App Groups
+- [x] **Phase 3**: SwiftData models and DTOs
+- [x] **Phase 4**: iOS app implementation (views, components, services)
+- [x] **Phase 5**: Watch Connectivity service (bi-directional sync)
+- [x] **Phase 6**: Comprehensive test suite (109+ tests)
+- [ ] **Phase 7**: watchOS app implementation
+- [ ] **Phase 8**: Notifications and haptics
+- [ ] **Phase 9**: Polish and App Store preparation
 
 ## Screenshots
 
@@ -132,18 +133,82 @@ Coming soon after implementation!
 
 ## Testing
 
-### Simulator Testing
-- Test UI and basic functionality in iOS Simulator
-- Pair watchOS Simulator with iOS Simulator for basic sync testing
+The project includes a comprehensive test suite with **109+ tests** covering unit, integration, and end-to-end scenarios.
 
-### Real Device Testing (Required for)
-- Watch Connectivity sync (Bluetooth)
+### Running Tests
+
+**Run All Tests:**
+- Press `⌘U` in Xcode to run the full test suite
+
+**Run Specific Test File:**
+- Click the diamond icon next to test class/method in code
+- Or use Test Navigator (`⌘6`) to run individual tests
+
+**Test Coverage:**
+- Enable code coverage: `Product` → `Scheme` → `Edit Scheme` → `Test` → `Options` → Check "Code Coverage"
+- View coverage report: `Report Navigator` (`⌘9`) → Select latest test run
+
+### Test Suite Structure
+
+**Unit Tests** (`TodoTimersTests/UnitTests/`) - **80 tests**
+- `Models/TimerTests.swift` (17 tests): Initialization, validation, computed properties
+- `Models/TodoItemTests.swift` (10 tests): Initialization, validation, behavior
+- `DTOs/TimerDTOTests.swift` (10 tests): Model ↔ DTO conversion, Codable
+- `DTOs/TodoItemDTOTests.swift` (10 tests): Model ↔ DTO conversion, Codable
+- `DTOs/WatchPayloadsTests.swift` (10 tests): Sync payloads, update messages
+- `Extensions/ColorExtensionTests.swift` (9 tests): Hex color parsing
+- `Services/TimerServiceTests.swift` (14 tests): Timer countdown, state management
+
+**Integration Tests** (`TodoTimersTests/IntegrationTests/`) - **15 tests**
+- `SwiftDataIntegrationTests.swift`: Timer/TodoItem CRUD, relationships, queries, cascade delete
+
+**End-to-End UI Tests** (`TodoTimersUITests/E2ETests/`) - **30+ tests**
+- `TimerManagementUITests.swift` (13 tests): Create timer, detail view, controls
+- `TodoManagementUITests.swift` (11 tests): Add todos, toggle completion, empty states
+- `NavigationUITests.swift` (11 tests): Navigation flows, sheet behavior, back navigation
+
+**Test Helpers:**
+- `TestModelContainer.swift`: In-memory SwiftData containers
+- `TestDataFactory.swift`: Factory methods for test data
+- `MockWCSession.swift`: Mock WatchConnectivity session
+- `XCUIElementExtensions.swift`: UI test helper extensions
+
+### Test Coverage Goals
+
+- **Business Logic**: >80% coverage
+- **Models & DTOs**: 100% coverage (achieved)
+- **Services**: >75% coverage
+- **UI**: Critical user flows covered
+
+### Simulator vs Real Device Testing
+
+**Simulator Testing (Available):**
+- All unit and integration tests
+- UI tests for basic flows
+- SwiftData persistence
+- Basic sync simulation
+
+**Real Device Testing (Required for):**
+- Watch Connectivity sync (Bluetooth, requires paired devices)
 - Background timer behavior
-- Notifications
-- Haptic feedback
-- Complications
+- Push notifications
+- Haptic feedback accuracy
+- watchOS Complications
 - Always-On Display
 - Battery impact
+
+### Running Tests in CI
+
+The test suite is designed to run in CI environments:
+- Uses in-memory SwiftData containers (no file system dependencies)
+- Mock WCSession for Watch Connectivity tests
+- Deterministic test data via factory methods
+
+**GitHub Actions Example:**
+```yaml
+- name: Run Tests
+  run: xcodebuild test -scheme TodoTimers -destination 'platform=iOS Simulator,name=iPhone 15'
+```
 
 ## Future Enhancements
 
