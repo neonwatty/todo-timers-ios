@@ -6,12 +6,11 @@ struct WatchTimerDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var connectivityService: WatchConnectivityService
 
-    @State private var timerService: WatchTimerService
     @State private var showingDeleteConfirmation = false
 
-    init(timer: Timer) {
-        self.timer = timer
-        _timerService = State(initialValue: WatchTimerService(timer: timer))
+    // Get timer service from singleton manager to persist across navigation
+    private var timerService: WatchTimerService {
+        WatchTimerManager.shared.getTimerService(for: timer)
     }
 
     var body: some View {
@@ -67,16 +66,13 @@ struct WatchTimerDetailView: View {
         } message: {
             Text("This cannot be undone.")
         }
-        .onDisappear {
-            timerService.cleanup()
-        }
     }
 
     // MARK: - Delete Logic
 
     private func deleteTimer() {
-        // Clean up timer service if running
-        timerService.cleanup()
+        // Clean up timer service from manager if running
+        WatchTimerManager.shared.removeTimerService(timerID: timer.id)
 
         // Delete from model context
         modelContext.delete(timer)

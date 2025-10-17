@@ -78,6 +78,10 @@ struct WatchTimerListView: View {
 struct WatchTimerCard: View {
     let timer: Timer
 
+    private var isRunning: Bool {
+        WatchTimerManager.shared.isTimerRunning(timerID: timer.id)
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 8) {
@@ -90,6 +94,14 @@ struct WatchTimerCard: View {
                     .lineLimit(1)
 
                 Spacer(minLength: 0)
+
+                // Running indicator
+                if isRunning {
+                    Circle()
+                        .fill(Color(hex: timer.colorHex))
+                        .frame(width: 6, height: 6)
+                        .opacity(0.8)
+                }
             }
 
             Text(timer.formattedDuration)
