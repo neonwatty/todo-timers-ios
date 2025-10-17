@@ -78,8 +78,27 @@ struct WatchTimerListView: View {
 struct WatchTimerCard: View {
     let timer: Timer
 
+    // Get timer service from manager to access live countdown
+    private var timerService: WatchTimerService {
+        WatchTimerManager.shared.getTimerService(for: timer)
+    }
+
     private var isRunning: Bool {
-        WatchTimerManager.shared.isTimerRunning(timerID: timer.id)
+        timerService.isRunning
+    }
+
+    // Format currentTime for display
+    private var formattedTime: String {
+        let time = timerService.currentTime
+        let hours = time / 3600
+        let minutes = (time % 3600) / 60
+        let seconds = time % 60
+
+        if hours > 0 {
+            return String(format: "%d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            return String(format: "%d:%02d", minutes, seconds)
+        }
     }
 
     var body: some View {
@@ -104,10 +123,52 @@ struct WatchTimerCard: View {
                 }
             }
 
-            Text(timer.formattedDuration)
+            // Live countdown
+            Text(formattedTime)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundStyle(Color(hex: timer.colorHex))
+
+            // Control buttons
+            HStack(spacing: 6) {
+                // Play/Pause button
+                Button(action: {
+                    if timerService.isRunning {
+                        timerService.pause()
+                    } else if timerService.isPaused {
+                        timerService.resume()
+                    } else {
+                        timerService.start()
+                    }
+                }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: timerService.isRunning ? "pause.fill" : "play.fill")
+                        Text(timerService.isRunning ? "Pause" : (timerService.isPaused ? "Resume" : "Start"))
+                    }
+                    .font(.caption2)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 6)
+                    .background(Color(hex: timer.colorHex))
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
+                .buttonStyle(.plain)
+
+                // Reset button
+                Button(action: {
+                    timerService.reset()
+                }) {
+                    Image(systemName: "arrow.counterclockwise")
+                        .font(.caption2)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color(hex: timer.colorHex))
+                        .frame(width: 32, height: 32)
+                        .background(Color(hex: timer.colorHex).opacity(0.15))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
+                .buttonStyle(.plain)
+            }
 
             if !timer.todoItems.isEmpty {
                 Label("\(timer.todoItems.count) todo\(timer.todoItems.count == 1 ? "" : "s")",

@@ -125,4 +125,135 @@ struct TimerManagerTests {
         newService1.cleanup()
         newService2.cleanup()
     }
+
+    // MARK: - Mutual Exclusivity Tests
+
+    @Test("Notify timer started updates running timer ID")
+    func notifyTimerStarted_UpdatesRunningTimerID() {
+        let manager = TimerManager.shared
+        manager.cleanupAll() // Clear any existing state
+
+        let timer = TestDataFactory.makeTimer()
+
+        manager.notifyTimerStarted(timerID: timer.id)
+
+        #expect(manager.runningTimerID == timer.id)
+        manager.cleanupAll()
+    }
+
+    @Test("Notify timer started stops other running timers")
+    func notifyTimerStarted_StopsOtherRunningTimers() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer1 = TestDataFactory.makeTimer(id: UUID())
+        let timer2 = TestDataFactory.makeTimer(id: UUID())
+
+        let service1 = manager.getTimerService(for: timer1)
+        let service2 = manager.getTimerService(for: timer2)
+
+        // Start timer1
+        service1.start()
+        #expect(service1.isRunning == true)
+
+        // Start timer2 (should stop timer1)
+        service2.start()
+
+        #expect(service1.isRunning == false)
+        #expect(service2.isRunning == true)
+        #expect(manager.runningTimerID == timer2.id)
+
+        manager.cleanupAll()
+    }
+
+    @Test("Notify timer stopped clears running timer ID")
+    func notifyTimerStopped_ClearsRunningTimerID() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer()
+
+        manager.notifyTimerStarted(timerID: timer.id)
+        #expect(manager.runningTimerID == timer.id)
+
+        manager.notifyTimerStopped(timerID: timer.id)
+
+        #expect(manager.runningTimerID == nil)
+        manager.cleanupAll()
+    }
+
+    @Test("Notify timer stopped does not clear if different timer is running")
+    func notifyTimerStopped_DoesNotClearIfDifferentTimerRunning() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer1 = TestDataFactory.makeTimer(id: UUID())
+        let timer2 = TestDataFactory.makeTimer(id: UUID())
+
+        manager.notifyTimerStarted(timerID: timer1.id)
+        manager.notifyTimerStopped(timerID: timer2.id)
+
+        #expect(manager.runningTimerID == timer1.id)
+        manager.cleanupAll()
+    }
+
+    @Test("Is timer running returns true for running timer")
+    func isTimerRunning_ReturnsTrueForRunningTimer() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer()
+
+        manager.notifyTimerStarted(timerID: timer.id)
+
+        #expect(manager.isTimerRunning(timerID: timer.id) == true)
+        manager.cleanupAll()
+    }
+
+    @Test("Is timer running returns false for non-running timer")
+    func isTimerRunning_ReturnsFalseForNonRunningTimer() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer1 = TestDataFactory.makeTimer(id: UUID())
+        let timer2 = TestDataFactory.makeTimer(id: UUID())
+
+        manager.notifyTimerStarted(timerID: timer1.id)
+
+        #expect(manager.isTimerRunning(timerID: timer2.id) == false)
+        manager.cleanupAll()
+    }
+
+    @Test("Remove timer service clears running ID if removed timer was running")
+    func removeTimerService_ClearsRunningIDIfRemovedTimerWasRunning() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer()
+        let service = manager.getTimerService(for: timer)
+
+        service.start()
+        #expect(manager.runningTimerID == timer.id)
+
+        manager.removeTimerService(timerID: timer.id)
+
+        #expect(manager.runningTimerID == nil)
+        manager.cleanupAll()
+    }
+
+    @Test("Cleanup all clears running timer ID")
+    func cleanupAll_ClearsRunningTimerID() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer()
+        let service = manager.getTimerService(for: timer)
+
+        service.start()
+        #expect(manager.runningTimerID == timer.id)
+
+        manager.cleanupAll()
+
+        #expect(manager.runningTimerID == nil)
+    }
 }

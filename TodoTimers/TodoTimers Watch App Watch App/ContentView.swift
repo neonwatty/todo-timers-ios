@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 // ContentView is now replaced by WatchTimerListView
 // This file is kept for compatibility but not used
@@ -18,4 +19,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: [Timer.self, TodoItem.self], inMemory: true)
+        .environmentObject(WatchConnectivityService.shared)
 }

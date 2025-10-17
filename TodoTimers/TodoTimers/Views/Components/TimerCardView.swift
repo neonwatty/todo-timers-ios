@@ -3,6 +3,25 @@ import SwiftUI
 struct TimerCardView: View {
     let timer: Timer
 
+    // Get timer service from manager to access live countdown
+    private var timerService: TimerService {
+        TimerManager.shared.getTimerService(for: timer)
+    }
+
+    // Format currentTime for display
+    private var formattedTime: String {
+        let time = timerService.currentTime
+        let hours = time / 3600
+        let minutes = (time % 3600) / 60
+        let seconds = time % 60
+
+        if hours > 0 {
+            return String(format: "%d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            return String(format: "%d:%02d", minutes, seconds)
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -16,13 +35,66 @@ struct TimerCardView: View {
                     .foregroundStyle(.primary)
 
                 Spacer()
+
+                // Running indicator
+                if timerService.isRunning {
+                    Circle()
+                        .fill(Color(hex: timer.colorHex))
+                        .frame(width: 8, height: 8)
+                }
             }
 
-            // Duration
-            Text(timer.formattedDuration)
+            // Live countdown
+            Text(formattedTime)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundStyle(Color(hex: timer.colorHex))
+
+            // Control buttons
+            HStack(spacing: 12) {
+                // Play/Pause button
+                Button(action: {
+                    if timerService.isRunning {
+                        timerService.pause()
+                    } else if timerService.isPaused {
+                        timerService.resume()
+                    } else {
+                        timerService.start()
+                    }
+                }) {
+                    HStack {
+                        Image(systemName: timerService.isRunning ? "pause.fill" : "play.fill")
+                        Text(timerService.isRunning ? "Pause" : (timerService.isPaused ? "Resume" : "Start"))
+                    }
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
+                    .background(Color(hex: timer.colorHex))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier(
+                    timerService.isRunning ? "listPauseButton-\(timer.id)" :
+                    (timerService.isPaused ? "listResumeButton-\(timer.id)" : "listStartButton-\(timer.id)")
+                )
+
+                // Reset button
+                Button(action: {
+                    timerService.reset()
+                }) {
+                    Image(systemName: "arrow.counterclockwise")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color(hex: timer.colorHex))
+                        .frame(width: 44, height: 44)
+                        .background(Color(hex: timer.colorHex).opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("listResetButton-\(timer.id)")
+            }
 
             Divider()
 

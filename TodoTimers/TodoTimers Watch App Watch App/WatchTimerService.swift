@@ -3,6 +3,7 @@ import Combine
 import WatchKit
 import UserNotifications
 
+@MainActor
 @Observable
 class WatchTimerService {
     private(set) var currentTime: Int
@@ -12,11 +13,13 @@ class WatchTimerService {
     private let totalTime: Int
     private let timer: Timer
     private var timerCancellable: AnyCancellable?
+    private weak var manager: WatchTimerManager?
 
-    init(timer: Timer) {
+    init(timer: Timer, manager: WatchTimerManager) {
         self.timer = timer
         self.totalTime = timer.durationInSeconds
         self.currentTime = timer.durationInSeconds
+        self.manager = manager
     }
 
     func start() {
@@ -24,6 +27,9 @@ class WatchTimerService {
 
         isRunning = true
         isPaused = false
+
+        // Notify manager to enforce mutual exclusivity
+        manager?.notifyTimerStarted(timerID: timer.id)
 
         // Schedule local notification for timer completion
         scheduleNotification()
@@ -45,6 +51,9 @@ class WatchTimerService {
         isPaused = true
         timerCancellable?.cancel()
 
+        // Notify manager that timer stopped
+        manager?.notifyTimerStopped(timerID: timer.id)
+
         // Cancel notification
         cancelNotification()
 
@@ -62,6 +71,9 @@ class WatchTimerService {
         isPaused = false
         currentTime = totalTime
         timerCancellable?.cancel()
+
+        // Notify manager that timer stopped
+        manager?.notifyTimerStopped(timerID: timer.id)
 
         // Cancel notification
         cancelNotification()
@@ -83,6 +95,9 @@ class WatchTimerService {
         isRunning = false
         isPaused = false
         timerCancellable?.cancel()
+
+        // Notify manager that timer stopped
+        manager?.notifyTimerStopped(timerID: timer.id)
 
         // Haptic feedback (more pronounced for completion)
         WKInterfaceDevice.current().play(.success)

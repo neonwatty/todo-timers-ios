@@ -14,11 +14,13 @@ class TimerService {
     private var timerCancellable: AnyCancellable?
     private var startTime: Date?
     private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    private weak var manager: TimerManager?
 
-    init(timer: Timer) {
+    init(timer: Timer, manager: TimerManager) {
         self.timer = timer
         self.totalTime = timer.durationInSeconds
         self.currentTime = timer.durationInSeconds
+        self.manager = manager
     }
 
     func start() {
@@ -27,6 +29,9 @@ class TimerService {
         isRunning = true
         isPaused = false
         startTime = Date()
+
+        // Notify manager to enforce mutual exclusivity
+        manager?.notifyTimerStarted(timerID: timer.id)
 
         // Schedule notification for when timer completes
         let completionTime = Date().addingTimeInterval(TimeInterval(currentTime))
@@ -52,6 +57,9 @@ class TimerService {
         isPaused = true
         timerCancellable?.cancel()
 
+        // Notify manager that timer stopped
+        manager?.notifyTimerStopped(timerID: timer.id)
+
         // Cancel notification since timer is paused
         NotificationService.shared.cancelTimerNotification(timerID: timer.id)
 
@@ -73,6 +81,9 @@ class TimerService {
         currentTime = totalTime
         startTime = nil
         timerCancellable?.cancel()
+
+        // Notify manager that timer stopped
+        manager?.notifyTimerStopped(timerID: timer.id)
 
         // Cancel notification
         NotificationService.shared.cancelTimerNotification(timerID: timer.id)
@@ -97,6 +108,9 @@ class TimerService {
         isRunning = false
         isPaused = false
         timerCancellable?.cancel()
+
+        // Notify manager that timer stopped
+        manager?.notifyTimerStopped(timerID: timer.id)
 
         // End background task
         endBackgroundTask()

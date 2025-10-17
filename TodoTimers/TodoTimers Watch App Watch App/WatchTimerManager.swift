@@ -9,6 +9,7 @@ class WatchTimerManager {
 
     /// Active timer services keyed by timer UUID
     private var activeTimers: [UUID: WatchTimerService] = [:]
+    private(set) var runningTimerID: UUID?
 
     private init() {}
 
@@ -20,7 +21,7 @@ class WatchTimerManager {
             return existing
         }
 
-        let service = WatchTimerService(timer: timer)
+        let service = WatchTimerService(timer: timer, manager: self)
         activeTimers[timer.id] = service
         return service
     }
@@ -29,7 +30,34 @@ class WatchTimerManager {
     /// - Parameter timerID: The UUID of the timer to check
     /// - Returns: True if the timer is active and running
     func isTimerRunning(timerID: UUID) -> Bool {
-        return activeTimers[timerID]?.isRunning ?? false
+        return runningTimerID == timerID
+    }
+
+    /// Get all active timer services (for UI observation)
+    func getAllActiveTimers() -> [UUID: WatchTimerService] {
+        return activeTimers
+    }
+
+    /// Stop all timers except the specified one (for mutual exclusivity)
+    func stopAllTimersExcept(timerID: UUID) {
+        for (id, service) in activeTimers where id != timerID {
+            if service.isRunning {
+                service.pause()
+            }
+        }
+        runningTimerID = timerID
+    }
+
+    /// Notify manager when a timer starts (called by WatchTimerService)
+    func notifyTimerStarted(timerID: UUID) {
+        stopAllTimersExcept(timerID: timerID)
+    }
+
+    /// Notify manager when a timer pauses/stops (called by WatchTimerService)
+    func notifyTimerStopped(timerID: UUID) {
+        if runningTimerID == timerID {
+            runningTimerID = nil
+        }
     }
 
     /// Remove and cleanup a specific timer service
@@ -39,6 +67,9 @@ class WatchTimerManager {
             service.cleanup()
             activeTimers.removeValue(forKey: timerID)
         }
+        if runningTimerID == timerID {
+            runningTimerID = nil
+        }
     }
 
     /// Cleanup all active timer services
@@ -47,5 +78,6 @@ class WatchTimerManager {
             service.cleanup()
         }
         activeTimers.removeAll()
+        runningTimerID = nil
     }
 }
