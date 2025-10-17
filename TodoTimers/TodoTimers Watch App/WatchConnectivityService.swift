@@ -13,12 +13,21 @@ final class WatchConnectivityService: NSObject, ObservableObject {
 
     private override init() {
         super.init()
-        session?.delegate = self
-        session?.activate()
+
+        // Debug: Check if WCSession is supported
+        if WCSession.isSupported() {
+            print("✅ [Watch] WCSession is supported")
+            session?.delegate = self
+            session?.activate()
+            print("🔄 [Watch] WCSession activation requested")
+        } else {
+            print("❌ [Watch] WCSession is NOT supported on this device")
+        }
     }
 
     func configure(modelContext: ModelContext) {
         self.modelContext = modelContext
+        print("✅ [Watch] WatchConnectivityService configured with modelContext")
     }
 
     // MARK: - Sending Methods
@@ -193,10 +202,19 @@ extension WatchConnectivityService: WCSessionDelegate {
     nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         Task { @MainActor in
             if let error = error {
-                print("WCSession activation failed: \(error.localizedDescription)")
-            } else if activationState == .activated {
-                // Request initial sync when session activates
-                requestFullSync()
+                print("❌ [Watch] WCSession activation failed: \(error.localizedDescription)")
+            } else {
+                print("✅ [Watch] WCSession activation complete - State: \(activationState.rawValue)")
+                print("🔍 [Watch] isReachable: \(session.isReachable), isPaired: \(session.isPaired)")
+
+                if activationState == .activated {
+                    print("✅ [Watch] Session is activated and ready")
+                    // Request initial sync when session activates
+                    print("📲 [Watch] Requesting full sync from iPhone...")
+                    requestFullSync()
+                } else {
+                    print("⚠️ [Watch] Session activated but state is NOT .activated (state: \(activationState.rawValue))")
+                }
             }
         }
     }
@@ -204,30 +222,50 @@ extension WatchConnectivityService: WCSessionDelegate {
     nonisolated func sessionReachabilityDidChange(_ session: WCSession) {
         Task { @MainActor in
             isReachable = session.isReachable
+            print("📡 [Watch] Reachability changed - isReachable: \(session.isReachable)")
+
             if session.isReachable {
+                print("✅ [Watch] iPhone is now reachable")
                 // Request sync when iPhone becomes reachable
+                print("📲 [Watch] Requesting full sync from iPhone...")
                 requestFullSync()
+            } else {
+                print("⚠️ [Watch] iPhone is NOT reachable")
             }
         }
     }
 
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         Task { @MainActor in
-            guard let type = message["type"] as? String else { return }
+            print("📨 [Watch] Received message from iPhone")
 
-            // Handle sync request from iPhone (shouldn't happen normally, but handle gracefully)
-            if type == "syncRequest" {
+            guard let type = message["type"] as? String else {
+                print("⚠️ [Watch] Invalid message format from iPhone")
                 return
             }
 
-            guard let payloadData = message["payload"] as? Data else { return }
+            print("📨 [Watch] Message type: \(type)")
+
+            // Handle sync request from iPhone (shouldn't happen normally, but handle gracefully)
+            if type == "syncRequest" {
+                print("⚠️ [Watch] Received syncRequest from iPhone (unexpected)")
+                return
+            }
+
+            guard let payloadData = message["payload"] as? Data else {
+                print("⚠️ [Watch] No payload data in message")
+                return
+            }
 
             switch type {
             case "fullSync":
+                print("📥 [Watch] Received full sync from iPhone")
                 handleFullSync(payloadData)
             case "timerUpdate":
+                print("📥 [Watch] Received timer update from iPhone")
                 handleTimerUpdate(payloadData)
             default:
+                print("⚠️ [Watch] Unknown message type: \(type)")
                 break
             }
         }

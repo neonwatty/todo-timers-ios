@@ -304,18 +304,27 @@ extension WatchConnectivityService: WCSessionDelegate {
         Task { @MainActor in
             print("📨 [iPhone] Received message from Watch")
 
-            guard let type = message["type"] as? String,
-                  let payloadData = message["payload"] as? Data else {
-                print("⚠️ [iPhone] Invalid message format from Watch")
+            guard let type = message["type"] as? String else {
+                print("⚠️ [iPhone] Invalid message format from Watch - no type")
                 return
             }
 
             print("📨 [iPhone] Message type: \(type)")
 
-            switch type {
-            case "syncRequest":
+            // Handle syncRequest separately (no payload needed)
+            if type == "syncRequest" {
                 print("📲 [iPhone] Watch requested full sync - sending timers")
                 sendFullSync()
+                return
+            }
+
+            // All other message types require payload
+            guard let payloadData = message["payload"] as? Data else {
+                print("⚠️ [iPhone] No payload data in message type: \(type)")
+                return
+            }
+
+            switch type {
             case "fullSync":
                 print("📥 [iPhone] Received full sync from Watch")
                 handleFullSync(payloadData)
