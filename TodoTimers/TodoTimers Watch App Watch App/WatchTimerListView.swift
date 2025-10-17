@@ -10,41 +10,43 @@ struct WatchTimerListView: View {
 
     var body: some View {
         NavigationStack {
-            if timers.isEmpty {
-                emptyStateView
-            } else {
-                ScrollView {
-                    VStack(spacing: 8) {
-                        ForEach(timers) { timer in
-                            NavigationLink(value: timer) {
-                                WatchTimerCard(timer: timer)
+            Group {
+                if timers.isEmpty {
+                    emptyStateView
+                } else {
+                    ScrollView {
+                        VStack(spacing: 8) {
+                            ForEach(timers) { timer in
+                                NavigationLink(value: timer) {
+                                    WatchTimerCard(timer: timer)
+                                }
+                                .buttonStyle(.plain)
                             }
-                            .buttonStyle(.plain)
                         }
+                        .padding(.horizontal, 4)
                     }
-                    .padding(.horizontal, 4)
                 }
             }
-        }
-        .navigationTitle("Timers")
-        .navigationDestination(for: Timer.self) { timer in
-            WatchTimerDetailView(timer: timer)
-        }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    showingCreateTimer = true
-                } label: {
-                    Image(systemName: "plus")
-                }
-                .accessibilityIdentifier("createTimerButton")
+            .navigationTitle("Timers")
+            .navigationDestination(for: Timer.self) { timer in
+                WatchTimerDetailView(timer: timer)
             }
-        }
-        .sheet(isPresented: $showingCreateTimer) {
-            WatchCreateTimerView()
-        }
-        .onAppear {
-            connectivityService.requestFullSync()
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showingCreateTimer = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .accessibilityIdentifier("createTimerButton")
+                }
+            }
+            .sheet(isPresented: $showingCreateTimer) {
+                WatchCreateTimerView()
+            }
+            .onAppear {
+                connectivityService.requestFullSync()
+            }
         }
     }
 
