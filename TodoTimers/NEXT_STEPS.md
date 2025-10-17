@@ -41,34 +41,86 @@
 **Current State:**
 - ✅ Watch Connectivity Service implemented
 - ✅ SwiftData models shared with Watch target
-- ✅ Basic Watch app shell exists
-- ❌ No Watch UI views implemented
+- ✅ WatchTimerListView implemented (displays synced timers)
+- ✅ WatchTimerDetailView implemented (countdown display with controls)
+- ✅ WatchTimerCard, WatchTimerDisplay, WatchTimerControls implemented
+- ✅ WatchTodoList implemented (can toggle todos from Watch)
+- ✅ Real-time sync with iPhone working
+- ❌ Watch app cannot CREATE timers (read-only for timer creation)
 
-**Tasks:**
-- [ ] Design Watch app navigation structure
-  - TimerListView (main view)
-  - TimerDetailView (countdown display)
-  - TimerControlsView (start/pause/reset)
-  - TodoListView (checklist display)
-- [ ] Implement TimerListView
-  - Display synced timers from iPhone
-  - Tap to navigate to detail view
-  - Show timer name, icon, duration
-- [ ] Implement TimerDetailView
-  - Large countdown display
-  - Progress ring visualization
-  - Timer controls (start, pause, reset)
-  - Todo checklist integration
-- [ ] Implement quick actions
-  - Toggle todo items from Watch
-  - Update timer notes
-  - Real-time sync with iPhone
+**Completed Tasks:**
+- [x] Design Watch app navigation structure
+- [x] Implement TimerListView with synced timers
+- [x] Implement TimerDetailView with countdown and controls
+- [x] Implement quick actions (toggle todos, update notes)
+- [x] Real-time sync with iPhone
+
+**Remaining Tasks:**
 - [ ] Add complications (Watch face widgets)
   - Show active timer countdown
   - Quick launch to timer detail
-- [ ] Test Watch app on simulator and device
+- [ ] Test Watch app on physical device
 
 **Deliverable:** Fully functional Watch app that mirrors iPhone functionality
+
+---
+
+### 2a. Watch Timer Creation Feature (Priority: High)
+**Goal:** Enable creating new timers directly on Apple Watch without requiring iPhone
+
+**Current State:**
+- ❌ Watch app can only VIEW timers synced from iPhone
+- ❌ Empty state tells users: "Create timers on your iPhone"
+- ✅ WatchPayloads already support `.created` message type
+- ✅ Watch Connectivity infrastructure supports bi-directional sync
+
+**Implementation Plan:**
+
+**Phase 1: Create WatchCreateTimerView**
+- [ ] Build new `WatchCreateTimerView.swift` with Watch-optimized UI
+  - Text field for timer name with dictation support
+  - Digital Crown-friendly duration picker (minutes + seconds only)
+  - Compact icon grid (6 most common icons)
+  - Compact color grid (4 primary colors)
+  - Done/Cancel buttons with proper validation
+- [ ] Implement form validation
+  - Disable Done button when name is empty
+  - Disable Done button when duration is zero
+  - Show inline validation hints
+
+**Phase 2: Integrate with WatchTimerListView**
+- [ ] Add toolbar "+" button to `WatchTimerListView.swift`
+- [ ] Add sheet presentation for `WatchCreateTimerView`
+- [ ] Update empty state message to mention Watch creation capability
+  - Change from: "Create timers on your iPhone"
+  - Change to: "Tap + to create a timer"
+
+**Phase 3: Local Persistence & Sync**
+- [ ] Save new timer to local SwiftData on Watch
+- [ ] Immediately sync to iPhone via `WatchConnectivityService.sendTimerUpdate(type: .created)`
+- [ ] Handle offline scenario:
+  - Queue sync message when iPhone unavailable
+  - Show user indicator that sync is pending
+  - Retry when connection restored
+  - Handle sync conflicts (timestamp-based resolution)
+
+**Phase 4: Testing**
+- [ ] Test timer creation on Watch independently
+- [ ] Verify sync: Watch → iPhone
+- [ ] Verify bi-directional sync still works: iPhone → Watch
+- [ ] Test offline creation and queued sync
+- [ ] Test concurrent creation from both devices
+- [ ] Test with iPhone app closed/backgrounded
+- [ ] Test form validation (empty name, zero duration)
+
+**Files to Create:**
+- `TodoTimersWatch Watch App/Views/WatchCreateTimerView.swift`
+
+**Files to Modify:**
+- `TodoTimersWatch Watch App/Views/WatchTimerListView.swift` (add toolbar button + sheet)
+- `TodoTimers/Services/WatchConnectivityService.swift` (verify offline queue handling)
+
+**Deliverable:** Watch app can independently create timers with full iPhone sync
 
 ---
 
@@ -161,10 +213,11 @@
 ## Technical Debt and Known Issues
 
 ### Current Issues
-1. **Watch App Shell:** Currently shows placeholder "Hello, world!" content
-2. **Test Verification:** Tests added to project but not yet run
+1. **Watch Timer Creation:** Watch app cannot create timers (read-only, must use iPhone)
+2. **UI Tests:** 2 tests disabled due to hang issues when testing disabled button states
 3. **No Notifications:** Timer completion requires app to be open
 4. **No Background Support:** Timers pause when app backgrounded
+5. **No Watch Complications:** Watch face widgets not yet implemented
 
 ### Future Enhancements (Post-Launch)
 - [ ] iCloud sync (replace Watch Connectivity for multi-device sync)
@@ -225,4 +278,4 @@
 
 ---
 
-**Last Updated:** 2025-10-15
+**Last Updated:** 2025-10-16

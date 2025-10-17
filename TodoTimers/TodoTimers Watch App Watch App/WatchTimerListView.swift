@@ -6,6 +6,8 @@ struct WatchTimerListView: View {
     @Query(sort: \Timer.createdAt, order: .reverse) private var timers: [Timer]
     @EnvironmentObject private var connectivityService: WatchConnectivityService
 
+    @State private var showingCreateTimer = false
+
     var body: some View {
         NavigationStack {
             if timers.isEmpty {
@@ -28,6 +30,19 @@ struct WatchTimerListView: View {
         .navigationDestination(for: Timer.self) { timer in
             WatchTimerDetailView(timer: timer)
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showingCreateTimer = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+                .accessibilityIdentifier("createTimerButton")
+            }
+        }
+        .sheet(isPresented: $showingCreateTimer) {
+            WatchCreateTimerView()
+        }
         .onAppear {
             connectivityService.requestFullSync()
         }
@@ -42,7 +57,7 @@ struct WatchTimerListView: View {
             Text("No Timers")
                 .font(.headline)
 
-            Text("Create timers on your iPhone")
+            Text("Tap + to create a timer")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

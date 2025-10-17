@@ -23,6 +23,33 @@ final class WatchConnectivityService: NSObject, ObservableObject {
 
     // MARK: - Sending Methods
 
+    /// Send timer update (created, updated, deleted) to iPhone
+    func sendTimerUpdate(_ timer: Timer, type: TimerUpdateMessage.UpdateType) {
+        guard let session = session, session.activationState == .activated, session.isReachable else {
+            // TODO: Queue for later delivery when connection available
+            print("Cannot send timer update: session not reachable")
+            return
+        }
+
+        do {
+            let timerDTO = TimerDTO(from: timer)
+            let update = TimerUpdateMessage(
+                type: type,
+                timer: timerDTO,
+                timerID: timer.id
+            )
+
+            let data = try JSONEncoder().encode(update)
+            let message: [String: Any] = ["type": "timerUpdate", "payload": data]
+
+            session.sendMessage(message, replyHandler: nil) { error in
+                print("Failed to send timer update: \(error.localizedDescription)")
+            }
+        } catch {
+            print("Failed to encode timer update: \(error.localizedDescription)")
+        }
+    }
+
     /// Send quick action (todo toggle, note update) to iPhone
     func sendQuickAction(action: QuickActionMessage.Action, timerID: UUID, todoID: UUID? = nil, todoCompleted: Bool? = nil, noteText: String? = nil) {
         guard let session = session, session.activationState == .activated, session.isReachable else { return }
