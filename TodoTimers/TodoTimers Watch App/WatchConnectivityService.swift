@@ -56,6 +56,24 @@ final class WatchConnectivityService: NSObject, ObservableObject {
         }
     }
 
+    /// Send timer state change (start/pause/resume/reset) to iPhone
+    func sendTimerState(timerID: UUID, action: TimerStateMessage.Action, currentTime: Int) {
+        guard let session = session, session.activationState == .activated, session.isReachable else { return }
+
+        do {
+            let stateMessage = TimerStateMessage(timerID: timerID, action: action, currentTime: currentTime)
+            let data = try JSONEncoder().encode(stateMessage)
+            let message: [String: Any] = ["type": "timerState", "payload": data]
+
+            print("📤 [Watch] Sending timer state: \(action.rawValue) for timer \(timerID)")
+            session.sendMessage(message, replyHandler: nil) { error in
+                print("❌ [Watch] Failed to send timer state: \(error.localizedDescription)")
+            }
+        } catch {
+            print("❌ [Watch] Failed to encode timer state: \(error.localizedDescription)")
+        }
+    }
+
     /// Request full sync from iPhone
     func requestFullSync() {
         guard let session = session, session.activationState == .activated, session.isReachable else { return }
@@ -115,6 +133,23 @@ final class WatchConnectivityService: NSObject, ObservableObject {
             try modelContext.save()
         } catch {
             print("Failed to handle full sync: \(error.localizedDescription)")
+        }
+    }
+
+    /// Handle incoming timer state change from iPhone
+    private func handleTimerState(_ data: Data) {
+        do {
+            let stateMessage = try JSONDecoder().decode(TimerStateMessage.self, from: data)
+            print("📥 [Watch] Received timer state: \(stateMessage.action.rawValue) for timer \(stateMessage.timerID)")
+
+            // Apply state change to local TimerService via TimerManager
+            TimerManager.shared.applyRemoteTimerState(
+                timerID: stateMessage.timerID,
+                action: stateMessage.action,
+                currentTime: stateMessage.currentTime
+            )
+        } catch {
+            print("❌ [Watch] Failed to handle timer state: \(error.localizedDescription)")
         }
     }
 
@@ -264,6 +299,8 @@ extension WatchConnectivityService: WCSessionDelegate {
             case "timerUpdate":
                 print("📥 [Watch] Received timer update from iPhone")
                 handleTimerUpdate(payloadData)
+            case "timerState":
+                handleTimerState(payloadData)
             default:
                 print("⚠️ [Watch] Unknown message type: \(type)")
                 break
