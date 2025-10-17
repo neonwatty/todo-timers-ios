@@ -70,4 +70,30 @@ class TimerManager {
         activeTimers.removeAll()
         runningTimerID = nil
     }
+
+    // MARK: - Remote State Sync
+
+    /// Apply timer state change received from remote device via WatchConnectivity
+    func applyRemoteTimerState(timerID: UUID, action: TimerStateMessage.Action, currentTime: Int) {
+        print("🔄 [TimerManager] Applying remote state: \(action.rawValue) for timer \(timerID)")
+
+        // Only apply state if TimerService already exists (active timer)
+        guard let service = activeTimers[timerID] else {
+            print("⚠️ [TimerManager] No active service for timer \(timerID), ignoring remote state")
+            return
+        }
+
+        switch action {
+        case .started:
+            service.startFromRemote(currentTime: currentTime)
+        case .paused:
+            service.pauseFromRemote()
+        case .resumed:
+            service.resumeFromRemote()
+        case .reset:
+            service.resetFromRemote()
+        case .completed:
+            service.completeFromRemote()
+        }
+    }
 }
