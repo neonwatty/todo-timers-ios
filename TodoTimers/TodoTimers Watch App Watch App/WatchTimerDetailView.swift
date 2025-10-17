@@ -3,9 +3,11 @@ import SwiftUI
 struct WatchTimerDetailView: View {
     @Bindable var timer: Timer
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var connectivityService: WatchConnectivityService
 
     @State private var timerService: WatchTimerService
+    @State private var showingDeleteConfirmation = false
 
     init(timer: Timer) {
         self.timer = timer
@@ -47,8 +49,48 @@ struct WatchTimerDetailView: View {
         }
         .navigationTitle(timer.name)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(role: .destructive) {
+                    showingDeleteConfirmation = true
+                } label: {
+                    Image(systemName: "trash")
+                }
+                .accessibilityIdentifier("deleteTimerButton")
+            }
+        }
+        .confirmationDialog("Delete Timer", isPresented: $showingDeleteConfirmation) {
+            Button("Delete", role: .destructive) {
+                deleteTimer()
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("This cannot be undone.")
+        }
         .onDisappear {
             timerService.cleanup()
+        }
+    }
+
+    // MARK: - Delete Logic
+
+    private func deleteTimer() {
+        // Clean up timer service if running
+        timerService.cleanup()
+
+        // Delete from model context
+        modelContext.delete(timer)
+
+        do {
+            try modelContext.save()
+
+            // Sync deletion to iPhone
+            connectivityService.sendTimerUpdate(timer, type: .deleted)
+
+            // Dismiss detail view
+            dismiss()
+        } catch {
+            print("Failed to delete timer: \(error.localizedDescription)")
         }
     }
 }

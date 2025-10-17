@@ -13,21 +13,37 @@ final class WatchConnectivityService: NSObject, ObservableObject {
 
     private override init() {
         super.init()
-        session?.delegate = self
-        session?.activate()
+
+        // Debug: Check if WCSession is supported
+        if WCSession.isSupported() {
+            print("✅ [Watch] WCSession is supported")
+            session?.delegate = self
+            session?.activate()
+            print("🔄 [Watch] WCSession activation requested")
+        } else {
+            print("❌ [Watch] WCSession is NOT supported on this device")
+        }
     }
 
     func configure(modelContext: ModelContext) {
         self.modelContext = modelContext
+        print("✅ [Watch] WatchConnectivityService configured with modelContext")
     }
 
     // MARK: - Sending Methods
 
     /// Send timer update (created, updated, deleted) to iPhone
     func sendTimerUpdate(_ timer: Timer, type: TimerUpdateMessage.UpdateType) {
+        // Debug: Log session state
+        if let session = session {
+            print("🔍 [Watch] sendTimerUpdate - activationState: \(session.activationState.rawValue), isReachable: \(session.isReachable)")
+        } else {
+            print("❌ [Watch] sendTimerUpdate - session is nil")
+        }
+
         guard let session = session, session.activationState == .activated, session.isReachable else {
             // TODO: Queue for later delivery when connection available
-            print("Cannot send timer update: session not reachable")
+            print("⚠️ [Watch] Cannot send timer update: session not ready or not reachable")
             return
         }
 
@@ -221,10 +237,18 @@ extension WatchConnectivityService: WCSessionDelegate {
     nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         Task { @MainActor in
             if let error = error {
-                print("WCSession activation failed: \(error.localizedDescription)")
-            } else if activationState == .activated {
-                // Request initial sync when session activates
-                requestFullSync()
+                print("❌ [Watch] WCSession activation failed: \(error.localizedDescription)")
+            } else {
+                print("✅ [Watch] WCSession activation complete - State: \(activationState.rawValue)")
+                print("🔍 [Watch] isReachable: \(session.isReachable)")
+
+                if activationState == .activated {
+                    // Request initial sync when session activates
+                    print("📲 [Watch] Requesting initial sync from iPhone")
+                    requestFullSync()
+                } else {
+                    print("⚠️ [Watch] Session activated but state is NOT .activated (state: \(activationState.rawValue))")
+                }
             }
         }
     }
@@ -232,9 +256,14 @@ extension WatchConnectivityService: WCSessionDelegate {
     nonisolated func sessionReachabilityDidChange(_ session: WCSession) {
         Task { @MainActor in
             isReachable = session.isReachable
+            print("📡 [Watch] Reachability changed - isReachable: \(session.isReachable)")
+
             if session.isReachable {
                 // Request sync when iPhone becomes reachable
+                print("✅ [Watch] iPhone is now reachable - requesting sync")
                 requestFullSync()
+            } else {
+                print("⚠️ [Watch] iPhone is NOT reachable")
             }
         }
     }

@@ -13,12 +13,21 @@ final class WatchConnectivityService: NSObject, ObservableObject {
 
     private override init() {
         super.init()
-        session?.delegate = self
-        session?.activate()
+
+        // Debug: Check if WCSession is supported
+        if WCSession.isSupported() {
+            print("✅ [iPhone] WCSession is supported")
+            session?.delegate = self
+            session?.activate()
+            print("🔄 [iPhone] WCSession activation requested")
+        } else {
+            print("❌ [iPhone] WCSession is NOT supported on this device")
+        }
     }
 
     func configure(modelContext: ModelContext) {
         self.modelContext = modelContext
+        print("✅ [iPhone] WatchConnectivityService configured with modelContext")
     }
 
     // MARK: - Sending Methods
@@ -255,7 +264,16 @@ extension WatchConnectivityService: WCSessionDelegate {
     nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         Task { @MainActor in
             if let error = error {
-                print("WCSession activation failed: \(error.localizedDescription)")
+                print("❌ [iPhone] WCSession activation failed: \(error.localizedDescription)")
+            } else {
+                print("✅ [iPhone] WCSession activation complete - State: \(activationState.rawValue)")
+                print("🔍 [iPhone] isReachable: \(session.isReachable), isPaired: \(session.isPaired)")
+
+                if activationState == .activated {
+                    print("✅ [iPhone] Session is activated and ready")
+                } else {
+                    print("⚠️ [iPhone] Session activated but state is NOT .activated (state: \(activationState.rawValue))")
+                }
             }
         }
     }
@@ -272,22 +290,43 @@ extension WatchConnectivityService: WCSessionDelegate {
     nonisolated func sessionReachabilityDidChange(_ session: WCSession) {
         Task { @MainActor in
             isReachable = session.isReachable
+            print("📡 [iPhone] Reachability changed - isReachable: \(session.isReachable)")
+
+            if session.isReachable {
+                print("✅ [iPhone] Watch is now reachable")
+            } else {
+                print("⚠️ [iPhone] Watch is NOT reachable")
+            }
         }
     }
 
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         Task { @MainActor in
+            print("📨 [iPhone] Received message from Watch")
+
             guard let type = message["type"] as? String,
-                  let payloadData = message["payload"] as? Data else { return }
+                  let payloadData = message["payload"] as? Data else {
+                print("⚠️ [iPhone] Invalid message format from Watch")
+                return
+            }
+
+            print("📨 [iPhone] Message type: \(type)")
 
             switch type {
+            case "syncRequest":
+                print("📲 [iPhone] Watch requested full sync - sending timers")
+                sendFullSync()
             case "fullSync":
+                print("📥 [iPhone] Received full sync from Watch")
                 handleFullSync(payloadData)
             case "timerUpdate":
+                print("📥 [iPhone] Received timer update from Watch")
                 handleTimerUpdate(payloadData)
             case "quickAction":
+                print("📥 [iPhone] Received quick action from Watch")
                 handleQuickAction(payloadData)
             default:
+                print("⚠️ [iPhone] Unknown message type: \(type)")
                 break
             }
         }
