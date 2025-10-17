@@ -5,11 +5,12 @@ struct TimerDetailView: View {
     @Environment(\.modelContext) private var modelContext
 
     @State private var showingAddTodo = false
-    @State private var timerService: TimerService
+    @State private var showingEditTimer = false
+    private var timerService: TimerService
 
     init(timer: Timer) {
         self.timer = timer
-        _timerService = State(initialValue: TimerService(timer: timer))
+        self.timerService = TimerManager.shared.getTimerService(for: timer)
     }
 
     var body: some View {
@@ -46,11 +47,40 @@ struct TimerDetailView: View {
         }
         .navigationTitle(timer.name)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Edit") {
+                    showingEditTimer = true
+                }
+                .accessibilityIdentifier("editTimerButton")
+            }
+        }
         .sheet(isPresented: $showingAddTodo) {
             AddTodoView(timer: timer)
         }
+        .sheet(isPresented: $showingEditTimer) {
+            EditTimerView(timer: timer)
+        }
+        .onAppear {
+            setupNotificationObserver()
+        }
         .onDisappear {
-            timerService.cleanup()
+            NotificationCenter.default.removeObserver(self)
+        }
+    }
+
+    private func setupNotificationObserver() {
+        NotificationCenter.default.addObserver(
+            forName: .startTimerFromNotification,
+            object: nil,
+            queue: .main
+        ) { notification in
+            guard let timerID = notification.userInfo?["timerID"] as? UUID,
+                  timerID == timer.id else { return }
+
+            // Reset and start the timer
+            timerService.reset()
+            timerService.start()
         }
     }
 }

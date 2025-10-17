@@ -6,12 +6,14 @@ struct TimerListView: View {
     @Query(sort: \Timer.createdAt, order: .reverse) private var timers: [Timer]
 
     @State private var showingCreateTimer = false
+    @Bindable var notificationHandler: NotificationHandler
 
     var body: some View {
         NavigationStack {
             ZStack {
                 if timers.isEmpty {
                     EmptyStateView()
+                        .accessibilityIdentifier("emptyStateView")
                 } else {
                     ScrollView {
                         LazyVStack(spacing: 12) {
@@ -20,6 +22,22 @@ struct TimerListView: View {
                                     TimerCardView(timer: timer)
                                 }
                                 .buttonStyle(.plain)
+                                .accessibilityIdentifier("timerCard-\(timer.id)")
+                                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                    Button(role: .destructive) {
+                                        deleteTimer(timer)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                    .accessibilityIdentifier("Delete")
+                                }
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        deleteTimer(timer)
+                                    } label: {
+                                        Label("Delete Timer", systemImage: "trash")
+                                    }
+                                }
                             }
                         }
                         .padding()
@@ -50,10 +68,19 @@ struct TimerListView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .accessibilityIdentifier("addTimerButton")
                 }
             }
             .sheet(isPresented: $showingCreateTimer) {
                 CreateTimerView()
+            }
+            .onChange(of: notificationHandler.selectedTimerID) { oldValue, newValue in
+                if let timerID = newValue,
+                   let timer = timers.first(where: { $0.id == timerID }) {
+                    // Navigate to timer detail
+                    navigateToTimer(timer)
+                    notificationHandler.selectedTimerID = nil
+                }
             }
         }
     }
@@ -62,9 +89,31 @@ struct TimerListView: View {
         // Trigger Watch Connectivity sync
         WatchConnectivityService.shared.sendFullSync()
     }
+
+    private func navigateToTimer(_ timer: Timer) {
+        // Programmatic navigation is handled by NavigationLink(value:)
+        // The onChange above will trigger when notification is tapped
+    }
+
+    private func deleteTimer(_ timer: Timer) {
+        // Clean up active timer service if running
+        TimerManager.shared.removeTimerService(timerID: timer.id)
+
+        // Cancel any pending notifications
+        NotificationService.shared.cancelTimerNotification(timerID: timer.id)
+
+        // Delete from SwiftData
+        modelContext.delete(timer)
+
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to delete timer: \(error.localizedDescription)")
+        }
+    }
 }
 
 #Preview {
-    TimerListView()
+    TimerListView(notificationHandler: NotificationHandler())
         .modelContainer(for: [Timer.self, TodoItem.self], inMemory: true)
 }

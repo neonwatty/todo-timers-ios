@@ -1,6 +1,9 @@
 import Foundation
 @testable import TodoTimers
 
+// Type alias to avoid ambiguity with Foundation.Timer
+typealias TimerModel = TodoTimers.Timer
+
 /// Factory for creating test data with configurable parameters
 @MainActor
 struct TestDataFactory {
@@ -14,8 +17,8 @@ struct TestDataFactory {
         icon: String = "timer",
         colorHex: String = "#007AFF",
         notes: String? = nil
-    ) -> Timer {
-        Timer(
+    ) -> TimerModel {
+        TimerModel(
             id: id,
             name: name,
             durationInSeconds: durationInSeconds,
@@ -26,8 +29,8 @@ struct TestDataFactory {
     }
 
     /// Creates a timer with invalid name (for validation tests)
-    static func makeInvalidTimer_EmptyName() -> Timer {
-        Timer(
+    static func makeInvalidTimer_EmptyName() -> TimerModel {
+        TimerModel(
             name: "",
             durationInSeconds: 1500,
             icon: "timer",
@@ -36,8 +39,8 @@ struct TestDataFactory {
     }
 
     /// Creates a timer with invalid duration (for validation tests)
-    static func makeInvalidTimer_ZeroDuration() -> Timer {
-        Timer(
+    static func makeInvalidTimer_ZeroDuration() -> TimerModel {
+        TimerModel(
             name: "Test Timer",
             durationInSeconds: 0,
             icon: "timer",
@@ -46,8 +49,8 @@ struct TestDataFactory {
     }
 
     /// Creates a timer with excessive duration (for validation tests)
-    static func makeInvalidTimer_ExcessiveDuration() -> Timer {
-        Timer(
+    static func makeInvalidTimer_ExcessiveDuration() -> TimerModel {
+        TimerModel(
             name: "Test Timer",
             durationInSeconds: 86401,  // >24 hours
             icon: "timer",
@@ -59,7 +62,7 @@ struct TestDataFactory {
     static func makeTimerWithTodos(
         todoCount: Int = 3,
         completedCount: Int = 1
-    ) -> Timer {
+    ) -> TimerModel {
         let timer = makeTimer()
 
         for i in 0..<todoCount {
@@ -102,7 +105,7 @@ struct TestDataFactory {
     // MARK: - DTO Factory Methods
 
     /// Creates a TimerDTO from a Timer
-    static func makeTimerDTO(from timer: Timer) -> TimerDTO {
+    static func makeTimerDTO(from timer: TimerModel) -> TimerDTO {
         TimerDTO(from: timer)
     }
 

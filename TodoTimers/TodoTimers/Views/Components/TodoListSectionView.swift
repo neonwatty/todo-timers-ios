@@ -23,6 +23,7 @@ struct TodoListSectionView: View {
                     Image(systemName: "plus.circle.fill")
                         .font(.title3)
                 }
+                .accessibilityIdentifier("addTodoButton")
             }
 
             Divider()

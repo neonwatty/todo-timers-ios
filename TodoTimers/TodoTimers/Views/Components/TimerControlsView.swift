@@ -18,6 +18,7 @@ struct TimerControlsView: View {
                     .frame(height: 50)
             }
             .buttonStyle(.borderedProminent)
+            .accessibilityIdentifier(primaryButtonIdentifier)
 
             // Reset button
             Button(action: onReset) {
@@ -27,6 +28,7 @@ struct TimerControlsView: View {
                     .frame(height: 50)
             }
             .buttonStyle(.bordered)
+            .accessibilityIdentifier("resetButton")
         }
         .padding(.horizontal)
     }
@@ -38,6 +40,16 @@ struct TimerControlsView: View {
             return "RESUME"
         } else {
             return "START"
+        }
+    }
+
+    private var primaryButtonIdentifier: String {
+        if isRunning {
+            return "pauseButton"
+        } else if isPaused {
+            return "resumeButton"
+        } else {
+            return "startButton"
         }
     }
 

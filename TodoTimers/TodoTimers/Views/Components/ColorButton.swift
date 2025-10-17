@@ -16,6 +16,7 @@ struct ColorButton: View {
                 )
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("color-\(color)")
     }
 }
 

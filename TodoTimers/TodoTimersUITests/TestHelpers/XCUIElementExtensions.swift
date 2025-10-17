@@ -13,14 +13,6 @@ extension XCUIElement {
         return false
     }
 
-    /// Waits for the element to exist with a specified timeout
-    /// - Parameter timeout: Maximum wait time in seconds (default: 5)
-    /// - Returns: true if the element appeared within timeout, false otherwise
-    @discardableResult
-    func waitForExistence(timeout: TimeInterval = 5) -> Bool {
-        return waitForExistence(timeout: timeout)
-    }
-
     /// Clears text from a text field
     func clearText() {
         guard let stringValue = value as? String else {

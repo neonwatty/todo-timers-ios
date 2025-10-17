@@ -18,6 +18,7 @@ struct IconButton: View {
                 )
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("icon-\(icon)")
     }
 }
 

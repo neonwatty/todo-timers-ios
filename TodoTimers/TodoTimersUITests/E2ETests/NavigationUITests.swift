@@ -1,5 +1,7 @@
 import XCTest
 
+/// Tests for navigation flows between screens
+/// Uses UITestsHelpers for state reset and accessibility identifiers for reliable interactions
 final class NavigationUITests: XCTestCase {
 
     var app: XCUIApplication!
@@ -7,7 +9,7 @@ final class NavigationUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launch()
+        app.launchAndClearState()
     }
 
     override func tearDownWithError() throws {
@@ -16,202 +18,181 @@ final class NavigationUITests: XCTestCase {
 
     // MARK: - List to Detail Navigation
 
-    func testListToDetail_TapTimer_OpensDetail() throws {
-        // Create a timer first
-        createTestTimer(name: "Navigation Test")
+    func testNavigateToTimerDetail_OpensDetailView() throws {
+        // Create a timer
+        createTimer(name: "Navigation Test", minutes: 10)
 
-        // Tap on timer to navigate to detail
-        app.staticTexts["Navigation Test"].tap()
-
-        // Verify navigation bar shows timer name
-        let navBar = app.navigationBars["Navigation Test"]
-        XCTAssertTrue(navBar.waitForExistence(timeout: 2))
-
-        // Verify detail view elements exist
-        XCTAssertTrue(app.buttons["Start"].exists)
-    }
-
-    func testDetailToList_BackButton_ReturnsToList() throws {
-        // Create and open a timer
-        createTestTimer(name: "Back Test")
-        app.staticTexts["Back Test"].tap()
+        // Tap timer card to navigate to detail
+        let timerCard = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
+        ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
+        timerCard.tap()
 
         // Verify we're in detail view
-        XCTAssertTrue(app.navigationBars["Back Test"].exists)
+        XCTAssert(app.buttons["startButton"].waitForExistence(timeout: 5))
+        XCTAssert(app.buttons["resetButton"].exists)
+        XCTAssert(app.buttons["addTodoButton"].exists)
+    }
 
-        // Tap back button
+    func testNavigateBackToList_ReturnsToTimerList() throws {
+        // Create and open timer
+        createTimer(name: "Back Test", minutes: 10)
+
+        let timerCard = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
+        ).firstMatch
+        timerCard.tap()
+
+        // Verify we're in detail
+        XCTAssert(app.buttons["startButton"].waitForExistence(timeout: 5))
+
+        // Navigate back
         app.navigationBars.buttons.element(boundBy: 0).tap()
 
-        // Verify we're back on list view
-        let listNavBar = app.navigationBars["My Timers"]
-        XCTAssertTrue(listNavBar.waitForExistence(timeout: 2))
+        // Verify we're back at list
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
+        XCTAssert(app.staticTexts["Back Test"].exists)
     }
 
-    // MARK: - Create Timer Sheet
+    // MARK: - Create Timer Sheet Navigation
 
-    func testCreateTimerSheet_Opens_Dismisses() throws {
-        // Tap + button to open create timer sheet
-        app.navigationBars.buttons.matching(identifier: "plus").element.tap()
-
-        // Verify sheet opened (nav bar shows "New Timer")
-        let sheetNavBar = app.navigationBars["New Timer"]
-        XCTAssertTrue(sheetNavBar.waitForExistence(timeout: 2))
-
-        // Tap Cancel to dismiss
-        app.navigationBars.buttons["Cancel"].tap()
-
-        // Verify sheet dismissed (back to "My Timers")
-        let listNavBar = app.navigationBars["My Timers"]
-        XCTAssertTrue(listNavBar.waitForExistence(timeout: 2))
-    }
-
-    func testCreateTimerSheet_Cancel_DismissesWithoutSaving() throws {
-        // Count initial timers
-        let initialCount = app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'Timer'")).count
-
-        // Open sheet, enter data, then cancel
-        app.navigationBars.buttons.matching(identifier: "plus").element.tap()
-
-        let nameField = app.textFields["Enter timer name"]
-        nameField.tap()
-        nameField.typeText("Should Not Save")
-
-        app.navigationBars.buttons["Cancel"].tap()
-
-        // Verify no new timer added
-        let finalCount = app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'Timer'")).count
-        XCTAssertEqual(initialCount, finalCount)
-    }
-
-    // MARK: - Add Todo Sheet
-
-    func testAddTodoSheet_Opens_Dismisses() throws {
-        // Create timer and open detail
-        createTestTimer(name: "Todo Sheet Test")
-        app.staticTexts["Todo Sheet Test"].tap()
-
-        // Tap + button to add todo
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
-        addButton.tap()
+    func testCreateTimerSheet_OpenAndDismiss() throws {
+        // Open create sheet
+        app.buttons["addTimerButton"].tap()
 
         // Verify sheet opened
-        let sheetNavBar = app.navigationBars["Add To-Do"]
-        XCTAssertTrue(sheetNavBar.waitForExistence(timeout: 2))
+        let nameField = app.textFields["timerNameField"]
+        XCTAssert(nameField.waitForExistence(timeout: 5))
 
-        // Tap Cancel
-        app.navigationBars.buttons["Cancel"].tap()
+        // Dismiss sheet
+        app.buttons["cancelButton"].tap()
 
-        // Verify sheet dismissed (back to timer detail)
-        XCTAssertTrue(app.navigationBars["Todo Sheet Test"].exists)
+        // Verify back at list
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
     }
 
-    func testAddTodoSheet_Cancel_DismissesWithoutSaving() throws {
+    func testCreateTimerSheet_SaveReturnsToList() throws {
+        // Open sheet
+        app.buttons["addTimerButton"].tap()
+
+        // Fill in timer
+        let nameField = app.textFields["timerNameField"]
+        XCTAssert(nameField.waitForExistence(timeout: 5))
+        nameField.clearAndType("Sheet Test Timer")
+
+        app.pickers["minutesPicker"].pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "15")
+
+        // Save
+        app.buttons["doneButton"].tap()
+
+        // Verify returned to list with new timer
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
+        XCTAssert(app.staticTexts["Sheet Test Timer"].waitForExistence(timeout: 5))
+    }
+
+    // MARK: - Edit Timer Sheet Navigation
+
+    func testEditTimerSheet_OpenAndDismiss() throws {
         // Create timer and open detail
-        createTestTimer(name: "Cancel Todo Test")
-        app.staticTexts["Cancel Todo Test"].tap()
+        createTimer(name: "Edit Test", minutes: 10)
 
-        // Count initial todos (should be 0)
-        let initialTodoCount = app.staticTexts.matching(NSPredicate(format: "label != 'To-Do Items' AND label != 'No to-dos yet'")).count
+        let timerCard = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
+        ).firstMatch
+        timerCard.tap()
 
-        // Open sheet, enter text, then cancel
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
-        addButton.tap()
+        // Open edit sheet
+        app.buttons["editTimerButton"].tap()
 
-        let textField = app.textFields["Enter to-do text"]
-        textField.tap()
-        textField.typeText("Should Not Save")
+        // Verify edit sheet opened
+        let nameField = app.textFields["timerNameField"]
+        XCTAssert(nameField.waitForExistence(timeout: 5))
 
-        app.navigationBars.buttons["Cancel"].tap()
+        // Dismiss
+        app.buttons["cancelButton"].tap()
 
-        // Verify no todo added
-        let finalTodoCount = app.staticTexts.matching(NSPredicate(format: "label != 'To-Do Items' AND label != 'No to-dos yet'")).count
-        XCTAssertEqual(initialTodoCount, finalTodoCount)
+        // Verify back at detail view
+        XCTAssert(app.buttons["startButton"].exists)
     }
 
-    // MARK: - Deep Navigation Flow
+    // MARK: - Add Todo Sheet Navigation
 
-    func testFullNavigationFlow_ListToDetailToSheetAndBack() throws {
-        // Start at list
-        XCTAssertTrue(app.navigationBars["My Timers"].exists)
+    func testAddTodoSheet_OpenAndDismiss() throws {
+        // Create timer and open detail
+        createTimer(name: "Todo Nav Test", minutes: 10)
 
-        // Create timer
-        createTestTimer(name: "Full Flow Test")
-
-        // Navigate to detail
-        app.staticTexts["Full Flow Test"].tap()
-        XCTAssertTrue(app.navigationBars["Full Flow Test"].exists)
+        let timerCard = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
+        ).firstMatch
+        timerCard.tap()
 
         // Open add todo sheet
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
-        addButton.tap()
-        XCTAssertTrue(app.navigationBars["Add To-Do"].exists)
+        app.buttons["addTodoButton"].tap()
 
-        // Add a todo
-        let textField = app.textFields["Enter to-do text"]
-        textField.tap()
-        textField.typeText("Complete flow")
-        app.navigationBars.buttons["Add"].tap()
+        // Verify sheet opened
+        let todoField = app.textFields["todoTextField"]
+        XCTAssert(todoField.waitForExistence(timeout: 5))
 
-        // Verify back at detail
-        XCTAssertTrue(app.navigationBars["Full Flow Test"].exists)
+        // Dismiss
+        app.buttons["cancelTodoButton"].tap()
 
-        // Go back to list
-        app.navigationBars.buttons.element(boundBy: 0).tap()
-        XCTAssertTrue(app.navigationBars["My Timers"].exists)
+        // Verify back at detail view
+        XCTAssert(app.buttons["addTodoButton"].exists)
     }
 
-    // MARK: - Sheet Behavior
+    // MARK: - Navigation State Tests
 
-    func testMultipleSheetDismissals_WorkCorrectly() throws {
-        // Open and dismiss create timer sheet multiple times
-        for _ in 1...3 {
-            app.navigationBars.buttons.matching(identifier: "plus").element.tap()
-            XCTAssertTrue(app.navigationBars["New Timer"].waitForExistence(timeout: 2))
+    func testNavigationPreservesListState() throws {
+        // Create multiple timers
+        createTimer(name: "Timer 1", minutes: 5)
+        createTimer(name: "Timer 2", minutes: 10)
+        createTimer(name: "Timer 3", minutes: 15)
 
-            app.navigationBars.buttons["Cancel"].tap()
-            XCTAssertTrue(app.navigationBars["My Timers"].waitForExistence(timeout: 2))
-        }
+        // Verify all exist
+        XCTAssert(app.staticTexts["Timer 1"].exists)
+        XCTAssert(app.staticTexts["Timer 2"].exists)
+        XCTAssert(app.staticTexts["Timer 3"].exists)
 
-        // Verify we're still on the list view
-        XCTAssertTrue(app.navigationBars["My Timers"].exists)
-    }
+        // Navigate to detail and back
+        let timerCard = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
+        ).element(boundBy: 1)
+        timerCard.tap()
 
-    func testNavigationStack_BackFromMultipleLevels() throws {
-        // Create timer
-        createTestTimer(name: "Stack Test")
-
-        // Navigate to detail
-        app.staticTexts["Stack Test"].tap()
-
-        // Add a todo (goes into sheet, then back to detail)
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
-        addButton.tap()
-
-        let textField = app.textFields["Enter to-do text"]
-        textField.tap()
-        textField.typeText("Test Todo")
-        app.navigationBars.buttons["Add"].tap()
-
-        // Now back to list
         app.navigationBars.buttons.element(boundBy: 0).tap()
 
-        // Verify we're at the root
-        XCTAssertTrue(app.navigationBars["My Timers"].exists)
+        // Verify all timers still exist
+        XCTAssert(app.staticTexts["Timer 1"].exists)
+        XCTAssert(app.staticTexts["Timer 2"].exists)
+        XCTAssert(app.staticTexts["Timer 3"].exists)
     }
 
     // MARK: - Helper Methods
 
-    /// Creates a test timer with given parameters
-    private func createTestTimer(name: String, minutes: Int = 10) {
-        app.navigationBars.buttons.matching(identifier: "plus").element.tap()
+    /// Creates a timer using accessibility identifiers
+    private func createTimer(name: String, hours: Int = 0, minutes: Int = 1, seconds: Int = 0) {
+        app.buttons["addTimerButton"].tap()
 
-        let nameField = app.textFields["Enter timer name"]
-        nameField.tap()
-        nameField.typeText(name)
+        let nameField = app.textFields["timerNameField"]
+        XCTAssert(nameField.waitForExistence(timeout: 5))
+        nameField.clearAndType(name)
 
-        let minutesPicker = app.pickerWheels.element(boundBy: 1)
-        minutesPicker.adjust(toPickerWheelValue: String(minutes))
+        if hours > 0 {
+            app.pickers["hoursPicker"].pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: String(hours))
+        }
 
-        app.navigationBars.buttons["Done"].tap()
+        if minutes > 0 {
+            app.pickers["minutesPicker"].pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: String(minutes))
+        }
+
+        if seconds > 0 {
+            app.pickers["secondsPicker"].pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: String(seconds))
+        }
+
+        app.buttons["doneButton"].tap()
+
+        // Wait for sheet to dismiss
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
     }
 }

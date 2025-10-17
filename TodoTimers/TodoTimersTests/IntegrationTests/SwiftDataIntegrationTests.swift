@@ -18,7 +18,7 @@ struct SwiftDataIntegrationTests {
         context.insert(timer)
         try context.save()
 
-        let descriptor = FetchDescriptor<Timer>()
+        let descriptor = FetchDescriptor<TodoTimers.Timer>()
         let fetched = try context.fetch(descriptor)
 
         #expect(fetched.count == 1)
@@ -38,7 +38,8 @@ struct SwiftDataIntegrationTests {
         timer.durationInSeconds = 2000
         try context.save()
 
-        let descriptor = FetchDescriptor<Timer>(predicate: #Predicate { $0.id == timer.id })
+        let timerID = timer.id
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(predicate: #Predicate { $0.id == timerID })
         let fetched = try context.fetch(descriptor).first
 
         #expect(fetched?.name == "Updated Name")
@@ -59,7 +60,7 @@ struct SwiftDataIntegrationTests {
         try context.save()
 
         // Verify timer deleted
-        let timerDescriptor = FetchDescriptor<Timer>(predicate: #Predicate { $0.id == timerID })
+        let timerDescriptor = FetchDescriptor<TodoTimers.Timer>(predicate: #Predicate { $0.id == timerID })
         let fetchedTimers = try context.fetch(timerDescriptor)
         #expect(fetchedTimers.isEmpty)
 
@@ -83,7 +84,7 @@ struct SwiftDataIntegrationTests {
         context.insert(timer3)
         try context.save()
 
-        let descriptor = FetchDescriptor<Timer>(sortBy: [SortDescriptor(\.createdAt, order: .forward)])
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(sortBy: [SortDescriptor(\.createdAt, order: .forward)])
         let fetched = try context.fetch(descriptor)
 
         #expect(fetched.count == 3)
@@ -105,7 +106,8 @@ struct SwiftDataIntegrationTests {
         context.insert(timer)
         try context.save()
 
-        let descriptor = FetchDescriptor<Timer>(predicate: #Predicate { $0.id == timer.id })
+        let timerID = timer.id
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(predicate: #Predicate { $0.id == timerID })
         let fetched = try context.fetch(descriptor).first
 
         #expect(fetched?.todoItems.count == 1)
@@ -122,10 +124,11 @@ struct SwiftDataIntegrationTests {
         try context.save()
 
         let todo = timer.todoItems.first!
+        let todoID = todo.id
         todo.isCompleted = true
         try context.save()
 
-        let todoDescriptor = FetchDescriptor<TodoItem>(predicate: #Predicate { $0.id == todo.id })
+        let todoDescriptor = FetchDescriptor<TodoItem>(predicate: #Predicate { $0.id == todoID })
         let fetched = try context.fetch(todoDescriptor).first
 
         #expect(fetched?.isCompleted == true)
@@ -149,7 +152,8 @@ struct SwiftDataIntegrationTests {
         context.delete(todoToDelete)
         try context.save()
 
-        let descriptor = FetchDescriptor<Timer>(predicate: #Predicate { $0.id == timer.id })
+        let timerID = timer.id
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(predicate: #Predicate { $0.id == timerID })
         let fetched = try context.fetch(descriptor).first
 
         #expect(fetched?.todoItems.count == 2)
@@ -223,7 +227,8 @@ struct SwiftDataIntegrationTests {
         context.insert(timer)
         try context.save()
 
-        let descriptor = FetchDescriptor<Timer>(predicate: #Predicate { $0.id == timer.id })
+        let timerID = timer.id
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(predicate: #Predicate { $0.id == timerID })
         let fetched = try context.fetch(descriptor)
 
         #expect(fetched.count == 1)

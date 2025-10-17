@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "E2E97C36-8A67-4F0D-B8AA-B1E5E3D9C4F7",
+      "name" : "Test Scheme Action",
+      "options" : {
+        "defaultTestExecutionTimeAllowance" : 60,
+        "maximumTestExecutionTimeAllowance" : 120,
+        "testExecutionOrdering" : "sequential"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "defaultTestExecutionTimeAllowance" : 60,
+    "maximumTestExecutionTimeAllowance" : 120,
+    "testExecutionOrdering" : "sequential"
+  },
+  "testTargets" : [
+    {
+      "enabled" : true,
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:TodoTimers.xcodeproj",
+        "identifier" : "CBCAE5332EA058EC000F9C80",
+        "name" : "TodoTimersUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

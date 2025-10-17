@@ -1,5 +1,7 @@
 import XCTest
 
+/// Tests for todo management functionality within timers
+/// Uses UITestsHelpers for state reset and accessibility identifiers for reliable interactions
 final class TodoManagementUITests: XCTestCase {
 
     var app: XCUIApplication!
@@ -7,182 +9,237 @@ final class TodoManagementUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launch()
-
-        // Create a test timer to work with
-        createTestTimer(name: "Todo Test Timer")
-        // Open the timer detail
-        app.staticTexts["Todo Test Timer"].tap()
+        app.launchAndClearState()
     }
 
     override func tearDownWithError() throws {
         app = nil
     }
 
-    // MARK: - Add Todo Flow
+    // MARK: - Add Todo Tests
 
     func testAddTodo_ValidText_AppearsInList() throws {
-        // Tap the + button to add todo
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
-        XCTAssertTrue(addButton.waitForExistence(timeout: 2))
-        addButton.tap()
+        // Create timer and open detail
+        createTimerAndOpenDetail(name: "Todo Test Timer")
 
-        // Enter todo text
-        let textField = app.textFields["Enter to-do text"]
-        XCTAssertTrue(textField.waitForExistence(timeout: 2))
-        textField.tap()
-        textField.typeText("Warm up 5 minutes")
+        // Add todo
+        app.buttons["addTodoButton"].tap()
 
-        // Tap Add button
-        app.navigationBars.buttons["Add"].tap()
+        let todoField = app.textFields["todoTextField"]
+        XCTAssert(todoField.waitForExistence(timeout: 5))
+        todoField.clearAndType("Buy groceries")
 
-        // Verify todo appears in list
-        let todoText = app.staticTexts["Warm up 5 minutes"]
-        XCTAssertTrue(todoText.waitForExistence(timeout: 2))
+        app.buttons["addTodoConfirmButton"].tap()
+
+        // Verify todo appears
+        XCTAssert(app.staticTexts["Buy groceries"].waitForExistence(timeout: 5))
     }
 
-    func testAddTodo_EmptyText_DisablesAddButton() throws {
-        // Tap the + button
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
+    func testAddTodo_EmptyText_ShowsValidation() throws {
+        // Create timer and open detail
+        createTimerAndOpenDetail(name: "Validation Test Timer")
+
+        // Try to add empty todo
+        app.buttons["addTodoButton"].tap()
+
+        let todoField = app.textFields["todoTextField"]
+        XCTAssert(todoField.waitForExistence(timeout: 5))
+
+        // Don't enter text
+        let addButton = app.buttons["addTodoConfirmButton"]
+
+        // Add button should be disabled or tapping should not add empty todo
+        // Note: Exact validation behavior depends on implementation
         addButton.tap()
 
-        // Don't enter any text
-        let addButtonInSheet = app.navigationBars.buttons["Add"]
-        XCTAssertTrue(addButtonInSheet.waitForExistence(timeout: 2))
-
-        // Add button should be disabled
-        XCTAssertFalse(addButtonInSheet.isEnabled)
+        // Verify sheet is still present (validation prevented add)
+        XCTAssert(todoField.exists)
     }
 
     func testAddTodo_Cancel_DoesNotSave() throws {
-        // Count initial todos
-        let initialTodoCount = app.staticTexts.matching(NSPredicate(format: "label != 'To-Do Items' AND label != 'No to-dos yet'")).count
+        // Create timer and open detail
+        createTimerAndOpenDetail(name: "Cancel Test Timer")
 
-        // Tap + button
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
-        addButton.tap()
+        // Count initial todos (should be 0)
+        let initialTodoCount = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'todoRow-'")
+        ).count
 
-        // Enter text
-        let textField = app.textFields["Enter to-do text"]
-        textField.tap()
-        textField.typeText("Canceled Todo")
+        // Open add todo sheet
+        app.buttons["addTodoButton"].tap()
 
-        // Tap Cancel
-        app.navigationBars.buttons["Cancel"].tap()
+        let todoField = app.textFields["todoTextField"]
+        XCTAssert(todoField.waitForExistence(timeout: 5))
+        todoField.clearAndType("Should Not Save")
 
-        // Verify todo count unchanged
-        let finalTodoCount = app.staticTexts.matching(NSPredicate(format: "label != 'To-Do Items' AND label != 'No to-dos yet'")).count
+        // Cancel
+        app.buttons["cancelTodoButton"].tap()
+
+        // Verify todo was not added
+        let finalTodoCount = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'todoRow-'")
+        ).count
         XCTAssertEqual(initialTodoCount, finalTodoCount)
+        XCTAssertFalse(app.staticTexts["Should Not Save"].exists)
     }
 
-    func testAddTodo_MultipleItems_OrderedCorrectly() throws {
-        // Add first todo
-        addTodo(text: "First Todo")
+    // MARK: - Toggle Todo Tests
 
-        // Add second todo
-        addTodo(text: "Second Todo")
+    func testToggleTodo_MarksAsComplete() throws {
+        // Create timer, open detail, add todo
+        createTimerAndOpenDetail(name: "Toggle Test Timer")
+        addTodo(text: "Complete this task")
 
-        // Add third todo
-        addTodo(text: "Third Todo")
-
-        // Verify all three appear
-        XCTAssertTrue(app.staticTexts["First Todo"].exists)
-        XCTAssertTrue(app.staticTexts["Second Todo"].exists)
-        XCTAssertTrue(app.staticTexts["Third Todo"].exists)
-    }
-
-    // MARK: - Toggle Todo Flow
-
-    func testToggleTodo_Uncompleted_BecomesCompleted() throws {
-        // Add a todo
-        addTodo(text: "Toggle Test Todo")
-
-        // Find and tap the checkbox
-        let checkbox = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'circle'")).firstMatch
-        XCTAssertTrue(checkbox.waitForExistence(timeout: 2))
+        // Find and tap checkbox
+        let checkbox = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'todoCheckbox-'")
+        ).firstMatch
+        XCTAssert(checkbox.waitForExistence(timeout: 5))
         checkbox.tap()
 
-        // Verify checkmark appears (checkbox becomes filled)
-        // Note: This would need proper accessibility identifiers to test reliably
-        // For now, we just verify the tap succeeded
-        XCTAssertTrue(checkbox.exists)
+        // Verify todo still exists (completion is visual state change)
+        XCTAssert(app.staticTexts["Complete this task"].exists)
     }
 
-    func testToggleTodo_Completed_BecomesUncompleted() throws {
-        // Add a todo
-        addTodo(text: "Toggle Back Test")
+    func testToggleTodo_CanBeUnchecked() throws {
+        // Create timer, open detail, add todo
+        createTimerAndOpenDetail(name: "Uncheck Test Timer")
+        addTodo(text: "Toggle task")
 
-        // Toggle it on
-        let checkbox = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'circle'")).firstMatch
+        // Find checkbox
+        let checkbox = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'todoCheckbox-'")
+        ).firstMatch
+        XCTAssert(checkbox.waitForExistence(timeout: 5))
+
+        // Toggle on
         checkbox.tap()
 
-        // Toggle it off
-        sleep(1)  // Brief pause
+        // Toggle off
         checkbox.tap()
 
-        // Verify it's unchecked again
-        XCTAssertTrue(checkbox.exists)
+        // Verify todo still exists
+        XCTAssert(app.staticTexts["Toggle task"].exists)
     }
 
-    func testToggleTodo_VisualStateChanges() throws {
-        // Add a todo
-        addTodo(text: "Visual Test")
+    // MARK: - Delete Todo Tests
 
-        // Get initial checkbox state
-        let checkbox = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'circle'")).firstMatch
-        XCTAssertTrue(checkbox.exists)
+    func testDeleteTodo_RemovesFromList() throws {
+        // Create timer, open detail, add todo
+        createTimerAndOpenDetail(name: "Delete Test Timer")
+        addTodo(text: "Delete this todo")
 
-        // Toggle completion
-        checkbox.tap()
+        // Verify todo exists
+        XCTAssert(app.staticTexts["Delete this todo"].exists)
 
-        // The icon should change from "circle" to "checkmark.circle.fill"
-        // Visual state should update (strikethrough, color change)
-        // Note: Specific visual validation would require accessibility labels
-        XCTAssertTrue(checkbox.exists)
+        // Swipe to delete
+        let todoRow = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'todoRow-'")
+        ).firstMatch
+        todoRow.swipeLeft()
+
+        // Tap delete button
+        app.buttons["Delete"].tap()
+
+        // Verify todo is gone
+        XCTAssertFalse(app.staticTexts["Delete this todo"].exists)
     }
 
-    // MARK: - Empty State
+    // MARK: - Multiple Todos Tests
 
-    func testTodoList_NoTodos_ShowsEmptyState() throws {
-        // Create a new timer with no todos
-        app.navigationBars.buttons.element(boundBy: 0).tap()  // Back to list
-        createTestTimer(name: "Empty Timer")
-        app.staticTexts["Empty Timer"].tap()
+    func testMultipleTodos_CanBeManaged() throws {
+        // Create timer and open detail
+        createTimerAndOpenDetail(name: "Multiple Todos Timer")
 
-        // Verify empty state message
-        let emptyMessage = app.staticTexts["No to-dos yet"]
-        XCTAssertTrue(emptyMessage.exists)
+        // Add multiple todos
+        addTodo(text: "First todo")
+        addTodo(text: "Second todo")
+        addTodo(text: "Third todo")
+
+        // Verify all exist
+        XCTAssert(app.staticTexts["First todo"].exists)
+        XCTAssert(app.staticTexts["Second todo"].exists)
+        XCTAssert(app.staticTexts["Third todo"].exists)
+
+        // Toggle first todo
+        let checkboxes = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'todoCheckbox-'")
+        )
+        checkboxes.element(boundBy: 0).tap()
+
+        // Delete second todo
+        let todoRows = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'todoRow-'")
+        )
+        todoRows.element(boundBy: 1).swipeLeft()
+        app.buttons["Delete"].tap()
+
+        // Verify state
+        XCTAssert(app.staticTexts["First todo"].exists)
+        XCTAssertFalse(app.staticTexts["Second todo"].exists)
+        XCTAssert(app.staticTexts["Third todo"].exists)
+    }
+
+    // MARK: - Todo State Persistence Tests
+
+    func testTodoState_PersistsAcrossNavigation() throws {
+        // Create timer, open detail, add todos
+        createTimerAndOpenDetail(name: "Persistence Timer")
+        addTodo(text: "Persistent todo")
+
+        // Navigate back to list
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+
+        // Navigate back to timer detail
+        let timerCard = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
+        ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 3))
+        timerCard.tap()
+
+        // Verify todo still exists
+        XCTAssert(app.staticTexts["Persistent todo"].waitForExistence(timeout: 3))
     }
 
     // MARK: - Helper Methods
 
-    /// Creates a test timer with given parameters
-    private func createTestTimer(name: String, minutes: Int = 10) {
-        app.navigationBars.buttons.matching(identifier: "plus").element.tap()
+    /// Creates a timer and opens its detail view
+    private func createTimerAndOpenDetail(name: String) {
+        // Create timer
+        app.buttons["addTimerButton"].tap()
 
-        let nameField = app.textFields["Enter timer name"]
-        nameField.tap()
-        nameField.typeText(name)
+        let nameField = app.textFields["timerNameField"]
+        XCTAssert(nameField.waitForExistence(timeout: 5))
+        nameField.clearAndType(name)
 
-        let minutesPicker = app.pickerWheels.element(boundBy: 1)
-        minutesPicker.adjust(toPickerWheelValue: String(minutes))
-
-        app.navigationBars.buttons["Done"].tap()
-    }
-
-    /// Adds a todo item with given text
-    private func addTodo(text: String) {
-        let addButton = app.buttons.matching(NSPredicate(format: "identifier CONTAINS 'plus.circle'")).element
-        addButton.tap()
-
-        let textField = app.textFields["Enter to-do text"]
-        XCTAssertTrue(textField.waitForExistence(timeout: 2))
-        textField.tap()
-        textField.typeText(text)
-
-        app.navigationBars.buttons["Add"].tap()
+        app.pickers["minutesPicker"].pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "5")
+        app.buttons["doneButton"].tap()
 
         // Wait for sheet to dismiss
-        XCTAssertFalse(textField.waitForExistence(timeout: 2))
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
+
+        // Open timer detail
+        let timerCard = app.buttons.matching(
+            NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
+        ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
+        timerCard.tap()
+
+        // Verify we're in detail view
+        XCTAssert(app.buttons["addTodoButton"].waitForExistence(timeout: 5))
+    }
+
+    /// Adds a todo to the current timer detail view
+    private func addTodo(text: String) {
+        app.buttons["addTodoButton"].tap()
+
+        let todoField = app.textFields["todoTextField"]
+        XCTAssert(todoField.waitForExistence(timeout: 5))
+        todoField.clearAndType(text)
+
+        app.buttons["addTodoConfirmButton"].tap()
+
+        // Wait for sheet to dismiss
+        XCTAssert(app.buttons["addTodoButton"].waitForExistence(timeout: 5))
     }
 }

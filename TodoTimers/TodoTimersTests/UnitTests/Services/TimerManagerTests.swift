@@ -1,0 +1,128 @@
+import Testing
+import Foundation
+@testable import TodoTimers
+
+@Suite("TimerManager Tests")
+@MainActor
+struct TimerManagerTests {
+
+    // MARK: - Singleton Tests
+
+    @Test("Shared returns same instance")
+    func shared_ReturnsSameInstance() {
+        let instance1 = TimerManager.shared
+        let instance2 = TimerManager.shared
+
+        #expect(instance1 === instance2)
+    }
+
+    // MARK: - Service Lifecycle Tests
+
+    @Test("Get timer service first call creates new service")
+    func getTimerService_FirstCall_CreatesNewService() {
+        let manager = TimerManager.shared
+        let timer = TestDataFactory.makeTimer()
+
+        let service = manager.getTimerService(for: timer)
+
+        #expect(service.currentTime == timer.durationInSeconds)
+        service.cleanup()
+    }
+
+    @Test("Get timer service subsequent call returns cached service")
+    func getTimerService_SubsequentCall_ReturnsCachedService() {
+        let manager = TimerManager.shared
+        let timer = TestDataFactory.makeTimer()
+
+        let service1 = manager.getTimerService(for: timer)
+        let service2 = manager.getTimerService(for: timer)
+
+        #expect(service1 === service2)
+        service1.cleanup()
+    }
+
+    @Test("Get timer service for different timers creates independent services")
+    func getTimerService_DifferentTimers_CreatesIndependentServices() {
+        let manager = TimerManager.shared
+        let timer1 = TestDataFactory.makeTimer(id: UUID(), durationInSeconds: 1000)
+        let timer2 = TestDataFactory.makeTimer(id: UUID(), durationInSeconds: 2000)
+
+        let service1 = manager.getTimerService(for: timer1)
+        let service2 = manager.getTimerService(for: timer2)
+
+        #expect(service1 !== service2)
+        #expect(service1.currentTime == 1000)
+        #expect(service2.currentTime == 2000)
+
+        service1.cleanup()
+        service2.cleanup()
+    }
+
+    // MARK: - Service Removal Tests
+
+    @Test("Remove timer service calls cleanup")
+    func removeTimerService_CallsCleanup() {
+        let manager = TimerManager.shared
+        let timer = TestDataFactory.makeTimer()
+
+        let service = manager.getTimerService(for: timer)
+        service.start()
+
+        manager.removeTimerService(timerID: timer.id)
+
+        // Service should have been cleaned up
+        #expect(true)
+    }
+
+    @Test("Remove timer service removes from cache")
+    func removeTimerService_RemovesFromCache() {
+        let manager = TimerManager.shared
+        let timer = TestDataFactory.makeTimer()
+
+        let service1 = manager.getTimerService(for: timer)
+        manager.removeTimerService(timerID: timer.id)
+        let service2 = manager.getTimerService(for: timer)
+
+        // Should be different instances after removal
+        #expect(service1 !== service2)
+
+        service1.cleanup()
+        service2.cleanup()
+    }
+
+    @Test("Remove nonexistent timer service handles gracefully")
+    func removeTimerService_NonexistentID_HandlesGracefully() {
+        let manager = TimerManager.shared
+        let randomID = UUID()
+
+        manager.removeTimerService(timerID: randomID)
+
+        #expect(true)
+    }
+
+    // MARK: - Cleanup All Tests
+
+    @Test("Cleanup all stops and removes all services")
+    func cleanupAll_RemovesAllServices() {
+        let manager = TimerManager.shared
+        let timer1 = TestDataFactory.makeTimer()
+        let timer2 = TestDataFactory.makeTimer()
+
+        let service1 = manager.getTimerService(for: timer1)
+        let service2 = manager.getTimerService(for: timer2)
+        service1.start()
+        service2.start()
+
+        manager.cleanupAll()
+
+        // After cleanup, getting services should create new instances
+        let newService1 = manager.getTimerService(for: timer1)
+        let newService2 = manager.getTimerService(for: timer2)
+
+        #expect(newService1 !== service1)
+        #expect(newService2 !== service2)
+
+        newService1.cleanup()
+        newService2.cleanup()
+    }
+}

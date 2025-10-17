@@ -17,12 +17,14 @@ struct TodoItemRow: View {
                         .foregroundStyle(todo.isCompleted ? .green : .secondary)
                 }
                 .buttonStyle(.plain)
+                .accessibilityIdentifier("todoCheckbox-\(todo.id)")
 
                 // Text
                 Text(todo.text)
                     .font(.body)
                     .foregroundStyle(todo.isCompleted ? .secondary : .primary)
                     .strikethrough(todo.isCompleted)
+                    .accessibilityIdentifier("todoText-\(todo.id)")
 
                 Spacer()
 
@@ -33,6 +35,7 @@ struct TodoItemRow: View {
             }
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("todoRow-\(todo.id)")
     }
 
     private func toggleCompletion() {

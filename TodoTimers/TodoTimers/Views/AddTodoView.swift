@@ -16,6 +16,7 @@ struct AddTodoView: View {
                 Section("To-Do Item") {
                     TextField("Enter to-do text", text: $todoText, axis: .vertical)
                         .lineLimit(3...6)
+                        .accessibilityIdentifier("todoTextField")
                 }
             }
             .navigationTitle("Add To-Do")
@@ -25,6 +26,7 @@ struct AddTodoView: View {
                     Button("Cancel") {
                         dismiss()
                     }
+                    .accessibilityIdentifier("cancelTodoButton")
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
@@ -32,6 +34,7 @@ struct AddTodoView: View {
                         addTodo()
                     }
                     .disabled(todoText.trimmingCharacters(in: .whitespaces).isEmpty)
+                    .accessibilityIdentifier("addTodoConfirmButton")
                 }
             }
             .alert("Error", isPresented: $showingError) {

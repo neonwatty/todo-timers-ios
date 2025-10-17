@@ -11,6 +11,29 @@ struct TimerDTO: Codable {
     let updatedAt: Date
     let todoItems: [TodoItemDTO]
 
+    // Custom initializer for testing
+    init(
+        id: UUID,
+        name: String,
+        durationInSeconds: Int,
+        icon: String,
+        colorHex: String,
+        notes: String?,
+        createdAt: Date,
+        updatedAt: Date,
+        todoItems: [TodoItemDTO]
+    ) {
+        self.id = id
+        self.name = name
+        self.durationInSeconds = durationInSeconds
+        self.icon = icon
+        self.colorHex = colorHex
+        self.notes = notes
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.todoItems = todoItems
+    }
+
     // Convert from SwiftData model
     init(from timer: Timer) {
         self.id = timer.id

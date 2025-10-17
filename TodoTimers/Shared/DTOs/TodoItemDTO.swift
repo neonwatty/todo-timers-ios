@@ -8,6 +8,23 @@ struct TodoItemDTO: Codable {
     let createdAt: Date
     let updatedAt: Date
 
+    // Custom initializer for testing
+    init(
+        id: UUID,
+        text: String,
+        isCompleted: Bool,
+        sortOrder: Int,
+        createdAt: Date,
+        updatedAt: Date
+    ) {
+        self.id = id
+        self.text = text
+        self.isCompleted = isCompleted
+        self.sortOrder = sortOrder
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+    }
+
     // Convert from SwiftData model
     init(from todoItem: TodoItem) {
         self.id = todoItem.id

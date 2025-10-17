@@ -1,15 +1,17 @@
 import SwiftUI
 
-struct CreateTimerView: View {
+struct EditTimerView: View {
+    @Bindable var timer: Timer
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
 
-    @State private var name = ""
-    @State private var hours = 0
-    @State private var minutes = 25
-    @State private var seconds = 0
-    @State private var selectedIcon = "timer"
-    @State private var selectedColor = "#007AFF"
+    @State private var name: String
+    @State private var hours: Int
+    @State private var minutes: Int
+    @State private var seconds: Int
+    @State private var selectedIcon: String
+    @State private var selectedColor: String
+    @State private var notes: String
     @State private var showingError = false
     @State private var errorMessage = ""
 
@@ -23,6 +25,22 @@ struct CreateTimerView: View {
         "#FF3B30", "#FF9500", "#FFCC00", "#34C759",
         "#007AFF", "#5856D6", "#AF52DE", "#8E8E93"
     ]
+
+    init(timer: Timer) {
+        self.timer = timer
+
+        // Initialize state with timer values
+        _name = State(initialValue: timer.name)
+        _selectedIcon = State(initialValue: timer.icon)
+        _selectedColor = State(initialValue: timer.colorHex)
+        _notes = State(initialValue: timer.notes ?? "")
+
+        // Calculate hours, minutes, seconds from duration
+        let totalSeconds = timer.durationInSeconds
+        _hours = State(initialValue: totalSeconds / 3600)
+        _minutes = State(initialValue: (totalSeconds % 3600) / 60)
+        _seconds = State(initialValue: totalSeconds % 60)
+    }
 
     var body: some View {
         NavigationStack {
@@ -93,8 +111,15 @@ struct CreateTimerView: View {
                         }
                     }
                 }
+
+                // Notes Section
+                Section("Notes") {
+                    TextEditor(text: $notes)
+                        .frame(minHeight: 100)
+                        .accessibilityIdentifier("notesField")
+                }
             }
-            .navigationTitle("New Timer")
+            .navigationTitle("Edit Timer")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -105,11 +130,11 @@ struct CreateTimerView: View {
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        saveTimer()
+                    Button("Save") {
+                        saveChanges()
                     }
                     .disabled(!isValid)
-                    .accessibilityIdentifier("doneButton")
+                    .accessibilityIdentifier("saveButton")
                 }
             }
             .alert("Error", isPresented: $showingError) {
@@ -129,37 +154,50 @@ struct CreateTimerView: View {
         hours * 3600 + minutes * 60 + seconds
     }
 
-    private func saveTimer() {
+    private func saveChanges() {
         guard isValid else {
             errorMessage = "Please enter a timer name and duration"
             showingError = true
             return
         }
 
-        let timer = Timer(
-            name: name,
-            durationInSeconds: durationInSeconds,
-            icon: selectedIcon,
-            colorHex: selectedColor
-        )
-
-        modelContext.insert(timer)
+        // Update timer properties
+        timer.name = name
+        timer.durationInSeconds = durationInSeconds
+        timer.icon = selectedIcon
+        timer.colorHex = selectedColor
+        timer.notes = notes.isEmpty ? nil : notes
+        timer.updatedAt = Date()
 
         do {
             try modelContext.save()
 
             // Sync to Watch
-            WatchConnectivityService.shared.sendTimerUpdate(timer, type: .created)
+            WatchConnectivityService.shared.sendTimerUpdate(timer, type: .updated)
+
+            // If timer is currently running, reset it with new duration
+            let timerService = TimerManager.shared.getTimerService(for: timer)
+            if timerService.isRunning || timerService.isPaused {
+                timerService.reset()
+            }
 
             dismiss()
         } catch {
-            errorMessage = "Failed to create timer: \(error.localizedDescription)"
+            errorMessage = "Failed to update timer: \(error.localizedDescription)"
             showingError = true
         }
     }
 }
 
 #Preview {
-    CreateTimerView()
+    let timer = Timer(
+        name: "Workout",
+        durationInSeconds: 1500,
+        icon: "figure.run",
+        colorHex: "#FF3B30",
+        notes: "Remember to hydrate!"
+    )
+
+    return EditTimerView(timer: timer)
         .modelContainer(for: [Timer.self, TodoItem.self], inMemory: true)
 }
