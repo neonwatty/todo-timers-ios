@@ -15,9 +15,3 @@ struct ContentView: View {
         WatchTimerListView()
     }
 }
-
-#Preview {
-    ContentView()
-        .modelContainer(for: [Timer.self, TodoItem.self], inMemory: true)
-        .environmentObject(WatchConnectivityService.shared)
-}

@@ -259,4 +259,161 @@ struct TimerServiceTests {
         service.cleanup()
         manager.cleanupAll()
     }
+
+    // MARK: - Remote State Sync Tests
+
+    @Test("Start from remote sets correct state without sending message")
+    func startFromRemote_SetsCorrectState() {
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 300)
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        #expect(service.isRunning == false)
+
+        service.startFromRemote(currentTime: 250)
+
+        #expect(service.isRunning == true)
+        #expect(service.currentTime == 250)
+        #expect(service.isPaused == false)
+
+        service.cleanup()
+    }
+
+    @Test("Start from remote when already running does not restart")
+    func startFromRemote_WhenAlreadyRunning_DoesNotRestart() {
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 200)
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        service.startFromRemote(currentTime: 150)
+        let firstRunningState = service.isRunning
+
+        service.startFromRemote(currentTime: 100)
+
+        #expect(firstRunningState == true)
+        #expect(service.isRunning == true)
+        #expect(service.currentTime == 150)  // Should not update time if already running
+
+        service.cleanup()
+    }
+
+    @Test("Pause from remote sets correct state")
+    func pauseFromRemote_SetsCorrectState() {
+        let timer = TestDataFactory.makeTimer()
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        service.startFromRemote(currentTime: 100)
+        #expect(service.isRunning == true)
+
+        service.pauseFromRemote()
+
+        #expect(service.isRunning == false)
+        #expect(service.isPaused == true)
+
+        service.cleanup()
+    }
+
+    @Test("Pause from remote when not running does nothing")
+    func pauseFromRemote_WhenNotRunning_DoesNothing() {
+        let timer = TestDataFactory.makeTimer()
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        service.pauseFromRemote()
+
+        #expect(service.isRunning == false)
+        #expect(service.isPaused == false)
+    }
+
+    @Test("Resume from remote sets correct state")
+    func resumeFromRemote_SetsCorrectState() {
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 200)
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        service.startFromRemote(currentTime: 150)
+        service.pauseFromRemote()
+        #expect(service.isPaused == true)
+
+        service.resumeFromRemote()
+
+        #expect(service.isRunning == true)
+        #expect(service.isPaused == false)
+
+        service.cleanup()
+    }
+
+    @Test("Resume from remote when not paused does nothing")
+    func resumeFromRemote_WhenNotPaused_DoesNothing() {
+        let timer = TestDataFactory.makeTimer()
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        service.resumeFromRemote()
+
+        #expect(service.isRunning == false)
+        #expect(service.isPaused == false)
+    }
+
+    @Test("Reset from remote restores original time")
+    func resetFromRemote_RestoresOriginalTime() {
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 300)
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        service.startFromRemote(currentTime: 150)
+        service.resetFromRemote()
+
+        #expect(service.currentTime == 300)
+        #expect(service.isRunning == false)
+        #expect(service.isPaused == false)
+    }
+
+    @Test("Complete from remote sets current time to zero")
+    func completeFromRemote_SetsCurrentTimeToZero() {
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 100)
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        service.startFromRemote(currentTime: 50)
+        service.completeFromRemote()
+
+        #expect(service.currentTime == 0)
+        #expect(service.isRunning == false)
+        #expect(service.isPaused == false)
+    }
+
+    @Test("Remote methods notify manager correctly")
+    func remoteMethods_NotifyManager() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer()
+        let service = TimerService(timer: timer, manager: manager)
+
+        // Start should set running timer ID
+        service.startFromRemote(currentTime: 100)
+        #expect(manager.runningTimerID == timer.id)
+
+        // Pause should clear running timer ID
+        service.pauseFromRemote()
+        #expect(manager.runningTimerID == nil)
+
+        // Resume should set running timer ID again
+        service.resumeFromRemote()
+        #expect(manager.runningTimerID == timer.id)
+
+        // Reset should clear running timer ID
+        service.resetFromRemote()
+        #expect(manager.runningTimerID == nil)
+
+        service.cleanup()
+        manager.cleanupAll()
+    }
+
+    @Test("Connectivity service is initialized correctly")
+    func connectivityService_InitializedCorrectly() {
+        let timer = TestDataFactory.makeTimer()
+        let service = TimerService(timer: timer, manager: TimerManager.shared)
+
+        // Service should have connectivity service (default to shared)
+        // We can't directly test this without refactoring, but we can verify no crash
+        service.start()
+        service.pause()
+
+        service.cleanup()
+    }
 }

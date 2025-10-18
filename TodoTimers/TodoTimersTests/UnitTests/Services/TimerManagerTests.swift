@@ -256,4 +256,137 @@ struct TimerManagerTests {
 
         #expect(manager.runningTimerID == nil)
     }
+
+    // MARK: - Remote State Sync Tests
+
+    @Test("Apply remote timer state with non-existent timer ignores gracefully")
+    func applyRemoteTimerState_NonexistentTimer_IgnoresGracefully() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let randomTimerID = UUID()
+
+        // Should not crash, just log warning
+        manager.applyRemoteTimerState(timerID: randomTimerID, action: .started, currentTime: 100)
+
+        #expect(manager.runningTimerID == nil)
+        manager.cleanupAll()
+    }
+
+    @Test("Apply remote timer state started applies to active service")
+    func applyRemoteTimerState_Started_AppliesToActiveService() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 300)
+        let service = manager.getTimerService(for: timer)
+
+        #expect(service.isRunning == false)
+
+        manager.applyRemoteTimerState(timerID: timer.id, action: .started, currentTime: 250)
+
+        #expect(service.isRunning == true)
+        #expect(service.currentTime == 250)
+
+        service.cleanup()
+        manager.cleanupAll()
+    }
+
+    @Test("Apply remote timer state paused applies to active service")
+    func applyRemoteTimerState_Paused_AppliesToActiveService() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer()
+        let service = manager.getTimerService(for: timer)
+        service.start()
+
+        #expect(service.isRunning == true)
+
+        manager.applyRemoteTimerState(timerID: timer.id, action: .paused, currentTime: 100)
+
+        #expect(service.isRunning == false)
+        #expect(service.isPaused == true)
+
+        service.cleanup()
+        manager.cleanupAll()
+    }
+
+    @Test("Apply remote timer state resumed applies to active service")
+    func applyRemoteTimerState_Resumed_AppliesToActiveService() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 200)
+        let service = manager.getTimerService(for: timer)
+        service.start()
+        service.pause()
+
+        #expect(service.isPaused == true)
+
+        manager.applyRemoteTimerState(timerID: timer.id, action: .resumed, currentTime: 150)
+
+        #expect(service.isRunning == true)
+        #expect(service.isPaused == false)
+
+        service.cleanup()
+        manager.cleanupAll()
+    }
+
+    @Test("Apply remote timer state reset applies to active service")
+    func applyRemoteTimerState_Reset_AppliesToActiveService() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer(durationInSeconds: 300)
+        let service = manager.getTimerService(for: timer)
+        service.start()
+
+        manager.applyRemoteTimerState(timerID: timer.id, action: .reset, currentTime: 300)
+
+        #expect(service.isRunning == false)
+        #expect(service.currentTime == 300)
+
+        service.cleanup()
+        manager.cleanupAll()
+    }
+
+    @Test("Apply remote timer state completed applies to active service")
+    func applyRemoteTimerState_Completed_AppliesToActiveService() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer = TestDataFactory.makeTimer()
+        let service = manager.getTimerService(for: timer)
+        service.start()
+
+        manager.applyRemoteTimerState(timerID: timer.id, action: .completed, currentTime: 0)
+
+        #expect(service.isRunning == false)
+        #expect(service.currentTime == 0)
+
+        service.cleanup()
+        manager.cleanupAll()
+    }
+
+    @Test("Apply remote timer state only affects active timers")
+    func applyRemoteTimerState_OnlyAffectsActiveTimers() {
+        let manager = TimerManager.shared
+        manager.cleanupAll()
+
+        let timer1 = TestDataFactory.makeTimer(id: UUID(), durationInSeconds: 100)
+        let timer2 = TestDataFactory.makeTimer(id: UUID(), durationInSeconds: 200)
+
+        let service1 = manager.getTimerService(for: timer1)
+        // Don't create service2 - it's not active
+
+        manager.applyRemoteTimerState(timerID: timer2.id, action: .started, currentTime: 150)
+
+        // service2 should not be created automatically
+        #expect(service1.isRunning == false)
+        #expect(manager.runningTimerID == nil)
+
+        service1.cleanup()
+        manager.cleanupAll()
+    }
 }
