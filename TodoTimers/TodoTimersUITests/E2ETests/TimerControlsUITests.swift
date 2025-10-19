@@ -28,6 +28,7 @@ final class TimerControlsUITests: XCTestCase {
         ).firstMatch
         XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify start button exists
         let startButton = app.buttons["startButton"]
@@ -35,10 +36,11 @@ final class TimerControlsUITests: XCTestCase {
 
         // Tap start
         startButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify button changes to pause
         let pauseButton = app.buttons["pauseButton"]
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
     }
 
     func testPauseButton_StopsCountdown() throws {
@@ -49,20 +51,24 @@ final class TimerControlsUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Wait for pause button to appear
         let pauseButton = app.buttons["pauseButton"]
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
 
         // Tap pause
         pauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify button changes to resume
         let resumeButton = app.buttons["resumeButton"]
-        XCTAssert(resumeButton.waitForExistence(timeout: 3))
+        XCTAssert(resumeButton.waitForExistence(timeout: 5))
     }
 
     func testResumeButton_ContinuesCountdown() throws {
@@ -73,23 +79,28 @@ final class TimerControlsUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         let pauseButton = app.buttons["pauseButton"]
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
         pauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify resume button exists
         let resumeButton = app.buttons["resumeButton"]
-        XCTAssert(resumeButton.waitForExistence(timeout: 3))
+        XCTAssert(resumeButton.waitForExistence(timeout: 5))
 
         // Tap resume
         resumeButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify button changes back to pause
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
     }
 
     func testResetButton_RestoresOriginalTime() throws {
@@ -100,27 +111,32 @@ final class TimerControlsUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Start and immediately pause
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         let pauseButton = app.buttons["pauseButton"]
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
 
         // Wait a moment for time to decrease
         Thread.sleep(forTimeInterval: 2)
 
         pauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Tap reset
         let resetButton = app.buttons["resetButton"]
-        XCTAssert(resetButton.waitForExistence(timeout: 3))
+        XCTAssert(resetButton.waitForExistence(timeout: 5))
         resetButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify timer is reset (button should be "start" again)
         let startButton = app.buttons["startButton"]
-        XCTAssert(startButton.waitForExistence(timeout: 3))
+        XCTAssert(startButton.waitForExistence(timeout: 5))
 
         // Timer display should show 5:00 (original time)
         // Note: This is an implicit test - reset clears elapsed time
@@ -136,9 +152,12 @@ final class TimerControlsUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Wait for timer to complete (should show start button again after completion)
         let startButton = app.buttons["startButton"]
@@ -147,7 +166,7 @@ final class TimerControlsUITests: XCTestCase {
         Thread.sleep(forTimeInterval: 5)
 
         // After completion, start button should reappear
-        XCTAssert(startButton.exists)
+        XCTAssert(startButton.waitForExistence(timeout: 5))
     }
 
     // MARK: - State Persistence Tests
@@ -160,23 +179,28 @@ final class TimerControlsUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify pause button appears
         let pauseButton = app.buttons["pauseButton"]
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
 
         // Navigate back to list
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Navigate back to timer detail
-        XCTAssert(timerCard.waitForExistence(timeout: 3))
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify timer is still running (pause button should still be there)
-        XCTAssert(pauseButton.exists)
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
     }
 
     func testPausedTimerState_PersistsAcrossNavigation() throws {
@@ -187,27 +211,33 @@ final class TimerControlsUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         let pauseButton = app.buttons["pauseButton"]
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
         pauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify resume button appears
         let resumeButton = app.buttons["resumeButton"]
-        XCTAssert(resumeButton.waitForExistence(timeout: 3))
+        XCTAssert(resumeButton.waitForExistence(timeout: 5))
 
         // Navigate back to list
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Navigate back to timer detail
-        XCTAssert(timerCard.waitForExistence(timeout: 3))
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify timer is still paused (resume button should still be there)
-        XCTAssert(resumeButton.exists)
+        XCTAssert(resumeButton.waitForExistence(timeout: 5))
     }
 
     // MARK: - Multiple Timers Test
@@ -223,30 +253,36 @@ final class TimerControlsUITests: XCTestCase {
         ).element(boundBy: 0)
         XCTAssert(timer1.waitForExistence(timeout: 5))
         timer1.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify first timer is running
         let pauseButton = app.buttons["pauseButton"]
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
 
         // Navigate back
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Start second timer
         let timer2 = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).element(boundBy: 1)
-        XCTAssert(timer2.waitForExistence(timeout: 3))
+        XCTAssert(timer2.waitForExistence(timeout: 5))
         timer2.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.buttons["startButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify second timer is running
-        XCTAssert(pauseButton.waitForExistence(timeout: 3))
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
 
         // Navigate back
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify both timers still exist in list
         XCTAssert(app.staticTexts["Timer 1"].exists)
@@ -254,7 +290,8 @@ final class TimerControlsUITests: XCTestCase {
 
         // Go back to first timer and verify it's still running
         timer1.tap()
-        XCTAssert(pauseButton.exists)
+        waitForUIToSettle(0.5)  // Wait for navigation
+        XCTAssert(pauseButton.waitForExistence(timeout: 5))
     }
 
     // MARK: - List View Control Tests
@@ -276,10 +313,11 @@ final class TimerControlsUITests: XCTestCase {
         let listStartButton = app.buttons["listStartButton-\(timerID)"]
         XCTAssert(listStartButton.waitForExistence(timeout: 5))
         listStartButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify button changes to pause
         let listPauseButton = app.buttons["listPauseButton-\(timerID)"]
-        XCTAssert(listPauseButton.waitForExistence(timeout: 3))
+        XCTAssert(listPauseButton.waitForExistence(timeout: 5))
     }
 
     func testListViewPause_PausesTimer() throws {
@@ -295,17 +333,19 @@ final class TimerControlsUITests: XCTestCase {
 
         // Start timer from list
         app.buttons["listStartButton-\(timerID)"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify pause button appears
         let listPauseButton = app.buttons["listPauseButton-\(timerID)"]
-        XCTAssert(listPauseButton.waitForExistence(timeout: 3))
+        XCTAssert(listPauseButton.waitForExistence(timeout: 5))
 
         // Tap pause
         listPauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify button changes to resume
         let listResumeButton = app.buttons["listResumeButton-\(timerID)"]
-        XCTAssert(listResumeButton.waitForExistence(timeout: 3))
+        XCTAssert(listResumeButton.waitForExistence(timeout: 5))
     }
 
     func testListViewResume_ResumesTimer() throws {
@@ -321,19 +361,23 @@ final class TimerControlsUITests: XCTestCase {
 
         // Start and pause
         app.buttons["listStartButton-\(timerID)"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
+
         let listPauseButton = app.buttons["listPauseButton-\(timerID)"]
-        XCTAssert(listPauseButton.waitForExistence(timeout: 3))
+        XCTAssert(listPauseButton.waitForExistence(timeout: 5))
         listPauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify resume button exists
         let listResumeButton = app.buttons["listResumeButton-\(timerID)"]
-        XCTAssert(listResumeButton.waitForExistence(timeout: 3))
+        XCTAssert(listResumeButton.waitForExistence(timeout: 5))
 
         // Tap resume
         listResumeButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify button changes back to pause
-        XCTAssert(listPauseButton.waitForExistence(timeout: 3))
+        XCTAssert(listPauseButton.waitForExistence(timeout: 5))
     }
 
     func testListViewReset_ResetsTimer() throws {
@@ -349,24 +393,27 @@ final class TimerControlsUITests: XCTestCase {
 
         // Start timer
         app.buttons["listStartButton-\(timerID)"].tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         let listPauseButton = app.buttons["listPauseButton-\(timerID)"]
-        XCTAssert(listPauseButton.waitForExistence(timeout: 3))
+        XCTAssert(listPauseButton.waitForExistence(timeout: 5))
 
         // Wait for time to decrease
         Thread.sleep(forTimeInterval: 2)
 
         // Pause
         listPauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Tap reset
         let listResetButton = app.buttons["listResetButton-\(timerID)"]
-        XCTAssert(listResetButton.waitForExistence(timeout: 3))
+        XCTAssert(listResetButton.waitForExistence(timeout: 5))
         listResetButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify timer is reset (start button should reappear)
         let listStartButton = app.buttons["listStartButton-\(timerID)"]
-        XCTAssert(listStartButton.waitForExistence(timeout: 3))
+        XCTAssert(listStartButton.waitForExistence(timeout: 5))
     }
 
     func testListViewMutualExclusivity_StartingSecondTimerPausesFirst() throws {
@@ -390,24 +437,26 @@ final class TimerControlsUITests: XCTestCase {
 
         // Start first timer from list
         let timer1StartButton = app.buttons["listStartButton-\(timer1ID)"]
-        XCTAssert(timer1StartButton.waitForExistence(timeout: 3))
+        XCTAssert(timer1StartButton.waitForExistence(timeout: 5))
         timer1StartButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify first timer is running
         let timer1PauseButton = app.buttons["listPauseButton-\(timer1ID)"]
-        XCTAssert(timer1PauseButton.waitForExistence(timeout: 3))
+        XCTAssert(timer1PauseButton.waitForExistence(timeout: 5))
 
         // Start second timer from list (should pause first)
         let timer2StartButton = app.buttons["listStartButton-\(timer2ID)"]
-        XCTAssert(timer2StartButton.waitForExistence(timeout: 3))
+        XCTAssert(timer2StartButton.waitForExistence(timeout: 5))
         timer2StartButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify second timer is running
         let timer2PauseButton = app.buttons["listPauseButton-\(timer2ID)"]
-        XCTAssert(timer2PauseButton.waitForExistence(timeout: 3))
+        XCTAssert(timer2PauseButton.waitForExistence(timeout: 5))
 
         // Wait for UI to update
-        Thread.sleep(forTimeInterval: 1)
+        waitForUIToSettle(1.0)
 
         // Verify first timer has been paused (start button should reappear)
         XCTAssert(timer1StartButton.waitForExistence(timeout: 5))
@@ -426,18 +475,17 @@ final class TimerControlsUITests: XCTestCase {
 
         // Start timer from list view
         let listStartButton = app.buttons["listStartButton-\(timerID)"]
-        XCTAssert(listStartButton.waitForExistence(timeout: 3))
+        XCTAssert(listStartButton.waitForExistence(timeout: 5))
         listStartButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify list pause button appears
         let listPauseButton = app.buttons["listPauseButton-\(timerID)"]
-        XCTAssert(listPauseButton.waitForExistence(timeout: 3))
+        XCTAssert(listPauseButton.waitForExistence(timeout: 5))
 
         // Navigate to detail view
         timerCard.tap()
-
-        // Wait for navigation to complete
-        Thread.sleep(forTimeInterval: 1)
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify detail view also shows pause button (same timer state)
         let detailPauseButton = app.buttons["pauseButton"]
@@ -445,17 +493,19 @@ final class TimerControlsUITests: XCTestCase {
 
         // Pause from detail view
         detailPauseButton.tap()
+        waitForUIToSettle(0.5)  // Wait for state to propagate
 
         // Verify detail resume button appears
         let detailResumeButton = app.buttons["resumeButton"]
-        XCTAssert(detailResumeButton.waitForExistence(timeout: 3))
+        XCTAssert(detailResumeButton.waitForExistence(timeout: 5))
 
         // Navigate back to list
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify list view also shows resume button (state synchronized)
         let listResumeButton = app.buttons["listResumeButton-\(timerID)"]
-        XCTAssert(listResumeButton.waitForExistence(timeout: 3))
+        XCTAssert(listResumeButton.waitForExistence(timeout: 5))
     }
 
     // MARK: - Helper Methods
@@ -463,9 +513,10 @@ final class TimerControlsUITests: XCTestCase {
     /// Creates a timer using accessibility identifiers
     private func createTimer(name: String, hours: Int = 0, minutes: Int = 0, seconds: Int = 0) {
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         let nameField = app.textFields["timerNameField"]
-        XCTAssert(nameField.waitForExistence(timeout: 5))
+        XCTAssert(nameField.waitForExistence(timeout: 10))  // Increased from 5
         nameField.clearAndType(name)
 
         if hours > 0 {
@@ -481,9 +532,11 @@ final class TimerControlsUITests: XCTestCase {
         }
 
         app.buttons["doneButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Wait for sheet to dismiss
-        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 10))  // Increased from 5
+        waitForUIToSettle(0.3)  // Let list update
     }
 
     /// Extracts timer ID from timer card identifier

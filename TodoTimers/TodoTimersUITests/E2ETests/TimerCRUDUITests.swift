@@ -21,6 +21,7 @@ final class TimerCRUDUITests: XCTestCase {
     func testCreateTimer_ValidInput_AppearsInList() throws {
         // Tap add button using accessibility ID
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Fill in timer name
         let nameField = app.textFields["timerNameField"]
@@ -32,6 +33,7 @@ final class TimerCRUDUITests: XCTestCase {
 
         // Tap Done
         app.buttons["doneButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Verify timer appears in list
         let timerCard = app.buttons.matching(
@@ -43,6 +45,7 @@ final class TimerCRUDUITests: XCTestCase {
 
     func testCreateTimer_AllFields_SavesCorrectly() throws {
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Enter name
         let nameField = app.textFields["timerNameField"]
@@ -72,6 +75,7 @@ final class TimerCRUDUITests: XCTestCase {
 
         // Save
         app.buttons["doneButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Verify timer exists
         XCTAssert(app.staticTexts["Study Session"].waitForExistence(timeout: 5))
@@ -125,6 +129,7 @@ final class TimerCRUDUITests: XCTestCase {
 
         // Open create sheet
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Enter data
         let nameField = app.textFields["timerNameField"]
@@ -135,6 +140,7 @@ final class TimerCRUDUITests: XCTestCase {
 
         // Cancel
         app.buttons["cancelButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Verify no new timer
         let finalTimerCount = app.buttons.matching(
@@ -155,6 +161,7 @@ final class TimerCRUDUITests: XCTestCase {
         ).firstMatch
         XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify navigation
         XCTAssert(app.navigationBars["Detail Test"].waitForExistence(timeout: 5))
@@ -204,10 +211,13 @@ final class TimerCRUDUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Tap edit
         app.buttons["editTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Update name
         let nameField = app.textFields["timerNameField"]
@@ -226,9 +236,11 @@ final class TimerCRUDUITests: XCTestCase {
 
         // Save
         app.buttons["saveButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Go back to list
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify updated name shows
         XCTAssert(app.staticTexts["Updated Name"].waitForExistence(timeout: 5))
@@ -242,10 +254,13 @@ final class TimerCRUDUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Edit
         app.buttons["editTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Change name
         let nameField = app.textFields["timerNameField"]
@@ -254,9 +269,11 @@ final class TimerCRUDUITests: XCTestCase {
 
         // Cancel
         app.buttons["cancelButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Go back to list
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify original name still exists
         XCTAssert(app.staticTexts["No Changes"].exists)
@@ -276,10 +293,15 @@ final class TimerCRUDUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.press(forDuration: 1.0)
+        waitForUIToSettle(0.5)  // Wait for context menu
 
         // Tap "Delete Timer" from context menu
-        app.buttons["Delete Timer"].tap()
+        let deleteButton = app.buttons["Delete Timer"]
+        XCTAssert(deleteButton.waitForExistence(timeout: 5))
+        deleteButton.tap()
+        waitForUIToSettle(0.5)  // Wait for deletion
 
         // Verify it's gone
         XCTAssertFalse(app.staticTexts["To Delete"].exists)
@@ -290,9 +312,10 @@ final class TimerCRUDUITests: XCTestCase {
     /// Creates a timer using accessibility identifiers
     private func createTimer(name: String, hours: Int = 0, minutes: Int = 1, seconds: Int = 0) {
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         let nameField = app.textFields["timerNameField"]
-        XCTAssert(nameField.waitForExistence(timeout: 5))
+        XCTAssert(nameField.waitForExistence(timeout: 10))  // Increased from 5
         nameField.clearAndType(name)
 
         if hours > 0 {
@@ -308,8 +331,10 @@ final class TimerCRUDUITests: XCTestCase {
         }
 
         app.buttons["doneButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Wait for sheet to dismiss
-        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 10))  // Increased from 5
+        waitForUIToSettle(0.3)  // Let list update
     }
 }

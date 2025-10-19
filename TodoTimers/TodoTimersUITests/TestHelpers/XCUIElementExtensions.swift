@@ -44,6 +44,33 @@ extension XCUIElement {
             swipeUp()
         }
     }
+
+    /// Wait until element is hittable (exists AND can be interacted with)
+    /// - Parameter timeout: Maximum wait time in seconds
+    /// - Returns: true if element became hittable within timeout, false otherwise
+    @discardableResult
+    func waitUntilHittable(timeout: TimeInterval = 10) -> Bool {
+        let predicate = NSPredicate(format: "exists == true AND hittable == true")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: self)
+        return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed
+    }
+
+    /// Tap with retry logic for flaky UI
+    /// - Parameters:
+    ///   - maxAttempts: Maximum number of tap attempts
+    ///   - waitBetween: Time to wait between attempts
+    func tapWithRetry(maxAttempts: Int = 3, waitBetween: TimeInterval = 0.5) {
+        for attempt in 1...maxAttempts {
+            if waitUntilHittable(timeout: 5) {
+                tap()
+                return
+            }
+            if attempt < maxAttempts {
+                Thread.sleep(forTimeInterval: waitBetween)
+            }
+        }
+        XCTFail("Failed to tap element after \(maxAttempts) attempts")
+    }
 }
 
 /// Helper extensions for XCUIApplication
@@ -53,5 +80,15 @@ extension XCUIApplication {
         launchArguments.append("--uitesting")
         launchEnvironment["RESET_STATE"] = "1"
         launch()
+    }
+}
+
+/// Helper extensions for XCTestCase
+extension XCTestCase {
+    /// Wait for UI to settle after animations and state changes
+    /// - Parameter duration: Time to wait in seconds (default 1.0)
+    /// - Note: Use this after navigation, sheet dismissal, or state changes to allow SwiftUI to complete rendering
+    func waitForUIToSettle(_ duration: TimeInterval = 1.0) {
+        Thread.sleep(forTimeInterval: duration)
     }
 }

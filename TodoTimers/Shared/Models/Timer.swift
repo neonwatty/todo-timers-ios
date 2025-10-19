@@ -22,7 +22,7 @@ final class Timer {
 
     var notes: String?
 
-    // Computed Properties (not persisted)
+    // Computed Properties
     var hours: Int {
         durationInSeconds / 3600
     }
@@ -41,13 +41,12 @@ final class Timer {
         let s = seconds
 
         if h > 0 {
-            return String(format: "%02d:%02d:%02d", h, m, s)
+            return String(format: "%d:%02d:%02d", h, m, s)
         } else {
-            return String(format: "%02d:%02d", m, s)
+            return String(format: "%d:%02d", m, s)
         }
     }
 
-    // Initializer
     init(
         id: UUID = UUID(),
         name: String,
@@ -65,61 +64,18 @@ final class Timer {
         self.createdAt = Date()
         self.updatedAt = Date()
     }
-}
 
-// MARK: - Validation
-
-extension Timer {
+    // Validation
     var isValid: Bool {
-        !name.trimmingCharacters(in: .whitespaces).isEmpty &&
-        durationInSeconds > 0 &&
-        durationInSeconds <= 86400  // Max 24 hours
+        !name.trimmingCharacters(in: .whitespaces).isEmpty && durationInSeconds > 0
     }
 
     func validate() throws {
-        if name.trimmingCharacters(in: .whitespaces).isEmpty {
+        guard !name.trimmingCharacters(in: .whitespaces).isEmpty else {
             throw ValidationError.emptyName
         }
-        if durationInSeconds <= 0 {
+        guard durationInSeconds > 0 else {
             throw ValidationError.invalidDuration
         }
-        if durationInSeconds > 86400 {
-            throw ValidationError.durationTooLong
-        }
-    }
-}
-
-// MARK: - Sample Data
-
-extension Timer {
-    static var sampleData: [Timer] {
-        [
-            Timer(
-                name: "Workout",
-                durationInSeconds: 1500,  // 25 min
-                icon: "figure.run",
-                colorHex: "#FF3B30",
-                notes: "Remember to hydrate!"
-            ),
-            Timer(
-                name: "Study Session",
-                durationInSeconds: 2700,  // 45 min
-                icon: "book.fill",
-                colorHex: "#007AFF"
-            ),
-            Timer(
-                name: "Coffee Break",
-                durationInSeconds: 600,  // 10 min
-                icon: "cup.and.saucer.fill",
-                colorHex: "#8E8E93"
-            ),
-            Timer(
-                name: "Meditation",
-                durationInSeconds: 1200,  // 20 min
-                icon: "sparkles",
-                colorHex: "#5856D6",
-                notes: "Focus on breathing"
-            )
-        ]
     }
 }

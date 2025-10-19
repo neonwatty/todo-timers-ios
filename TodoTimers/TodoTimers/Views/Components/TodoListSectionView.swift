@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct TodoListSectionView: View {
+    @Environment(\.modelContext) private var modelContext
     @Bindable var timer: Timer
     let onAddTodo: () -> Void
 
@@ -39,12 +40,36 @@ struct TodoListSectionView: View {
                     TodoItemRow(todo: todo) {
                         editingTodo = todo
                     }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button(role: .destructive) {
+                            deleteTodo(todo)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                        .accessibilityIdentifier("Delete")
+                    }
                 }
             }
         }
         .padding()
         .background(Color(.secondarySystemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+
+    private func deleteTodo(_ todo: TodoItem) {
+        timer.todoItems.removeAll { $0.id == todo.id }
+        timer.updatedAt = Date()
+
+        modelContext.delete(todo)
+
+        do {
+            try modelContext.save()
+
+            // Sync to Watch
+            WatchConnectivityService.shared.sendTimerUpdate(timer, type: .updated)
+        } catch {
+            print("Failed to delete todo: \(error.localizedDescription)")
+        }
     }
 }
 

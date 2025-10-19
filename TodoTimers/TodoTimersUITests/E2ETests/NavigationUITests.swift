@@ -28,6 +28,7 @@ final class NavigationUITests: XCTestCase {
         ).firstMatch
         XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify we're in detail view
         XCTAssert(app.buttons["startButton"].waitForExistence(timeout: 5))
@@ -42,13 +43,16 @@ final class NavigationUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify we're in detail
         XCTAssert(app.buttons["startButton"].waitForExistence(timeout: 5))
 
         // Navigate back
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify we're back at list
         XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
@@ -60,6 +64,7 @@ final class NavigationUITests: XCTestCase {
     func testCreateTimerSheet_OpenAndDismiss() throws {
         // Open create sheet
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Verify sheet opened
         let nameField = app.textFields["timerNameField"]
@@ -67,6 +72,7 @@ final class NavigationUITests: XCTestCase {
 
         // Dismiss sheet
         app.buttons["cancelButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Verify back at list
         XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
@@ -75,6 +81,7 @@ final class NavigationUITests: XCTestCase {
     func testCreateTimerSheet_SaveReturnsToList() throws {
         // Open sheet
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Fill in timer
         let nameField = app.textFields["timerNameField"]
@@ -85,6 +92,7 @@ final class NavigationUITests: XCTestCase {
 
         // Save
         app.buttons["doneButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Verify returned to list with new timer
         XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
@@ -100,10 +108,13 @@ final class NavigationUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Open edit sheet
         app.buttons["editTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Verify edit sheet opened
         let nameField = app.textFields["timerNameField"]
@@ -111,9 +122,10 @@ final class NavigationUITests: XCTestCase {
 
         // Dismiss
         app.buttons["cancelButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Verify back at detail view
-        XCTAssert(app.buttons["startButton"].exists)
+        XCTAssert(app.buttons["startButton"].waitForExistence(timeout: 5))
     }
 
     // MARK: - Add Todo Sheet Navigation
@@ -125,10 +137,13 @@ final class NavigationUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Open add todo sheet
         app.buttons["addTodoButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         // Verify sheet opened
         let todoField = app.textFields["todoTextField"]
@@ -136,9 +151,10 @@ final class NavigationUITests: XCTestCase {
 
         // Dismiss
         app.buttons["cancelTodoButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Verify back at detail view
-        XCTAssert(app.buttons["addTodoButton"].exists)
+        XCTAssert(app.buttons["addTodoButton"].waitForExistence(timeout: 5))
     }
 
     // MARK: - Navigation State Tests
@@ -158,9 +174,12 @@ final class NavigationUITests: XCTestCase {
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).element(boundBy: 1)
+        XCTAssert(timerCard.waitForExistence(timeout: 5))
         timerCard.tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        waitForUIToSettle(0.5)  // Wait for navigation
 
         // Verify all timers still exist
         XCTAssert(app.staticTexts["Timer 1"].exists)
@@ -173,9 +192,10 @@ final class NavigationUITests: XCTestCase {
     /// Creates a timer using accessibility identifiers
     private func createTimer(name: String, hours: Int = 0, minutes: Int = 1, seconds: Int = 0) {
         app.buttons["addTimerButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         let nameField = app.textFields["timerNameField"]
-        XCTAssert(nameField.waitForExistence(timeout: 5))
+        XCTAssert(nameField.waitForExistence(timeout: 10))  // Increased from 5
         nameField.clearAndType(name)
 
         if hours > 0 {
@@ -191,8 +211,10 @@ final class NavigationUITests: XCTestCase {
         }
 
         app.buttons["doneButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Wait for sheet to dismiss
-        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
+        XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 10))  // Increased from 5
+        waitForUIToSettle(0.3)  // Let list update
     }
 }

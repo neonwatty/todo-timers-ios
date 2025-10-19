@@ -19,7 +19,7 @@ struct TimerListView: View {
                         LazyVStack(spacing: 12) {
                             ForEach(timers) { timer in
                                 NavigationLink(value: timer) {
-                                    TimerCardView(timer: timer, disableInteractions: true)
+                                    TimerCardView(timer: timer)
                                 }
                                 .buttonStyle(.plain)
                                 .accessibilityIdentifier("timerCard-\(timer.id)")

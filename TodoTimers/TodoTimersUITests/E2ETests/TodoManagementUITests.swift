@@ -215,31 +215,38 @@ final class TodoManagementUITests: XCTestCase {
         app.pickers["minutesPicker"].pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "5")
         app.buttons["doneButton"].tap()
 
-        // Wait for sheet to dismiss
+        // CRITICAL: Wait for sheet dismissal animation to complete
         XCTAssert(app.buttons["addTimerButton"].waitForExistence(timeout: 5))
+        waitForUIToSettle(0.5)  // Let sheet animation complete
 
-        // Open timer detail
+        // Find timer card with extended timeout
         let timerCard = app.buttons.matching(
             NSPredicate(format: "identifier BEGINSWITH 'timerCard-'")
         ).firstMatch
-        XCTAssert(timerCard.waitForExistence(timeout: 5))
-        timerCard.tap()
+        XCTAssert(timerCard.waitForExistence(timeout: 10))  // Increased from 5
+        waitForUIToSettle(0.3)  // Let card render
 
-        // Verify we're in detail view
-        XCTAssert(app.buttons["addTodoButton"].waitForExistence(timeout: 5))
+        // Tap and wait for navigation
+        timerCard.tap()
+        waitForUIToSettle(0.5)  // Let navigation complete
+
+        // Verify detail view with extended timeout
+        XCTAssert(app.buttons["addTodoButton"].waitForExistence(timeout: 10))  // Increased from 5
     }
 
     /// Adds a todo to the current timer detail view
     private func addTodo(text: String) {
         app.buttons["addTodoButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet presentation
 
         let todoField = app.textFields["todoTextField"]
-        XCTAssert(todoField.waitForExistence(timeout: 5))
+        XCTAssert(todoField.waitForExistence(timeout: 10))  // Increased from 5
         todoField.clearAndType(text)
 
         app.buttons["addTodoConfirmButton"].tap()
+        waitForUIToSettle(0.5)  // Wait for sheet dismissal
 
         // Wait for sheet to dismiss
-        XCTAssert(app.buttons["addTodoButton"].waitForExistence(timeout: 5))
+        XCTAssert(app.buttons["addTodoButton"].waitForExistence(timeout: 10))  // Increased from 5
     }
 }

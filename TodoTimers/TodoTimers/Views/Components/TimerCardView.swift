@@ -2,7 +2,6 @@ import SwiftUI
 
 struct TimerCardView: View {
     let timer: Timer
-    var disableInteractions: Bool = false
 
     // Get timer service from manager to access live countdown
     private var timerService: TimerService {
@@ -75,7 +74,7 @@ struct TimerCardView: View {
                     .background(Color(hex: timer.colorHex))
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
-                .buttonStyle(.plain)
+                .buttonStyle(BorderlessButtonStyle())
                 .accessibilityIdentifier(
                     timerService.isRunning ? "listPauseButton-\(timer.id)" :
                     (timerService.isPaused ? "listResumeButton-\(timer.id)" : "listStartButton-\(timer.id)")
@@ -93,10 +92,9 @@ struct TimerCardView: View {
                         .background(Color(hex: timer.colorHex).opacity(0.1))
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
-                .buttonStyle(.plain)
+                .buttonStyle(BorderlessButtonStyle())
                 .accessibilityIdentifier("listResetButton-\(timer.id)")
             }
-            .allowsHitTesting(!disableInteractions)
 
             Divider()
 

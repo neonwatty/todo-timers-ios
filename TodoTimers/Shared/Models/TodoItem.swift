@@ -18,7 +18,6 @@ final class TodoItem {
     // Relationships
     var timer: Timer?
 
-    // Initializer
     init(
         id: UUID = UUID(),
         text: String,
@@ -32,42 +31,15 @@ final class TodoItem {
         self.createdAt = Date()
         self.updatedAt = Date()
     }
-}
 
-// MARK: - Validation
-
-extension TodoItem {
+    // Validation
     var isValid: Bool {
         !text.trimmingCharacters(in: .whitespaces).isEmpty
     }
 
     func validate() throws {
-        if text.trimmingCharacters(in: .whitespaces).isEmpty {
+        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
             throw TodoValidationError.emptyText
-        }
-    }
-}
-
-// MARK: - Sample Data
-
-extension TodoItem {
-    static func sampleData(for timer: Timer) -> [TodoItem] {
-        switch timer.name {
-        case "Workout":
-            return [
-                TodoItem(text: "Warm up 5 minutes", sortOrder: 0),
-                TodoItem(text: "20 push-ups", sortOrder: 1),
-                TodoItem(text: "30 squats", sortOrder: 2),
-                TodoItem(text: "Plank 1 minute", sortOrder: 3),
-                TodoItem(text: "Cool down stretch", sortOrder: 4)
-            ]
-        case "Study Session":
-            return [
-                TodoItem(text: "Review chapter 3", sortOrder: 0),
-                TodoItem(text: "Complete practice problems", sortOrder: 1)
-            ]
-        default:
-            return []
         }
     }
 }
