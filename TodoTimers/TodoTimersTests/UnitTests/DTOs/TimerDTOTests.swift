@@ -152,4 +152,41 @@ struct TimerDTOTests {
 
         #expect(dto.notes == nil)
     }
+
+    // MARK: - Sort Order Tests
+
+    @Test("Init from Timer copies sortOrder")
+    @MainActor
+    func initFromTimer_CopiesSortOrder() {
+        let timer = TestDataFactory.makeTimer()
+        timer.sortOrder = 5
+
+        let dto = TimerDTO(from: timer)
+
+        #expect(dto.sortOrder == 5)
+    }
+
+    @Test("ToModel preserves sortOrder")
+    @MainActor
+    func toModel_PreservesSortOrder() {
+        let dto = TestDataFactory.makeTimerDTO(sortOrder: 10)
+
+        let timer = dto.toModel()
+
+        #expect(timer.sortOrder == 10)
+    }
+
+    @Test("Round trip encode/decode preserves sortOrder")
+    @MainActor
+    func roundTrip_EncodeDecode_PreservesSortOrder() throws {
+        let original = TestDataFactory.makeTimerDTO(sortOrder: 7)
+
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(original)
+
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerDTO.self, from: data)
+
+        #expect(decoded.sortOrder == original.sortOrder)
+    }
 }

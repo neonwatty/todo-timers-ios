@@ -3,7 +3,7 @@ import SwiftData
 
 struct WatchTimerListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Timer.createdAt, order: .reverse) private var timers: [Timer]
+    @Query(sort: [SortDescriptor(\Timer.sortOrder), SortDescriptor(\Timer.createdAt)]) private var timers: [Timer]
     @EnvironmentObject private var connectivityService: WatchConnectivityService
 
     @State private var showingCreateTimer = false

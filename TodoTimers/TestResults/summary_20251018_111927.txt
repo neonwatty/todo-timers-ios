@@ -1,0 +1,17 @@
+TodoTimers Test Summary - 2025-10-18 11:19:30
+========================================
+
+General UI Tests_20251018_111927.log
+
+Launch Tests_20251018_111927.log
+
+Navigation Tests_20251018_111927.log
+
+Timer CRUD Tests_20251018_111927.log
+
+Timer Controls Tests_20251018_111927.log
+
+Todo Management Tests_20251018_111927.log
+
+Unit Tests_20251018_111927.log
+

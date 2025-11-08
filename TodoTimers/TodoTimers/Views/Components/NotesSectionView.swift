@@ -35,6 +35,7 @@ struct NotesSectionView: View {
             durationInSeconds: 1500,
             icon: "figure.run",
             colorHex: "#FF3B30",
+            sortOrder: 0,
             notes: "Remember to hydrate and stretch before starting!"
         ))
 
@@ -42,7 +43,8 @@ struct NotesSectionView: View {
             name: "Study",
             durationInSeconds: 2700,
             icon: "book.fill",
-            colorHex: "#007AFF"
+            colorHex: "#007AFF",
+            sortOrder: 0
         ))
     }
     .padding()

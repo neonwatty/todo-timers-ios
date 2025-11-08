@@ -16,6 +16,7 @@ struct TestDataFactory {
         durationInSeconds: Int = 1500,
         icon: String = "timer",
         colorHex: String = "#007AFF",
+        sortOrder: Int = 0,
         notes: String? = nil
     ) -> TimerModel {
         TimerModel(
@@ -24,6 +25,7 @@ struct TestDataFactory {
             durationInSeconds: durationInSeconds,
             icon: icon,
             colorHex: colorHex,
+            sortOrder: sortOrder,
             notes: notes
         )
     }
@@ -116,6 +118,7 @@ struct TestDataFactory {
         durationInSeconds: Int = 1500,
         icon: String = "timer",
         colorHex: String = "#007AFF",
+        sortOrder: Int = 0,
         notes: String? = nil,
         createdAt: Date = Date(),
         updatedAt: Date = Date(),
@@ -127,6 +130,7 @@ struct TestDataFactory {
             durationInSeconds: durationInSeconds,
             icon: icon,
             colorHex: colorHex,
+            sortOrder: sortOrder,
             notes: notes,
             createdAt: createdAt,
             updatedAt: updatedAt,

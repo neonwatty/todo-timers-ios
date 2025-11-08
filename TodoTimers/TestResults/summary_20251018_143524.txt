@@ -1,0 +1,38 @@
+TodoTimers Test Summary - 2025-10-18 14:45:57
+========================================
+
+General UI Tests_20251018_143524.log
+	 Executed 2 tests, with 0 failures (0 unexpected) in 24.844 (24.848) seconds
+Test Suite 'Selected tests' passed at 2025-10-18 14:36:37.882.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 24.844 (24.850) seconds
+
+Launch Tests_20251018_143524.log
+	 Executed 4 tests, with 0 failures (0 unexpected) in 18.004 (18.007) seconds
+Test Suite 'Selected tests' passed at 2025-10-18 14:36:07.807.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 18.004 (18.008) seconds
+
+Navigation Tests_20251018_143524.log
+	 Executed 7 tests, with 5 failures (0 unexpected) in 98.380 (98.387) seconds
+Test Suite 'Selected tests' failed at 2025-10-18 14:38:21.873.
+	 Executed 7 tests, with 5 failures (0 unexpected) in 98.380 (98.388) seconds
+
+Timer CRUD Tests_20251018_143524.log
+	 Executed 8 tests, with 3 failures (0 unexpected) in 87.411 (87.419) seconds
+Test Suite 'Selected tests' failed at 2025-10-18 14:39:55.923.
+	 Executed 8 tests, with 3 failures (0 unexpected) in 87.411 (87.420) seconds
+
+Timer Controls Tests_20251018_143524.log
+	 Executed 14 tests, with 10 failures (0 unexpected) in 217.266 (217.276) seconds
+Test Suite 'Selected tests' failed at 2025-10-18 14:43:39.468.
+	 Executed 14 tests, with 10 failures (0 unexpected) in 217.266 (217.277) seconds
+
+Todo Management Tests_20251018_143524.log
+	 Executed 8 tests, with 8 failures (0 unexpected) in 130.466 (130.473) seconds
+Test Suite 'Selected tests' failed at 2025-10-18 14:45:56.569.
+	 Executed 8 tests, with 8 failures (0 unexpected) in 130.466 (130.474) seconds
+
+Unit Tests_20251018_143524.log
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'Selected tests' passed at 2025-10-18 14:35:41.732.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+

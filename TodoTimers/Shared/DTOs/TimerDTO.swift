@@ -6,6 +6,7 @@ struct TimerDTO: Codable {
     let durationInSeconds: Int
     let icon: String
     let colorHex: String
+    let sortOrder: Int
     let notes: String?
     let createdAt: Date
     let updatedAt: Date
@@ -18,6 +19,7 @@ struct TimerDTO: Codable {
         durationInSeconds: Int,
         icon: String,
         colorHex: String,
+        sortOrder: Int,
         notes: String?,
         createdAt: Date,
         updatedAt: Date,
@@ -28,6 +30,7 @@ struct TimerDTO: Codable {
         self.durationInSeconds = durationInSeconds
         self.icon = icon
         self.colorHex = colorHex
+        self.sortOrder = sortOrder
         self.notes = notes
         self.createdAt = createdAt
         self.updatedAt = updatedAt
@@ -41,6 +44,7 @@ struct TimerDTO: Codable {
         self.durationInSeconds = timer.durationInSeconds
         self.icon = timer.icon
         self.colorHex = timer.colorHex
+        self.sortOrder = timer.sortOrder
         self.notes = timer.notes
         self.createdAt = timer.createdAt
         self.updatedAt = timer.updatedAt
@@ -55,6 +59,7 @@ struct TimerDTO: Codable {
             durationInSeconds: durationInSeconds,
             icon: icon,
             colorHex: colorHex,
+            sortOrder: sortOrder,
             notes: notes
         )
         timer.createdAt = createdAt

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1600"
-   version = "1.7">
+   version = "1.8">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBCAE51B2EA058EB000F9C80"
+               BlueprintIdentifier = "CBCAE5182EA058EB000F9C80"
                BuildableName = "TodoTimers.app"
                BlueprintName = "TodoTimers"
                ReferencedContainer = "container:TodoTimers.xcodeproj">
@@ -37,7 +37,7 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBCAE5292EA058EC000F9C80"
+               BlueprintIdentifier = "CBCAE5252EA058EC000F9C80"
                BuildableName = "TodoTimersTests.xctest"
                BlueprintName = "TodoTimersTests"
                ReferencedContainer = "container:TodoTimers.xcodeproj">
@@ -45,11 +45,10 @@
          </TestableReference>
          <TestableReference
             skipped = "NO"
-            parallelizable = "NO"
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBCAE5332EA058EC000F9C80"
+               BlueprintIdentifier = "CBCAE52F2EA058EC000F9C80"
                BuildableName = "TodoTimersUITests.xctest"
                BlueprintName = "TodoTimersUITests"
                ReferencedContainer = "container:TodoTimers.xcodeproj">
@@ -71,7 +70,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBCAE51B2EA058EB000F9C80"
+            BlueprintIdentifier = "CBCAE5182EA058EB000F9C80"
             BuildableName = "TodoTimers.app"
             BlueprintName = "TodoTimers"
             ReferencedContainer = "container:TodoTimers.xcodeproj">
@@ -88,7 +87,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBCAE51B2EA058EB000F9C80"
+            BlueprintIdentifier = "CBCAE5182EA058EB000F9C80"
             BuildableName = "TodoTimers.app"
             BlueprintName = "TodoTimers"
             ReferencedContainer = "container:TodoTimers.xcodeproj">

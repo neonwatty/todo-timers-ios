@@ -1,0 +1,164 @@
+[0;34m========================================[0m
+[0;34mTodoTimers Complete Test Suite[0m
+[0;34m========================================[0m
+Started: 2025-11-08 04:57:36
+
+[1;33mCleaning up existing test processes...[0m
+[0;34m========================================[0m
+[0;34mPHASE 1: UNIT TESTS[0m
+[0;34m========================================[0m
+
+[0;34m----------------------------------------[0m
+[0;34mRunning: Unit Tests[0m
+[0;34m----------------------------------------[0m
+Log file: TestResults/Unit Tests_20251108_045736.log
+
+
+[0;31m✗ Unit Tests FAILED[0m
+
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:105:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:134:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:135:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:138:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:211:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:212:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:215:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:256:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:257:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:258:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+
+[0;34m========================================[0m
+[0;34mPHASE 2: UI TESTS[0m
+[0;34m========================================[0m
+
+[1;33mNote: Running UI tests sequentially to avoid conflicts[0m
+
+[0;34m----------------------------------------[0m
+[0;34mRunning: Launch Tests[0m
+[0;34m----------------------------------------[0m
+Log file: TestResults/Launch Tests_20251108_045736.log
+
+
+[0;31m✗ Launch Tests FAILED[0m
+
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:105:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:134:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:135:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:138:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:211:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:212:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:215:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:256:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:257:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:258:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+
+[0;34m----------------------------------------[0m
+[0;34mRunning: General UI Tests[0m
+[0;34m----------------------------------------[0m
+Log file: TestResults/General UI Tests_20251108_045736.log
+
+
+[0;31m✗ General UI Tests FAILED[0m
+
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:105:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:134:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:135:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:138:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:211:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:212:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:215:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:256:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:257:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:258:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+
+[0;34m----------------------------------------[0m
+[0;34mRunning: Navigation Tests[0m
+[0;34m----------------------------------------[0m
+Log file: TestResults/Navigation Tests_20251108_045736.log
+
+
+[0;31m✗ Navigation Tests FAILED[0m
+
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:105:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:134:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:135:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:138:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:211:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:212:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:215:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:256:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:257:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:258:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+
+[0;34m----------------------------------------[0m
+[0;34mRunning: Timer CRUD Tests[0m
+[0;34m----------------------------------------[0m
+Log file: TestResults/Timer CRUD Tests_20251108_045736.log
+
+
+[0;31m✗ Timer CRUD Tests FAILED[0m
+
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:105:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:134:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:135:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:138:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:211:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:212:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:215:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:256:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:257:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:258:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+
+[0;34m----------------------------------------[0m
+[0;34mRunning: Timer Controls Tests[0m
+[0;34m----------------------------------------[0m
+Log file: TestResults/Timer Controls Tests_20251108_045736.log
+
+
+[0;31m✗ Timer Controls Tests FAILED[0m
+
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:105:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:134:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:135:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:138:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:211:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:212:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:215:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:256:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:257:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:258:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+
+[0;34m----------------------------------------[0m
+[0;34mRunning: Todo Management Tests[0m
+[0;34m----------------------------------------[0m
+Log file: TestResults/Todo Management Tests_20251108_045736.log
+
+
+[0;31m✗ Todo Management Tests FAILED[0m
+
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:105:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:134:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:135:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:138:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:211:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:212:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:215:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:256:42: error: 'Timer' is ambiguous for type lookup in this context
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:257:42: error: generic parameter 'T' could not be inferred
+/Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimersTests/UnitTests/Views/TimerCreationLogicTests.swift:258:47: error: cannot infer key path type from context; consider explicitly specifying a root type
+
+[1;33mCleaning up...[0m
+
+[0;34m========================================[0m
+[0;34mTEST SUITE COMPLETE[0m
+[0;34m========================================[0m
+Finished: 2025-11-08 04:58:11
+Duration: 0m 31s
+
+[1;33mResults saved to: TestResults/[0m
+
+[0;32mSummary report: TestResults/summary_20251108_045736.txt[0m
+
+[0;34mTo view individual test logs:[0m
+  ls -lh TestResults/*_20251108_045736.log
+

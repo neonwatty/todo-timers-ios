@@ -91,6 +91,7 @@ struct TimerDetailView: View {
         durationInSeconds: 1500,
         icon: "figure.run",
         colorHex: "#FF3B30",
+        sortOrder: 0,
         notes: "Remember to hydrate!"
     )
 

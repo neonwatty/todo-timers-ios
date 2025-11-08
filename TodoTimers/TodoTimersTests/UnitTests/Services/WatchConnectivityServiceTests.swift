@@ -266,6 +266,194 @@ struct WatchConnectivityServiceTests {
         let reachable = service.isReachable
         #expect(reachable == true || reachable == false)
     }
+
+    // MARK: - SortOrder Sync Tests
+
+    @Test("TimerDTO encoding includes sortOrder field")
+    func timerDTO_Encoding_IncludesSortOrder() throws {
+        let timer = TestDataFactory.makeTimer(name: "Test Timer", sortOrder: 5)
+        let dto = TimerDTO(from: timer)
+
+        // Encode to JSON
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(dto)
+
+        // Decode back to verify sortOrder preserved
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerDTO.self, from: data)
+
+        #expect(decoded.sortOrder == 5)
+        #expect(decoded.id == timer.id)
+        #expect(decoded.name == timer.name)
+    }
+
+    @Test("TimerSyncPayload with multiple timers preserves all sortOrder values")
+    func timerSyncPayload_MultipleTimers_PreservesAllSortOrder() throws {
+        // Create timers with specific sortOrder values
+        let timer1 = TestDataFactory.makeTimer(name: "Timer A", sortOrder: 0)
+        let timer2 = TestDataFactory.makeTimer(name: "Timer B", sortOrder: 2)
+        let timer3 = TestDataFactory.makeTimer(name: "Timer C", sortOrder: 5)
+
+        let dtos = [
+            TimerDTO(from: timer1),
+            TimerDTO(from: timer2),
+            TimerDTO(from: timer3)
+        ]
+
+        let payload = TimerSyncPayload(timers: dtos, syncTimestamp: Date())
+
+        // Encode and decode payload
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(payload)
+
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerSyncPayload.self, from: data)
+
+        // Verify all sortOrder values preserved
+        #expect(decoded.timers.count == 3)
+        #expect(decoded.timers[0].sortOrder == 0)
+        #expect(decoded.timers[1].sortOrder == 2)
+        #expect(decoded.timers[2].sortOrder == 5)
+    }
+
+    @Test("TimerUpdateMessage with updated type includes sortOrder")
+    func timerUpdateMessage_Updated_IncludesSortOrder() throws {
+        let timer = TestDataFactory.makeTimer(name: "Reordered Timer", sortOrder: 10)
+        let dto = TimerDTO(from: timer)
+
+        let message = TimerUpdateMessage(
+            type: .updated,
+            timer: dto,
+            timerID: timer.id
+        )
+
+        // Encode and decode
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(message)
+
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerUpdateMessage.self, from: data)
+
+        // Verify sortOrder included in update message
+        #expect(decoded.timer?.sortOrder == 10)
+        #expect(decoded.type == .updated)
+    }
+
+    @Test("Full sync payload maintains sortOrder sequence after reordering")
+    func fullSyncPayload_AfterReordering_MaintainsSortOrderSequence() throws {
+        let container = try TestModelContainer.create()
+        let context = container.mainContext
+
+        // Create timers in initial order
+        let timer1 = TestDataFactory.makeTimer(name: "Timer 1", sortOrder: 0)
+        let timer2 = TestDataFactory.makeTimer(name: "Timer 2", sortOrder: 1)
+        let timer3 = TestDataFactory.makeTimer(name: "Timer 3", sortOrder: 2)
+
+        context.insert(timer1)
+        context.insert(timer2)
+        context.insert(timer3)
+        try context.save()
+
+        // Reorder timers (simulate user dragging)
+        timer1.sortOrder = 2  // Move to end
+        timer2.sortOrder = 0  // Move to start
+        timer3.sortOrder = 1  // Move to middle
+        try context.save()
+
+        // Create DTOs (simulating what sendFullSync does)
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(
+            sortBy: [SortDescriptor<TodoTimers.Timer>(\.sortOrder), SortDescriptor<TodoTimers.Timer>(\.createdAt)]
+        )
+        let fetchedTimers = try context.fetch(descriptor)
+        let dtos = fetchedTimers.map { TimerDTO(from: $0) }
+
+        // Verify DTOs preserve reordered sortOrder
+        #expect(dtos.count == 3)
+        #expect(dtos[0].name == "Timer 2")
+        #expect(dtos[0].sortOrder == 0)
+        #expect(dtos[1].name == "Timer 3")
+        #expect(dtos[1].sortOrder == 1)
+        #expect(dtos[2].name == "Timer 1")
+        #expect(dtos[2].sortOrder == 2)
+
+        // Create and encode sync payload
+        let payload = TimerSyncPayload(timers: dtos, syncTimestamp: Date())
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(payload)
+
+        // Decode and verify sortOrder intact
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerSyncPayload.self, from: data)
+
+        #expect(decoded.timers[0].sortOrder == 0)
+        #expect(decoded.timers[1].sortOrder == 1)
+        #expect(decoded.timers[2].sortOrder == 2)
+    }
+
+    @Test("Timer created message includes default sortOrder")
+    func timerCreatedMessage_NewTimer_IncludesDefaultSortOrder() throws {
+        // Simulate creating a new timer with sortOrder calculated
+        let timer = TestDataFactory.makeTimer(name: "New Timer", sortOrder: 3)
+        let dto = TimerDTO(from: timer)
+
+        let message = TimerUpdateMessage(
+            type: .created,
+            timer: dto,
+            timerID: timer.id
+        )
+
+        // Encode and decode
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(message)
+
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerUpdateMessage.self, from: data)
+
+        // Verify sortOrder transmitted with creation message
+        #expect(decoded.timer?.sortOrder == 3)
+        #expect(decoded.type == .created)
+    }
+
+    @Test("Empty timer list sync payload encodes correctly")
+    func emptyTimerList_SyncPayload_EncodesCorrectly() throws {
+        let payload = TimerSyncPayload(timers: [], syncTimestamp: Date())
+
+        // Encode empty payload
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(payload)
+
+        // Decode
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerSyncPayload.self, from: data)
+
+        #expect(decoded.timers.isEmpty)
+    }
+
+    @Test("Timer with todos preserves both timer sortOrder and todo sortOrder")
+    func timerWithTodos_PreservesBothSortOrders() throws {
+        let timer = TestDataFactory.makeTimer(name: "Timer", sortOrder: 5)
+        let todo1 = TestDataFactory.makeTodoItem(text: "Todo 1", sortOrder: 0)
+        let todo2 = TestDataFactory.makeTodoItem(text: "Todo 2", sortOrder: 1)
+
+        timer.todoItems = [todo1, todo2]
+
+        let dto = TimerDTO(from: timer)
+
+        // Encode and decode
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(dto)
+
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(TimerDTO.self, from: data)
+
+        // Verify timer sortOrder preserved
+        #expect(decoded.sortOrder == 5)
+
+        // Verify todo sortOrder values preserved
+        #expect(decoded.todoItems.count == 2)
+        #expect(decoded.todoItems[0].sortOrder == 0)
+        #expect(decoded.todoItems[1].sortOrder == 1)
+    }
 }
 
 // MARK: - Test Documentation

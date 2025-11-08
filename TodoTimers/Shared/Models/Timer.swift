@@ -11,6 +11,7 @@ final class Timer {
     var durationInSeconds: Int  // Total duration
     var icon: String            // SF Symbol name
     var colorHex: String        // Hex color code for UI
+    var sortOrder: Int          // For custom ordering
 
     // Metadata
     var createdAt: Date
@@ -53,6 +54,7 @@ final class Timer {
         durationInSeconds: Int,
         icon: String = "timer",
         colorHex: String = "#007AFF",
+        sortOrder: Int = 0,
         notes: String? = nil
     ) {
         self.id = id
@@ -60,6 +62,7 @@ final class Timer {
         self.durationInSeconds = durationInSeconds
         self.icon = icon
         self.colorHex = colorHex
+        self.sortOrder = sortOrder
         self.notes = notes
         self.createdAt = Date()
         self.updatedAt = Date()

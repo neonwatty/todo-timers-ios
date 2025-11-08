@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct CreateTimerView: View {
     @Environment(\.modelContext) private var modelContext
@@ -136,11 +137,18 @@ struct CreateTimerView: View {
             return
         }
 
+        // Fetch existing timers to calculate next sortOrder
+        let descriptor = FetchDescriptor<Timer>()
+        let existingTimers = (try? modelContext.fetch(descriptor)) ?? []
+        let maxSortOrder = existingTimers.map(\.sortOrder).max() ?? -1
+        let nextSortOrder = maxSortOrder + 1
+
         let timer = Timer(
             name: name,
             durationInSeconds: durationInSeconds,
             icon: selectedIcon,
-            colorHex: selectedColor
+            colorHex: selectedColor,
+            sortOrder: nextSortOrder
         )
 
         modelContext.insert(timer)

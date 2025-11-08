@@ -208,4 +208,42 @@ struct TimerTests {
 
         #expect(timer.formattedDuration == "24:00:00")
     }
+
+    // MARK: - Sort Order Tests
+
+    @Test("Timer initialization with default sortOrder")
+    func timerInitialization_DefaultSortOrder() {
+        let timer = Timer(
+            name: "Test Timer",
+            durationInSeconds: 1500
+        )
+
+        #expect(timer.sortOrder == 0)
+    }
+
+    @Test("Timer initialization with custom sortOrder")
+    func timerInitialization_CustomSortOrder() {
+        let timer = Timer(
+            name: "Test Timer",
+            durationInSeconds: 1500,
+            sortOrder: 5
+        )
+
+        #expect(timer.sortOrder == 5)
+    }
+
+    @Test("SortOrder can be updated")
+    func sortOrder_CanBeUpdated() {
+        let timer = Timer(
+            name: "Test Timer",
+            durationInSeconds: 1500,
+            sortOrder: 0
+        )
+
+        timer.sortOrder = 10
+        #expect(timer.sortOrder == 10)
+
+        timer.sortOrder = 3
+        #expect(timer.sortOrder == 3)
+    }
 }

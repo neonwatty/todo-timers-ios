@@ -271,4 +271,150 @@ struct SwiftDataIntegrationTests {
         #expect(sorted[1].text == "Second")
         #expect(sorted[2].text == "Third")
     }
+
+    // MARK: - Timer Sorting Tests
+
+    @Test("Fetch timers sorted by sortOrder")
+    func fetchTimersSorted_BySortOrder_Success() throws {
+        let container = try TestModelContainer.create()
+        let context = container.mainContext
+
+        // Create timers with explicit sortOrder values (out of order)
+        let timer1 = TestDataFactory.makeTimer(name: "Third Timer", sortOrder: 2)
+        let timer2 = TestDataFactory.makeTimer(name: "First Timer", sortOrder: 0)
+        let timer3 = TestDataFactory.makeTimer(name: "Second Timer", sortOrder: 1)
+
+        // Insert in random order
+        context.insert(timer1)
+        context.insert(timer2)
+        context.insert(timer3)
+        try context.save()
+
+        // Fetch with sortOrder sorting
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(
+            sortBy: [SortDescriptor(\.sortOrder, order: .forward)]
+        )
+        let fetched = try context.fetch(descriptor)
+
+        // Verify sorted by sortOrder
+        #expect(fetched.count == 3)
+        #expect(fetched[0].name == "First Timer")
+        #expect(fetched[0].sortOrder == 0)
+        #expect(fetched[1].name == "Second Timer")
+        #expect(fetched[1].sortOrder == 1)
+        #expect(fetched[2].name == "Third Timer")
+        #expect(fetched[2].sortOrder == 2)
+    }
+
+    @Test("Fetch timers sorted by sortOrder then createdAt (matches TimerListView)")
+    func fetchTimersSorted_BySortOrderThenCreatedAt_Success() throws {
+        let container = try TestModelContainer.create()
+        let context = container.mainContext
+
+        // Create timers with same sortOrder but different createdAt
+        let timer1 = TestDataFactory.makeTimer(name: "Timer A", sortOrder: 0)
+        Thread.sleep(forTimeInterval: 0.01) // Ensure different createdAt
+        let timer2 = TestDataFactory.makeTimer(name: "Timer B", sortOrder: 0)
+        Thread.sleep(forTimeInterval: 0.01)
+        let timer3 = TestDataFactory.makeTimer(name: "Timer C", sortOrder: 1)
+
+        context.insert(timer1)
+        context.insert(timer2)
+        context.insert(timer3)
+        try context.save()
+
+        // This mirrors the exact query used in TimerListView
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(
+            sortBy: [
+                SortDescriptor(\.sortOrder, order: .forward),
+                SortDescriptor(\.createdAt, order: .forward)
+            ]
+        )
+        let fetched = try context.fetch(descriptor)
+
+        // Verify primary sort by sortOrder
+        #expect(fetched.count == 3)
+        #expect(fetched[0].sortOrder == 0)
+        #expect(fetched[1].sortOrder == 0)
+        #expect(fetched[2].sortOrder == 1)
+
+        // Verify secondary sort by createdAt for same sortOrder
+        #expect(fetched[0].name == "Timer A") // Earlier createdAt
+        #expect(fetched[1].name == "Timer B") // Later createdAt
+        #expect(fetched[0].createdAt <= fetched[1].createdAt)
+    }
+
+    @Test("Update timer sortOrder and re-fetch maintains new order")
+    func updateTimerSortOrder_RefetchMaintainsNewOrder() throws {
+        let container = try TestModelContainer.create()
+        let context = container.mainContext
+
+        // Create timers in initial order
+        let timer1 = TestDataFactory.makeTimer(name: "Timer 1", sortOrder: 0)
+        let timer2 = TestDataFactory.makeTimer(name: "Timer 2", sortOrder: 1)
+        let timer3 = TestDataFactory.makeTimer(name: "Timer 3", sortOrder: 2)
+
+        context.insert(timer1)
+        context.insert(timer2)
+        context.insert(timer3)
+        try context.save()
+
+        // Reorder: move timer3 to first position
+        timer1.sortOrder = 1
+        timer2.sortOrder = 2
+        timer3.sortOrder = 0
+        timer3.updatedAt = Date() // Update timestamp like real implementation
+        try context.save()
+
+        // Fetch with sortOrder sorting
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(
+            sortBy: [SortDescriptor(\.sortOrder, order: .forward)]
+        )
+        let fetched = try context.fetch(descriptor)
+
+        // Verify new order persisted
+        #expect(fetched.count == 3)
+        #expect(fetched[0].name == "Timer 3")
+        #expect(fetched[0].sortOrder == 0)
+        #expect(fetched[1].name == "Timer 1")
+        #expect(fetched[1].sortOrder == 1)
+        #expect(fetched[2].name == "Timer 2")
+        #expect(fetched[2].sortOrder == 2)
+    }
+
+    @Test("Batch reorder multiple timers persists correctly")
+    func batchReorderTimers_PersistsCorrectly() throws {
+        let container = try TestModelContainer.create()
+        let context = container.mainContext
+
+        // Create 5 timers
+        let timers = (0..<5).map { i in
+            TestDataFactory.makeTimer(name: "Timer \(i)", sortOrder: i)
+        }
+
+        for timer in timers {
+            context.insert(timer)
+        }
+        try context.save()
+
+        // Reverse the order (simulate drag from bottom to top)
+        for (index, timer) in timers.enumerated() {
+            timer.sortOrder = 4 - index
+            timer.updatedAt = Date()
+        }
+        try context.save()
+
+        // Fetch and verify reversed order
+        let descriptor = FetchDescriptor<TodoTimers.Timer>(
+            sortBy: [SortDescriptor(\.sortOrder, order: .forward)]
+        )
+        let fetched = try context.fetch(descriptor)
+
+        #expect(fetched.count == 5)
+        #expect(fetched[0].name == "Timer 4")
+        #expect(fetched[1].name == "Timer 3")
+        #expect(fetched[2].name == "Timer 2")
+        #expect(fetched[3].name == "Timer 1")
+        #expect(fetched[4].name == "Timer 0")
+    }
 }

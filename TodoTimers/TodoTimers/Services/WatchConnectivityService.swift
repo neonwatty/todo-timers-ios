@@ -38,7 +38,7 @@ final class WatchConnectivityService: NSObject, ObservableObject {
         guard let modelContext = modelContext else { return }
 
         do {
-            let descriptor = FetchDescriptor<Timer>(sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
+            let descriptor = FetchDescriptor<Timer>(sortBy: [SortDescriptor(\.sortOrder), SortDescriptor(\.createdAt)])
             let timers = try modelContext.fetch(descriptor)
 
             let timerDTOs = timers.map { TimerDTO(from: $0) }

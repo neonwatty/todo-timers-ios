@@ -1,0 +1,1068 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project TodoTimers.xcodeproj -scheme TodoTimers -destination "platform=iOS Simulator,name=iPhone 16" "-only-testing:TodoTimersTests" -parallel-testing-enabled NO
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS Simulator, arch:arm64, id:002673DD-F669-4F62-A9BB-B5009A96E818, OS:18.6, name:iPhone 16 }
+{ platform:iOS Simulator, arch:x86_64, id:002673DD-F669-4F62-A9BB-B5009A96E818, OS:18.6, name:iPhone 16 }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (4 targets)
+    Target 'TodoTimersUITests' in project 'TodoTimers'
+        ➜ Explicit dependency on target 'TodoTimers' in project 'TodoTimers'
+    Target 'TodoTimersTests' in project 'TodoTimers'
+        ➜ Explicit dependency on target 'TodoTimers' in project 'TodoTimers'
+    Target 'TodoTimers' in project 'TodoTimers'
+        ➜ Explicit dependency on target 'TodoTimers Watch App Watch App' in project 'TodoTimers'
+    Target 'TodoTimers Watch App Watch App' in project 'TodoTimers' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers Watch App Watch App/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+Build description signature: 6db3abeedeeb52e38df6d6be7f6a8b50
+Build description path: /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/XCBuildData/6db3abeedeeb52e38df6d6be7f6a8b50.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/watchsimulator11.5-22T572-f072d36b9981b6dc55608c571d18f8ef.sdkstatcache
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/watchsimulator11.5-22T572-f072d36b9981b6dc55608c571d18f8ef.sdkstatcache
+
+ProcessProductPackaging /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers\ Watch\ App\ Watch\ App/TodoTimers\ Watch\ App\ Watch\ App.entitlements /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app.xcent (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Entitlements:
+    
+    {
+}
+    
+    builtin-productPackagingUtility /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers\ Watch\ App\ Watch\ App/TodoTimers\ Watch\ App\ Watch\ App.entitlements -entitlements -format xml -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app.xcent
+
+ProcessProductPackaging /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers\ Watch\ App\ Watch\ App/TodoTimers\ Watch\ App\ Watch\ App.entitlements /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "4ZMCUYS3AQ.neonwatty.TodoTimers.watchkitapp";
+    "com.apple.security.application-groups" =     (
+        "group.neonatty.TodoTimers"
+    );
+}
+    
+    builtin-productPackagingUtility /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers\ Watch\ App\ Watch\ App/TodoTimers\ Watch\ App\ Watch\ App.entitlements -entitlements -format xml -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftConstValuesFileList (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftFileList (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.LinkFileList (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.LinkFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftFileList (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftConstValuesFileList (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.LinkFileList (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.LinkFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftFileList (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftConstValuesFileList (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.LinkFileList (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    write-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.LinkFileList
+
+ProcessProductPackagingDER /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app.xcent /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app.xcent.der (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /usr/bin/derq query -f xml -i /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app.xcent -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app.xcent.der --raw
+
+ProcessProductPackagingDER /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent.der (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /usr/bin/derq query -f xml -i /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent.der --raw
+
+ProcessInfoPlistFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/Info.plist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/empty-TodoTimers\ Watch\ App\ Watch\ App.plist (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-infoPlistUtility /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/empty-TodoTimers\ Watch\ App\ Watch\ App.plist -producttype com.apple.product-type.application -genpkginfo /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/PkgInfo -expandbuildsettings -format binary -platform watchsimulator -additionalcontentfile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/assetcatalog_generated_info.plist -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/Info.plist
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib normal x86_64 (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-watchos10.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-watchsimulator -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-watchsimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -filelist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/TodoTimers\ Watch\ App\ Watch\ App.LinkFileList -install_name @rpath/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/TodoTimers\ Watch\ App\ Watch\ App_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/TodoTimers\ Watch\ App\ Watch\ App_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/watchsimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/TodoTimers_Watch_App_Watch_App.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib normal arm64 (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-watchos10.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-watchsimulator -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-watchsimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -filelist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/TodoTimers\ Watch\ App\ Watch\ App.LinkFileList -install_name @rpath/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/TodoTimers\ Watch\ App\ Watch\ App_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/TodoTimers\ Watch\ App\ Watch\ App_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/watchsimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/TodoTimers_Watch_App_Watch_App.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib
+
+ProcessProductPackaging /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers/TodoTimers.entitlements /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app.xcent (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Entitlements:
+    
+    {
+}
+    
+    builtin-productPackagingUtility /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers/TodoTimers.entitlements -entitlements -format xml -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app.xcent
+
+ProcessProductPackaging /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers/TodoTimers.entitlements /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "4ZMCUYS3AQ.neonwatty.TodoTimers";
+    "com.apple.security.application-groups" =     (
+        "group.neonatty.TodoTimers"
+    );
+}
+    
+    builtin-productPackagingUtility /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers/TodoTimers.entitlements -entitlements -format xml -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent
+
+ProcessProductPackagingDER /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app.xcent /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app.xcent.der (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /usr/bin/derq query -f xml -i /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app.xcent -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app.xcent.der --raw
+
+ProcessProductPackagingDER /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent.der (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /usr/bin/derq query -f xml -i /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent.der --raw
+
+SwiftDriver TodoTimers normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimers -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation\ Requirements TodoTimers normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimers -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation TodoTimers normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimers -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+ProcessProductPackaging "" /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "4ZMCUYS3AQ.neonwatty.TodoTimersUITests.xctrunner";
+    "keychain-access-groups" =     (
+        "4ZMCUYS3AQ.neonwatty.TodoTimersUITests.xctrunner"
+    );
+}
+    
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent
+
+SwiftDriver TodoTimersTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimersTests -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -I /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+ProcessProductPackagingDER /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent.der (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /usr/bin/derq query -f xml -i /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent.der --raw
+
+SwiftDriver TodoTimersUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimersUITests -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -I /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation\ Requirements TodoTimersUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimersUITests -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -I /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation TodoTimersUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimersUITests -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -I /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation\ Requirements TodoTimersTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimersTests -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -I /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation TodoTimersTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TodoTimersTests -Onone -enforce-exclusivity\=checked @/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Index.noindex/DataStore -swift-version 5 -I /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -I /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-d5fc8ad4295d2ef488fb7d0f804ce0c4.sdkstatcache -output-file-map /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-generated-files.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-own-target-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests-project-headers.hmap -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources/arm64 -Xcc -I/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests-Swift.h -working-directory /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers -experimental-emit-module-separately -disable-cmo
+
+ConstructStubExecutorLinkFileList /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-ExecutorLinkFileList-normal-x86_64.txt (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    construct-stub-executor-link-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-ExecutorLinkFileList-normal-x86_64.txt
+note: Using stub executor library with Swift entry point. (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+
+CreateUniversalBinary /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib normal arm64\ x86_64 (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib -output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-ExecutorLinkFileList-normal-arm64.txt (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    construct-stub-executor-link-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App normal x86_64 (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-watchos10.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-DebugDylibPath-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-DebugDylibInstallName-normal-x86_64.txt -Xlinker -filelist -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-ExecutorLinkFileList-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent.der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App normal arm64 (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-watchos10.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app-Simulated.xcent.der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App
+
+CreateUniversalBinary /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App normal arm64\ x86_64 (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/Binary/TodoTimers\ Watch\ App\ Watch\ App /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/Binary/TodoTimers\ Watch\ App\ Watch\ App -output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App
+
+CopySwiftLibs /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/Frameworks --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/PlugIns --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/SystemExtensions --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/Extensions --platform watchsimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name TodoTimers_Watch_App_Watch_App --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator11.5.sdk --xcode-version 16F6 --platform-family watchOS --deployment-target 10.0 --bundle-identifier neonwatty.TodoTimers.watchkitapp --output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app --target-triple arm64-apple-watchos10.0-simulator --target-triple x86_64-apple-watchos10.0-simulator --binary-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App --dependency-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/TodoTimers\ Watch\ App\ Watch\ App_dependency_info.dat --dependency-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/TodoTimers\ Watch\ App\ Watch\ App_dependency_info.dat --stringsdata-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/TodoTimers\ Watch\ App\ Watch\ App.SwiftFileList --source-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/TodoTimers\ Watch\ App\ Watch\ App.SwiftFileList --metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.DependencyMetadataFileList --static-metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.DependencyStaticMetadataFileList --swift-const-vals-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/arm64/TodoTimers\ Watch\ App\ Watch\ App.SwiftConstValuesFileList --swift-const-vals-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/Objects-normal/x86_64/TodoTimers\ Watch\ App\ Watch\ App.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-10-18 11:35:48.480 appintentsmetadataprocessor[93997:16089521] Starting appintentsmetadataprocessor export
+2025-10-18 11:35:48.501 appintentsmetadataprocessor[93997:16089521] Extracted no relevant App Intents symbols, skipping writing output
+
+CodeSign /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app/TodoTimers\ Watch\ App\ Watch\ App.debug.dylib
+
+CodeSign /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.build/TodoTimers\ Watch\ App\ Watch\ App.app.xcent --timestamp\=none --generate-entitlement-der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app
+
+Validate /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app (in target 'TodoTimers Watch App Watch App' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-validationUtility /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app -infoplist-subpath Info.plist
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib normal (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -filelist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.LinkFileList -install_name @rpath/TodoTimers.debug.dylib -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-ExecutorLinkFileList-normal-arm64.txt (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    construct-stub-executor-link-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'TodoTimers' from project 'TodoTimers')
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers normal (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app-Simulated.xcent.der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers
+
+Copy /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Watch/TodoTimers\ Watch\ App\ Watch\ App.app /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-watchsimulator/TodoTimers\ Watch\ App\ Watch\ App.app /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Watch
+
+ProcessInfoPlistFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Info.plist /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers/Info.plist (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-infoPlistUtility /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers/TodoTimers/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/assetcatalog_generated_info.plist -scanforprivacyfile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Watch/TodoTimers\ Watch\ App\ Watch\ App.app -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Info.plist
+
+CopySwiftLibs /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Frameworks --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/SystemExtensions --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name TodoTimers --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk --xcode-version 16F6 --platform-family iOS --deployment-target 17.0 --bundle-identifier neonwatty.TodoTimers --output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers --dependency-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers_dependency_info.dat --stringsdata-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftFileList --metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.DependencyMetadataFileList --static-metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.DependencyStaticMetadataFileList --swift-const-vals-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/Objects-normal/arm64/TodoTimers.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-10-18 11:35:48.694 appintentsmetadataprocessor[94005:16089561] Starting appintentsmetadataprocessor export
+2025-10-18 11:35:48.695 appintentsmetadataprocessor[94005:16089561] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+ProcessInfoPlistFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/Info.plist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/empty-TodoTimersTests.plist (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-infoPlistUtility /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/empty-TodoTimersTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -format binary -platform iphonesimulator -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/Info.plist
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/TodoTimersTests normal (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -filelist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.LinkFileList -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -bundle_loader /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers -Xlinker -object_path_lto -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.swiftmodule -framework XCTest -lXCTestSwiftSupport /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/TodoTimersTests
+
+CopySwiftLibs /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/TodoTimersTests --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/Frameworks --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/PlugIns --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/SystemExtensions --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name TodoTimersTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk --xcode-version 16F6 --platform-family iOS --deployment-target 17.0 --bundle-identifier neonwatty.TodoTimersTests --output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest/TodoTimersTests --dependency-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests_dependency_info.dat --stringsdata-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftFileList --metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests.DependencyMetadataFileList --static-metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/TodoTimersTests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersTests.build/Objects-normal/arm64/TodoTimersTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-10-18 11:35:48.843 appintentsmetadataprocessor[94008:16089576] Starting appintentsmetadataprocessor export
+2025-10-18 11:35:48.844 appintentsmetadataprocessor[94008:16089576] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CodeSign /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest (in target 'TodoTimersTests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/PlugIns/TodoTimersTests.xctest
+
+CodeSign /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/TodoTimers.debug.dylib
+
+CodeSign /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/__preview.dylib (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/__preview.dylib
+/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/__preview.dylib: replacing existing signature
+
+CodeSign /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimers.build/TodoTimers.app.xcent --timestamp\=none --generate-entitlement-der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app
+
+Validate /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-validationUtility /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app -infoplist-subpath Info.plist
+
+ValidateEmbeddedBinary /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Watch/TodoTimers\ Watch\ App\ Watch\ App.app (in target 'TodoTimers' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/usr/bin/embeddedBinaryValidationUtility /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Watch/TodoTimers\ Watch\ App\ Watch\ App.app -signing-cert - -info-plist-path /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimers.app/Info.plist
+
+ProcessInfoPlistFile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/Info.plist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/empty-TodoTimersUITests.plist (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-infoPlistUtility /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/empty-TodoTimersUITests.plist -producttype com.apple.product-type.bundle.ui-testing -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/ProductTypeInfoPlistAdditions.plist -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/Info.plist
+
+Ld /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/TodoTimersUITests normal (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -O0 -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk/Developer/Library/Frameworks -filelist /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.LinkFileList -Xlinker -rpath -Xlinker @loader_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.swiftmodule -framework XCTest -lXCTestSwiftSupport -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.xctest-Simulated.xcent.der -Xlinker -no_adhoc_codesign -o /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/TodoTimersUITests
+
+ExtractAppIntentsMetadata (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name TodoTimersUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk --xcode-version 16F6 --platform-family iOS --deployment-target 17.0 --bundle-identifier neonwatty.TodoTimersUITests --output /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/TodoTimersUITests --dependency-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests_dependency_info.dat --stringsdata-file /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftFileList --metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.DependencyMetadataFileList --static-metadata-file-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/TodoTimersUITests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/Objects-normal/arm64/TodoTimersUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-10-18 11:35:49.311 appintentsmetadataprocessor[94017:16089626] Starting appintentsmetadataprocessor export
+2025-10-18 11:35:49.312 appintentsmetadataprocessor[94017:16089626] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CopySwiftLibs /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/TodoTimersUITests --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/Frameworks --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/PlugIns --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/SystemExtensions --scan-folder /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Intermediates.noindex/TodoTimers.build/Debug-iphonesimulator/TodoTimersUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+CodeSign /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest (in target 'TodoTimersUITests' from project 'TodoTimers')
+    cd /Users/jeremywatt/Desktop/todo-timers-ios/TodoTimers
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Build/Products/Debug-iphonesimulator/TodoTimersUITests-Runner.app/PlugIns/TodoTimersUITests.xctest
+
+2025-10-18 11:35:50.319433-0700 TodoTimers[94020:16089860] [library] load_eligibility_plist: Failed to open /Users/jeremywatt/Library/Developer/CoreSimulator/Devices/002673DD-F669-4F62-A9BB-B5009A96E818/data/Containers/Data/Application/08C528A0-009F-43EA-B394-D5BF1F5C8FB9/private/var/db/eligibilityd/eligibility.plist: No such file or directory(2)
+✅ [iPhone] WCSession is supported
+🔄 [iPhone] WCSession activation requested
+2025-10-18 11:35:50.379580-0700 TodoTimers[94020:16090102] [WC] -[WCSession onqueue_handleUpdateSessionState:]_block_invoke dropping as pairingIDs no longer match. pairingID (null), client pairingID: (null)
+2025-10-18 11:35:50.384204-0700 TodoTimers[94020:16090102] [WC] WCSession is not paired
+✅ [iPhone] WatchConnectivityService configured with modelContext
+✅ [iPhone] WCSession activation complete - State: 2
+🔍 [iPhone] isReachable: false, isPaired: false
+✅ [iPhone] Session is activated and ready
+Test Suite 'All tests' started at 2025-10-18 11:35:51.102.
+Test Suite 'All tests' passed at 2025-10-18 11:35:51.103.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+◇ Test run started.
+↳ Testing Library Version: 124.4
+↳ Target Platform: arm64-apple-ios13.0-simulator
+◇ Suite "Color Extension Tests" started.
+◇ Test "Hex init with hash prefix parses correctly" started.
+✔ Test "Hex init with hash prefix parses correctly" passed after 0.001 seconds.
+◇ Test "Hex init without hash prefix parses correctly" started.
+✔ Test "Hex init without hash prefix parses correctly" passed after 0.001 seconds.
+◇ Test "Hex init with six digit hex parses correctly" started.
+✔ Test "Hex init with six digit hex parses correctly" passed after 0.001 seconds.
+◇ Test "Hex init for red color has correct RGB" started.
+✔ Test "Hex init for red color has correct RGB" passed after 0.001 seconds.
+◇ Test "Hex init for green color has correct RGB" started.
+✔ Test "Hex init for green color has correct RGB" passed after 0.001 seconds.
+◇ Test "Hex init for blue color has correct RGB" started.
+✔ Test "Hex init for blue color has correct RGB" passed after 0.001 seconds.
+◇ Test "iOS system blue parses correctly" started.
+✔ Test "iOS system blue parses correctly" passed after 0.001 seconds.
+◇ Test "Black color parses correctly" started.
+✔ Test "Black color parses correctly" passed after 0.001 seconds.
+◇ Test "White color parses correctly" started.
+✔ Test "White color parses correctly" passed after 0.001 seconds.
+✔ Suite "Color Extension Tests" passed after 0.034 seconds.
+◇ Suite "NotificationHandler Tests" started.
+◇ Test "Initialization sets up notification observers" started.
+✔ Test "Initialization sets up notification observers" passed after 0.001 seconds.
+◇ Test "Configure sets model context" started.
+✔ Test "Configure sets model context" passed after 0.001 seconds.
+◇ Test "Open timer notification sets selected timer ID" started.
+✔ Test "Open timer notification sets selected timer ID" passed after 0.101 seconds.
+◇ Test "Open timer notification with missing timer ID handles gracefully" started.
+✔ Test "Open timer notification with missing timer ID handles gracefully" passed after 0.100 seconds.
+◇ Test "Open timer notification with wrong type handles gracefully" started.
+✔ Test "Open timer notification with wrong type handles gracefully" passed after 0.100 seconds.
+◇ Test "Restart timer notification with valid timer sets selected ID and posts start" started.
+✔ Test "Restart timer notification with valid timer sets selected ID and posts start" passed after 0.119 seconds.
+◇ Test "Restart timer notification without model context handles gracefully" started.
+✔ Test "Restart timer notification without model context handles gracefully" passed after 0.101 seconds.
+◇ Test "Restart timer notification with nonexistent timer handles gracefully" started.
+✔ Test "Restart timer notification with nonexistent timer handles gracefully" passed after 0.105 seconds.
+◇ Test "Mark complete notification marks all todos as complete" started.
+✘ Test "Mark complete notification marks all todos as complete" recorded an issue at NotificationHandlerTests.swift:196:13: Expectation failed: (todo.isCompleted → true) == false
+✘ Test "Mark complete notification marks all todos as complete" failed after 0.131 seconds with 1 issue.
+◇ Test "Mark complete notification without model context handles gracefully" started.
+✔ Test "Mark complete notification without model context handles gracefully" passed after 0.106 seconds.
+◇ Test "Mark complete notification with nonexistent timer handles gracefully" started.
+✔ Test "Mark complete notification with nonexistent timer handles gracefully" passed after 0.111 seconds.
+◇ Test "Mark complete notification updates todo timestamps" started.
+✔ Test "Mark complete notification updates todo timestamps" passed after 0.141 seconds.
+◇ Test "Mark complete notification with empty todos list handles gracefully" started.
+✔ Test "Mark complete notification with empty todos list handles gracefully" passed after 0.114 seconds.
+◇ Test "Selected timer ID is observable" started.
+✔ Test "Selected timer ID is observable" passed after 0.106 seconds.
+✘ Suite "NotificationHandler Tests" failed after 1.345 seconds with 1 issue.
+↳ /// Tests for NotificationHandler
+↳ /// NOTE: Integration-style tests due to NotificationCenter and SwiftData dependencies
+↳ /// Focus on observable state changes and notification action handling
+◇ Suite "NotificationService Tests" started.
+◇ Test "Shared instance returns same object" started.
+✔ Test "Shared instance returns same object" passed after 0.001 seconds.
+◇ Test "Initial permission status is not determined" started.
+✔ Test "Initial permission status is not determined" passed after 0.001 seconds.
+◇ Test "Update badge sets application badge number" started.
+✔ Test "Update badge sets application badge number" passed after 0.001 seconds.
+◇ Test "Clear badge sets badge to zero" started.
+✔ Test "Clear badge sets badge to zero" passed after 0.001 seconds.
+◇ Test "Timer completion notification ID includes timer UUID" started.
+Cancelled notification for timer: 4DE156C8-22C2-49D4-B956-E98E2CD2652B
+✔ Test "Timer completion notification ID includes timer UUID" passed after 0.004 seconds.
+◇ Test "Schedule timer completion with future time does not crash" started.
+Cancelled notification for timer: 3A5051D9-3A6C-4FE9-A0DE-CDD38A701BA6
+✔ Test "Schedule timer completion with future time does not crash" passed after 0.005 seconds.
+◇ Test "Schedule timer completion with past time handles gracefully" started.
+Cancelled notification for timer: 61FAC792-0B80-4EA1-BD2B-B2D92322C2F1
+✔ Test "Schedule timer completion with past time handles gracefully" passed after 0.008 seconds.
+◇ Test "Schedule multiple timers with different IDs" started.
+Scheduled timer completion notification for Test at 2025-10-18 19:35:52 +0000
+Cancelled notification for timer: 2B7AFB36-12BB-4B3A-BD78-AA949D088444
+Cancelled notification for timer: 3587F87F-2BF4-4800-B474-75031B2A39D4
+✔ Test "Schedule multiple timers with different IDs" passed after 0.005 seconds.
+◇ Test "Cancel timer notification does not crash" started.
+Cancelled notification for timer: 741337EF-9A22-46E8-A2AF-E9A6856DB5C9
+✔ Test "Cancel timer notification does not crash" passed after 0.004 seconds.
+◇ Test "Cancel nonexistent timer notification handles gracefully" started.
+Cancelled notification for timer: 8F394214-4A67-497E-849E-148E327F30EA
+✔ Test "Cancel nonexistent timer notification handles gracefully" passed after 0.001 seconds.
+◇ Test "Cancel all timer notifications does not crash" started.
+✔ Test "Cancel all timer notifications does not crash" passed after 0.001 seconds.
+◇ Test "Request permission completes without error" started.
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:35:52 +0000
+✔ Test "Request permission completes without error" passed after 0.011 seconds.
+◇ Test "Check permission status completes without error" started.
+✔ Test "Check permission status completes without error" passed after 0.006 seconds.
+◇ Test "Scheduled notification includes timer name in body" started.
+Cancelled notification for timer: EA9699C3-1DB7-4252-99B1-2AFD25AE7F41
+✔ Test "Scheduled notification includes timer name in body" passed after 0.001 seconds.
+◇ Test "Notification includes completion category" started.
+Cancelled notification for timer: 7418C899-79A2-4F8F-AEA5-89724D55F499
+✔ Test "Notification includes completion category" passed after 0.002 seconds.
+◇ Test "Schedule timer with zero duration handles gracefully" started.
+Cancelled notification for timer: CB087A63-A90E-42A4-9C4F-84D33BCFC6D1
+✔ Test "Schedule timer with zero duration handles gracefully" passed after 0.001 seconds.
+◇ Test "Schedule timer with very long name handles gracefully" started.
+Scheduled timer completion notification for Timer 1 at 2025-10-18 19:35:52 +0000
+Cancelled notification for timer: 644D085D-FC04-4B11-9884-1F3650B195B2
+✔ Test "Schedule timer with very long name handles gracefully" passed after 0.004 seconds.
+◇ Test "Concurrent schedule and cancel operations handle gracefully" started.
+Cancelled notification for timer: 405117CF-AEDD-4029-B511-65CB8D360270
+Scheduled timer completion notification for Timer 2 at 2025-10-18 19:35:52 +0000
+Cancelled notification for timer: 405117CF-AEDD-4029-B511-65CB8D360270
+✔ Test "Concurrent schedule and cancel operations handle gracefully" passed after 0.002 seconds.
+✔ Suite "NotificationService Tests" passed after 0.066 seconds.
+◇ Suite "SwiftData Integration Tests" started.
+◇ Test "Create timer saves and fetches successfully" started.
+✔ Test "Create timer saves and fetches successfully" passed after 0.003 seconds.
+◇ Test "Update timer saves and reflects changes" started.
+✔ Test "Update timer saves and reflects changes" passed after 0.004 seconds.
+◇ Test "Delete timer cascade deletes todos" started.
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:35:52 +0000
+✔ Test "Delete timer cascade deletes todos" passed after 0.005 seconds.
+◇ Test "Fetch multiple timers sorted by createdAt" started.
+✔ Test "Fetch multiple timers sorted by createdAt" passed after 0.003 seconds.
+◇ Test "Create todo item attached to timer succeeds" started.
+✔ Test "Create todo item attached to timer succeeds" passed after 0.003 seconds.
+◇ Test "Toggle todo completion and save updates state" started.
+Scheduled timer completion notification for Timer 1 at 2025-10-18 19:35:52 +0000
+✔ Test "Toggle todo completion and save updates state" passed after 0.004 seconds.
+◇ Test "Delete todo item removes from timer" started.
+Scheduled timer completion notification for Timer 2 at 2025-10-18 19:35:52 +0000
+✔ Test "Delete todo item removes from timer" passed after 0.005 seconds.
+◇ Test "Timer todo relationship maintains bidirectional integrity" started.
+✔ Test "Timer todo relationship maintains bidirectional integrity" passed after 0.003 seconds.
+◇ Test "Cascade delete removes all todos when timer deleted" started.
+Scheduled timer completion notification for Workout Timer at 2025-10-18 19:35:52 +0000
+✔ Test "Cascade delete removes all todos when timer deleted" passed after 0.004 seconds.
+◇ Test "Multiple todos maintain independent state" started.
+✘ Test "Multiple todos maintain independent state" recorded an issue at SwiftDataIntegrationTests.swift:214:9: Expectation failed: (timer.todoItems[0].isCompleted → false) == true
+✘ Test "Multiple todos maintain independent state" recorded an issue at SwiftDataIntegrationTests.swift:216:9: Expectation failed: (timer.todoItems[2].isCompleted → true) == false
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:35:52 +0000
+✘ Test "Multiple todos maintain independent state" failed after 0.006 seconds with 2 issues.
+◇ Test "Fetch timer by ID using predicate succeeds" started.
+✔ Test "Fetch timer by ID using predicate succeeds" passed after 0.003 seconds.
+◇ Test "Fetch todos by timer using predicate succeeds" started.
+✔ Test "Fetch todos by timer using predicate succeeds" passed after 0.003 seconds.
+◇ Test "Fetch todos sorted by sortOrder" started.
+✔ Test "Fetch todos sorted by sortOrder" passed after 0.003 seconds.
+✘ Suite "SwiftData Integration Tests" failed after 0.056 seconds with 2 issues.
+◇ Suite "TimerDTO Tests" started.
+◇ Test "Init from Timer copies all fields correctly" started.
+✔ Test "Init from Timer copies all fields correctly" passed after 0.001 seconds.
+◇ Test "Init from Timer converts todo items" started.
+✔ Test "Init from Timer converts todo items" passed after 0.001 seconds.
+◇ Test "ToModel creates timer with all fields" started.
+✔ Test "ToModel creates timer with all fields" passed after 0.001 seconds.
+◇ Test "ToModel preserves timestamps" started.
+✔ Test "ToModel preserves timestamps" passed after 0.001 seconds.
+◇ Test "Encode produces valid data" started.
+✔ Test "Encode produces valid data" passed after 0.001 seconds.
+◇ Test "Decode valid data produces DTO" started.
+✔ Test "Decode valid data produces DTO" passed after 0.001 seconds.
+◇ Test "Round trip encode/decode preserves data" started.
+✔ Test "Round trip encode/decode preserves data" passed after 0.001 seconds.
+◇ Test "Init from Timer with no todos creates empty array" started.
+✔ Test "Init from Timer with no todos creates empty array" passed after 0.001 seconds.
+◇ Test "Init from Timer with nil notes preserves nil" started.
+✔ Test "Init from Timer with nil notes preserves nil" passed after 0.001 seconds.
+✔ Suite "TimerDTO Tests" passed after 0.003 seconds.
+◇ Suite "TimerManager Tests" started.
+◇ Test "Shared returns same instance" started.
+✔ Test "Shared returns same instance" passed after 0.001 seconds.
+◇ Test "Get timer service first call creates new service" started.
+Cancelled notification for timer: D17F3D3C-6FE7-4ECF-8F49-5A69B682CD40
+✔ Test "Get timer service first call creates new service" passed after 0.001 seconds.
+Scheduled timer completion notification for AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA at 2025-10-18 19:35:52 +0000
+◇ Test "Get timer service subsequent call returns cached service" started.
+Cancelled notification for timer: 3453CA13-0BED-4C5A-9213-BE06D2CDCFE8
+✔ Test "Get timer service subsequent call returns cached service" passed after 0.001 seconds.
+◇ Test "Get timer service for different timers creates independent services" started.
+Cancelled notification for timer: 77E8077B-A465-4799-BA35-E6FC4231B6A0
+Cancelled notification for timer: 4FA74D89-84D2-4CBF-86CC-767B65262867
+✔ Test "Get timer service for different timers creates independent services" passed after 0.001 seconds.
+◇ Test "Remove timer service calls cleanup" started.
+Cancelled notification for timer: CE39C739-B33E-4E28-86C0-D93E6DF30C1F
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:35:52 +0000
+✔ Test "Remove timer service calls cleanup" passed after 0.002 seconds.
+◇ Test "Remove timer service removes from cache" started.
+Cancelled notification for timer: 9947F90A-6C0B-4B96-969D-1B30E7D23801
+Cancelled notification for timer: 9947F90A-6C0B-4B96-969D-1B30E7D23801
+Cancelled notification for timer: 9947F90A-6C0B-4B96-969D-1B30E7D23801
+✔ Test "Remove timer service removes from cache" passed after 0.001 seconds.
+◇ Test "Remove nonexistent timer service handles gracefully" started.
+✔ Test "Remove nonexistent timer service handles gracefully" passed after 0.001 seconds.
+◇ Test "Cleanup all stops and removes all services" started.
+Cancelled notification for timer: 7DF6D358-ABD9-47F1-9734-9BB167C7379E
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:35:52 +0000
+Cancelled notification for timer: B1A16670-5123-41DA-BD42-82AF1B0FE9D4
+Cancelled notification for timer: 77E8077B-A465-4799-BA35-E6FC4231B6A0
+Cancelled notification for timer: 9947F90A-6C0B-4B96-969D-1B30E7D23801
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 4FA74D89-84D2-4CBF-86CC-767B65262867
+Cancelled notification for timer: 7DF6D358-ABD9-47F1-9734-9BB167C7379E
+Cancelled notification for timer: D17F3D3C-6FE7-4ECF-8F49-5A69B682CD40
+Cancelled notification for timer: 3453CA13-0BED-4C5A-9213-BE06D2CDCFE8
+Cancelled notification for timer: 7DF6D358-ABD9-47F1-9734-9BB167C7379E
+Cancelled notification for timer: B1A16670-5123-41DA-BD42-82AF1B0FE9D4
+✔ Test "Cleanup all stops and removes all services" passed after 0.007 seconds.
+◇ Test "Notify timer started updates running timer ID" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: B1A16670-5123-41DA-BD42-82AF1B0FE9D4
+Cancelled notification for timer: 7DF6D358-ABD9-47F1-9734-9BB167C7379E
+✔ Test "Notify timer started updates running timer ID" passed after 0.001 seconds.
+◇ Test "Notify timer started stops other running timers" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 61265686-D606-4E9C-BBAA-ECBB0CFA4F18
+Cancelled notification for timer: 61265686-D606-4E9C-BBAA-ECBB0CFA4F18
+Cancelled notification for timer: D16A7C64-C696-473E-9352-64F803D0F403
+✔ Test "Notify timer started stops other running timers" passed after 0.004 seconds.
+◇ Test "Notify timer stopped clears running timer ID" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+✔ Test "Notify timer stopped clears running timer ID" passed after 0.001 seconds.
+◇ Test "Notify timer stopped does not clear if different timer is running" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+✔ Test "Notify timer stopped does not clear if different timer is running" passed after 0.001 seconds.
+◇ Test "Is timer running returns true for running timer" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+✔ Test "Is timer running returns true for running timer" passed after 0.001 seconds.
+◇ Test "Is timer running returns false for non-running timer" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+✔ Test "Is timer running returns false for non-running timer" passed after 0.001 seconds.
+◇ Test "Remove timer service clears running ID if removed timer was running" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 821927DD-F184-48A7-BB68-BE5CE8BB0C94
+✔ Test "Remove timer service clears running ID if removed timer was running" passed after 0.001 seconds.
+◇ Test "Cleanup all clears running timer ID" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 2524CA91-DEEA-4A45-A4FB-17DD38482AF4
+✔ Test "Cleanup all clears running timer ID" passed after 0.002 seconds.
+◇ Test "Apply remote timer state with non-existent timer ignores gracefully" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+🔄 [TimerManager] Applying remote state: started for timer 959D53C0-2F11-43F3-8184-4A0D985B87BE
+⚠️ [TimerManager] No active service for timer 959D53C0-2F11-43F3-8184-4A0D985B87BE, ignoring remote state
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:00:52 +0000
+✔ Test "Apply remote timer state with non-existent timer ignores gracefully" passed after 0.001 seconds.
+◇ Test "Apply remote timer state started applies to active service" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+🔄 [TimerManager] Applying remote state: started for timer EAE30BFA-5F73-4176-BEA8-B1A2606A3211
+🔄 [TimerService] Starting from remote - currentTime: 250
+Cancelled notification for timer: EAE30BFA-5F73-4176-BEA8-B1A2606A3211
+Cancelled notification for timer: EAE30BFA-5F73-4176-BEA8-B1A2606A3211
+✔ Test "Apply remote timer state started applies to active service" passed after 0.002 seconds.
+◇ Test "Apply remote timer state paused applies to active service" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+🔄 [TimerManager] Applying remote state: paused for timer 52FC35D5-7BE7-4C38-9A4F-3C80D8774684
+🔄 [TimerService] Pausing from remote
+Cancelled notification for timer: 52FC35D5-7BE7-4C38-9A4F-3C80D8774684
+Cancelled notification for timer: 52FC35D5-7BE7-4C38-9A4F-3C80D8774684
+Cancelled notification for timer: 52FC35D5-7BE7-4C38-9A4F-3C80D8774684
+✔ Test "Apply remote timer state paused applies to active service" passed after 0.002 seconds.
+◇ Test "Apply remote timer state resumed applies to active service" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 9F2881A2-5F11-46F7-ACFF-93B5CFFFA10D
+🔄 [TimerManager] Applying remote state: resumed for timer 9F2881A2-5F11-46F7-ACFF-93B5CFFFA10D
+🔄 [TimerService] Resuming from remote
+🔄 [TimerService] Starting from remote - currentTime: 200
+Cancelled notification for timer: 9F2881A2-5F11-46F7-ACFF-93B5CFFFA10D
+Cancelled notification for timer: 9F2881A2-5F11-46F7-ACFF-93B5CFFFA10D
+✔ Test "Apply remote timer state resumed applies to active service" passed after 0.004 seconds.
+◇ Test "Apply remote timer state reset applies to active service" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+🔄 [TimerManager] Applying remote state: reset for timer B368672C-8FF1-440F-A359-F596AF7EB2E6
+🔄 [TimerService] Resetting from remote
+Cancelled notification for timer: B368672C-8FF1-440F-A359-F596AF7EB2E6
+Cancelled notification for timer: B368672C-8FF1-440F-A359-F596AF7EB2E6
+Cancelled notification for timer: B368672C-8FF1-440F-A359-F596AF7EB2E6
+✔ Test "Apply remote timer state reset applies to active service" passed after 0.003 seconds.
+◇ Test "Apply remote timer state completed applies to active service" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+🔄 [TimerManager] Applying remote state: completed for timer AD88C34F-5199-4EF0-ACE3-242B18DF01CC
+🔄 [TimerService] Completing from remote
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:00:52 +0000
+Cancelled notification for timer: AD88C34F-5199-4EF0-ACE3-242B18DF01CC
+Cancelled notification for timer: AD88C34F-5199-4EF0-ACE3-242B18DF01CC
+✔ Test "Apply remote timer state completed applies to active service" passed after 0.003 seconds.
+◇ Test "Apply remote timer state only affects active timers" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+🔄 [TimerManager] Applying remote state: started for timer C87E0232-A683-4834-941A-86976E46CC85
+⚠️ [TimerManager] No active service for timer C87E0232-A683-4834-941A-86976E46CC85, ignoring remote state
+Cancelled notification for timer: 100BCB31-31E6-4C68-AC5F-639A417BDFAC
+Cancelled notification for timer: 100BCB31-31E6-4C68-AC5F-639A417BDFAC
+✔ Test "Apply remote timer state only affects active timers" passed after 0.001 seconds.
+✔ Suite "TimerManager Tests" passed after 0.051 seconds.
+◇ Suite "TimerService Tests" started.
+◇ Test "Init sets current time to total time" started.
+✔ Test "Init sets current time to total time" passed after 0.001 seconds.
+◇ Test "Init sets not running by default" started.
+✔ Test "Init sets not running by default" passed after 0.001 seconds.
+◇ Test "Start sets isRunning to true" started.
+Cancelled notification for timer: A5128F85-6D18-4442-B565-93B370DC5F6D
+✔ Test "Start sets isRunning to true" passed after 0.001 seconds.
+◇ Test "Start when already running does not restart" started.
+Cancelled notification for timer: B9576228-BA57-4792-B250-2F4302EAC96C
+✔ Test "Start when already running does not restart" passed after 0.002 seconds.
+◇ Test "Pause sets isRunning false and isPaused true" started.
+Cancelled notification for timer: 03883475-A74C-40EF-BAA5-CB72DFA9840A
+✔ Test "Pause sets isRunning false and isPaused true" passed after 0.001 seconds.
+◇ Test "Pause when not running does nothing" started.
+✔ Test "Pause when not running does nothing" passed after 0.001 seconds.
+◇ Test "Resume from paused state starts again" started.
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:00:52 +0000
+Cancelled notification for timer: 3050FDF0-038C-452A-A778-D1F8BE76397D
+Cancelled notification for timer: 3050FDF0-038C-452A-A778-D1F8BE76397D
+✔ Test "Resume from paused state starts again" passed after 0.003 seconds.
+◇ Test "Reset restores original time" started.
+Cancelled notification for timer: 4AAA41B2-F23A-4F4A-8E2F-E6C9A38B60E5
+✔ Test "Reset restores original time" passed after 0.002 seconds.
+◇ Test "Reset stops timer" started.
+Cancelled notification for timer: 6B1CF46B-A1BC-4382-9DD2-288789943A8E
+✔ Test "Reset stops timer" passed after 0.001 seconds.
+◇ Test "Cleanup cancels timer" started.
+Cancelled notification for timer: 883D98BA-F374-4B67-83FA-F3244BE55717
+✔ Test "Cleanup cancels timer" passed after 0.002 seconds.
+◇ Test "Multiple service instances have independent state" started.
+Cancelled notification for timer: 6318AB61-9704-4342-B97C-E39C9FDD5769
+Cancelled notification for timer: 144C1218-3F97-4823-9F02-3B02BEC550D5
+✔ Test "Multiple service instances have independent state" passed after 0.002 seconds.
+◇ Test "Timer with zero duration handles gracefully" started.
+Cancelled notification for timer: 2177895D-8E0F-4E2A-971F-989163D73258
+✔ Test "Timer with zero duration handles gracefully" passed after 0.001 seconds.
+◇ Test "Service start calls manager notifyTimerStarted" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 4AFB2627-F617-48F1-8A74-9370A1F15722
+✔ Test "Service start calls manager notifyTimerStarted" passed after 0.002 seconds.
+◇ Test "Service pause calls manager notifyTimerStopped" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 021B700D-C449-43AD-85F3-8B916F0F6809
+Cancelled notification for timer: 021B700D-C449-43AD-85F3-8B916F0F6809
+✔ Test "Service pause calls manager notifyTimerStopped" passed after 0.002 seconds.
+◇ Test "Service reset calls manager notifyTimerStopped" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: DE65341A-103F-4713-BF49-98E092AD2E9C
+Cancelled notification for timer: DE65341A-103F-4713-BF49-98E092AD2E9C
+✔ Test "Service reset calls manager notifyTimerStopped" passed after 0.002 seconds.
+◇ Test "Service resume calls manager notifyTimerStarted" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 5152020E-BA0F-49DB-9D02-E636BAB0F1D0
+Cancelled notification for timer: 5152020E-BA0F-49DB-9D02-E636BAB0F1D0
+✔ Test "Service resume calls manager notifyTimerStarted" passed after 0.003 seconds.
+◇ Test "Manager reference is weak prevents retain cycle" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+Cancelled notification for timer: 561B313F-9EAB-401B-B2B6-9252390D8FFD
+✔ Test "Manager reference is weak prevents retain cycle" passed after 0.001 seconds.
+◇ Test "Start from remote sets correct state without sending message" started.
+🔄 [TimerService] Starting from remote - currentTime: 250
+Cancelled notification for timer: BBCB38A8-6901-48AF-806F-91F54DCF0AE7
+✔ Test "Start from remote sets correct state without sending message" passed after 0.002 seconds.
+◇ Test "Start from remote when already running does not restart" started.
+🔄 [TimerService] Starting from remote - currentTime: 150
+🔄 [TimerService] Starting from remote - currentTime: 100
+Cancelled notification for timer: D59319D7-565F-47CF-AF60-8E4ADE4E630B
+✔ Test "Start from remote when already running does not restart" passed after 0.001 seconds.
+◇ Test "Pause from remote sets correct state" started.
+🔄 [TimerService] Starting from remote - currentTime: 100
+🔄 [TimerService] Pausing from remote
+Cancelled notification for timer: CEDF024E-4993-4E79-82CC-40B68AFB3844
+Cancelled notification for timer: CEDF024E-4993-4E79-82CC-40B68AFB3844
+✔ Test "Pause from remote sets correct state" passed after 0.002 seconds.
+◇ Test "Pause from remote when not running does nothing" started.
+🔄 [TimerService] Pausing from remote
+✔ Test "Pause from remote when not running does nothing" passed after 0.001 seconds.
+◇ Test "Resume from remote sets correct state" started.
+🔄 [TimerService] Starting from remote - currentTime: 150
+🔄 [TimerService] Pausing from remote
+Cancelled notification for timer: 12EC77A1-FF02-4144-9811-07C9B3001E35
+🔄 [TimerService] Resuming from remote
+🔄 [TimerService] Starting from remote - currentTime: 150
+Cancelled notification for timer: 12EC77A1-FF02-4144-9811-07C9B3001E35
+✔ Test "Resume from remote sets correct state" passed after 0.003 seconds.
+◇ Test "Resume from remote when not paused does nothing" started.
+🔄 [TimerService] Resuming from remote
+✔ Test "Resume from remote when not paused does nothing" passed after 0.001 seconds.
+◇ Test "Reset from remote restores original time" started.
+🔄 [TimerService] Starting from remote - currentTime: 150
+🔄 [TimerService] Resetting from remote
+Cancelled notification for timer: 671F4BE3-0CD8-4EFF-AC44-E1055AB531B9
+✔ Test "Reset from remote restores original time" passed after 0.001 seconds.
+◇ Test "Complete from remote sets current time to zero" started.
+🔄 [TimerService] Starting from remote - currentTime: 50
+🔄 [TimerService] Completing from remote
+✔ Test "Complete from remote sets current time to zero" passed after 0.001 seconds.
+◇ Test "Remote methods notify manager correctly" started.
+Cancelled notification for timer: 4E697C02-B29B-423B-B231-4E4E5215D71C
+🔄 [TimerService] Starting from remote - currentTime: 100
+🔄 [TimerService] Pausing from remote
+Cancelled notification for timer: 8E8E9B2D-FD3D-46EC-BDC7-6632E21692E0
+🔄 [TimerService] Resuming from remote
+🔄 [TimerService] Starting from remote - currentTime: 100
+🔄 [TimerService] Resetting from remote
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:00:52 +0000
+Cancelled notification for timer: 8E8E9B2D-FD3D-46EC-BDC7-6632E21692E0
+Cancelled notification for timer: 8E8E9B2D-FD3D-46EC-BDC7-6632E21692E0
+✔ Test "Remote methods notify manager correctly" passed after 0.004 seconds.
+◇ Test "Connectivity service is initialized correctly" started.
+Cancelled notification for timer: 5141A62F-6C18-44A0-B9C1-A1D3328CD8CA
+Cancelled notification for timer: 5141A62F-6C18-44A0-B9C1-A1D3328CD8CA
+✔ Test "Connectivity service is initialized correctly" passed after 0.002 seconds.
+✔ Suite "TimerService Tests" passed after 0.052 seconds.
+◇ Suite "Timer Model Tests" started.
+◇ Test "Timer initialization with default values" started.
+✔ Test "Timer initialization with default values" passed after 0.001 seconds.
+◇ Test "Timer initialization with custom values" started.
+✔ Test "Timer initialization with custom values" passed after 0.001 seconds.
+◇ Test "Timer initialization sets createdAt and updatedAt" started.
+✔ Test "Timer initialization sets createdAt and updatedAt" passed after 0.001 seconds.
+◇ Test "Validation succeeds for valid timer" started.
+✔ Test "Validation succeeds for valid timer" passed after 0.001 seconds.
+◇ Test "Validation fails for empty name" started.
+✔ Test "Validation fails for empty name" passed after 0.001 seconds.
+◇ Test "Validation fails for whitespace-only name" started.
+✔ Test "Validation fails for whitespace-only name" passed after 0.001 seconds.
+◇ Test "Validation fails for zero duration" started.
+✔ Test "Validation fails for zero duration" passed after 0.001 seconds.
+◇ Test "Validation fails for negative duration" started.
+✔ Test "Validation fails for negative duration" passed after 0.001 seconds.
+◇ Test "Validation fails for excessive duration (>24 hours)" started.
+✔ Test "Validation fails for excessive duration (>24 hours)" passed after 0.001 seconds.
+◇ Test "Hours calculation for 25 minutes returns 0" started.
+✔ Test "Hours calculation for 25 minutes returns 0" passed after 0.001 seconds.
+◇ Test "Hours calculation for 90 minutes returns 1" started.
+✔ Test "Hours calculation for 90 minutes returns 1" passed after 0.001 seconds.
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:00:52 +0000
+◇ Test "Minutes calculation extracts correct value" started.
+✔ Test "Minutes calculation extracts correct value" passed after 0.001 seconds.
+◇ Test "Seconds calculation extracts correct value" started.
+✔ Test "Seconds calculation extracts correct value" passed after 0.001 seconds.
+◇ Test "Formatted duration for less than hour shows MM:SS" started.
+✔ Test "Formatted duration for less than hour shows MM:SS" passed after 0.001 seconds.
+◇ Test "Formatted duration for more than hour shows HH:MM:SS" started.
+✔ Test "Formatted duration for more than hour shows HH:MM:SS" passed after 0.001 seconds.
+◇ Test "Formatted duration for zero shows 00:00" started.
+✔ Test "Formatted duration for zero shows 00:00" passed after 0.001 seconds.
+◇ Test "Formatted duration for max duration shows correctly" started.
+✔ Test "Formatted duration for max duration shows correctly" passed after 0.001 seconds.
+✔ Suite "Timer Model Tests" passed after 0.006 seconds.
+◇ Suite "TodoItemDTO Tests" started.
+◇ Test "Init from TodoItem copies all fields correctly" started.
+✔ Test "Init from TodoItem copies all fields correctly" passed after 0.001 seconds.
+◇ Test "ToModel creates todo with all fields" started.
+✔ Test "ToModel creates todo with all fields" passed after 0.001 seconds.
+◇ Test "ToModel preserves timestamps" started.
+✔ Test "ToModel preserves timestamps" passed after 0.001 seconds.
+◇ Test "Encode produces valid data" started.
+✔ Test "Encode produces valid data" passed after 0.001 seconds.
+◇ Test "Decode valid data produces DTO" started.
+✔ Test "Decode valid data produces DTO" passed after 0.001 seconds.
+◇ Test "Round trip encode/decode preserves data" started.
+✔ Test "Round trip encode/decode preserves data" passed after 0.001 seconds.
+◇ Test "Completed todo converts correctly" started.
+✔ Test "Completed todo converts correctly" passed after 0.001 seconds.
+◇ Test "Uncompleted todo converts correctly" started.
+✔ Test "Uncompleted todo converts correctly" passed after 0.001 seconds.
+✔ Suite "TodoItemDTO Tests" passed after 0.001 seconds.
+◇ Suite "TodoItem Model Tests" started.
+◇ Test "TodoItem initialization with default values" started.
+✔ Test "TodoItem initialization with default values" passed after 0.001 seconds.
+◇ Test "TodoItem is not completed by default" started.
+✔ Test "TodoItem is not completed by default" passed after 0.001 seconds.
+◇ Test "TodoItem initialization with custom values" started.
+✔ Test "TodoItem initialization with custom values" passed after 0.001 seconds.
+◇ Test "TodoItem initialization sets timestamps" started.
+✔ Test "TodoItem initialization sets timestamps" passed after 0.001 seconds.
+◇ Test "Validation succeeds for valid todo" started.
+✔ Test "Validation succeeds for valid todo" passed after 0.001 seconds.
+◇ Test "Validation fails for empty text" started.
+✔ Test "Validation fails for empty text" passed after 0.001 seconds.
+◇ Test "Validation fails for whitespace-only text" started.
+✔ Test "Validation fails for whitespace-only text" passed after 0.001 seconds.
+◇ Test "isValid returns true for non-empty text" started.
+✔ Test "isValid returns true for non-empty text" passed after 0.001 seconds.
+◇ Test "isValid returns false for empty text" started.
+✔ Test "isValid returns false for empty text" passed after 0.001 seconds.
+◇ Test "isValid returns false for whitespace text" started.
+✔ Test "isValid returns false for whitespace text" passed after 0.001 seconds.
+✔ Suite "TodoItem Model Tests" passed after 0.013 seconds.
+◇ Suite TodoTimersTests started.
+◇ Test example() started.
+✔ Test example() passed after 0.001 seconds.
+✔ Suite TodoTimersTests passed after 0.001 seconds.
+◇ Suite "UITestsHelpers Tests" started.
+◇ Test "isUITesting detects launch argument presence" started.
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:00:52 +0000
+✔ Test "isUITesting detects launch argument presence" passed after 0.006 seconds.
+◇ Test "isUITesting reads from ProcessInfo" started.
+✔ Test "isUITesting reads from ProcessInfo" passed after 0.001 seconds.
+◇ Test "resetAppState returns early when not in UI testing mode" started.
+Scheduled timer completion notification for Test Timer at 2025-10-18 19:00:52 +0000
+✔ Test "resetAppState returns early when not in UI testing mode" passed after 0.003 seconds.
+◇ Test "resetAppState deletes SwiftData when in UI testing mode" started.
+Skipping test - not in UI test mode
+✔ Test "resetAppState deletes SwiftData when in UI testing mode" passed after 0.001 seconds.
+◇ Test "resetAppState clears UserDefaults when in UI testing mode" started.
+Skipping test - not in UI test mode
+✔ Test "resetAppState clears UserDefaults when in UI testing mode" passed after 0.001 seconds.
+◇ Test "resetAppState calls TimerManager cleanup when in UI testing mode" started.
+Skipping test - not in UI test mode
+✔ Test "resetAppState calls TimerManager cleanup when in UI testing mode" passed after 0.001 seconds.
+◇ Test "resetAppState handles SwiftData errors gracefully" started.
+Skipping test - not in UI test mode
+✔ Test "resetAppState handles SwiftData errors gracefully" passed after 0.001 seconds.
+◇ Test "resetAppState can be called multiple times safely" started.
+✔ Test "resetAppState can be called multiple times safely" passed after 0.001 seconds.
+◇ Test "resetAppState works with empty database" started.
+✔ Test "resetAppState works with empty database" passed after 0.001 seconds.
+◇ Test "Bundle identifier is available" started.
+✔ Test "Bundle identifier is available" passed after 0.001 seconds.
+✔ Suite "UITestsHelpers Tests" passed after 0.017 seconds.
+◇ Suite "ValidationError Tests" started.
+◇ Test "Empty name error has correct description" started.
+✔ Test "Empty name error has correct description" passed after 0.001 seconds.
+◇ Test "Invalid duration error has correct description" started.
+✔ Test "Invalid duration error has correct description" passed after 0.001 seconds.
+◇ Test "Duration too long error has correct description" started.
+✔ Test "Duration too long error has correct description" passed after 0.001 seconds.
+◇ Test "ValidationError conforms to LocalizedError" started.
+✔ Test "ValidationError conforms to LocalizedError" passed after 0.002 seconds.
+◇ Test "ValidationError can be thrown and caught" started.
+✔ Test "ValidationError can be thrown and caught" passed after 0.001 seconds.
+◇ Test "Empty text error has correct description" started.
+✔ Test "Empty text error has correct description" passed after 0.001 seconds.
+◇ Test "TodoValidationError conforms to LocalizedError" started.
+✔ Test "TodoValidationError conforms to LocalizedError" passed after 0.001 seconds.
+◇ Test "TodoValidationError can be thrown and caught" started.
+✔ Test "TodoValidationError can be thrown and caught" passed after 0.001 seconds.
+◇ Test "ValidationError cases are equatable" started.
+✔ Test "ValidationError cases are equatable" passed after 0.001 seconds.
+◇ Test "TodoValidationError cases are equatable" started.
+✔ Test "TodoValidationError cases are equatable" passed after 0.001 seconds.
+◇ Test "ValidationError switch is exhaustive" started.
+✔ Test "ValidationError switch is exhaustive" passed after 0.001 seconds.
+◇ Test "TodoValidationError switch is exhaustive" started.
+✔ Test "TodoValidationError switch is exhaustive" passed after 0.001 seconds.
+✔ Suite "ValidationError Tests" passed after 0.002 seconds.
+◇ Suite "WatchConnectivityService Tests" started.
+◇ Test "Shared instance returns same object" started.
+✔ Test "Shared instance returns same object" passed after 0.001 seconds.
+◇ Test "Configure sets model context" started.
+Scheduled timer completion notification for Test Timer at 2025-10-18 18:40:02 +0000
+✅ [iPhone] WatchConnectivityService configured with modelContext
+✔ Test "Configure sets model context" passed after 0.001 seconds.
+◇ Test "Send full sync with valid context does not crash" started.
+✅ [iPhone] WatchConnectivityService configured with modelContext
+2025-10-18 11:35:52.762996-0700 TodoTimers[94020:16089860] [WC] WCSession is not paired
+2025-10-18 11:35:52.763093-0700 TodoTimers[94020:16089860] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send full sync: Device is not paired.
+✔ Test "Send full sync with valid context does not crash" passed after 0.007 seconds.
+◇ Test "Send full sync without context handles gracefully" started.
+✅ [iPhone] WCSession is supported
+🔄 [iPhone] WCSession activation requested
+2025-10-18 11:35:53.763243-0700 TodoTimers[94027:16090231] [WC] -[WCSession onqueue_handleUpdateSessionState:]_block_invoke dropping as pairingIDs no longer match. pairingID (null), client pairingID: (null)
+2025-10-18 11:35:53.766715-0700 TodoTimers[94027:16090231] [WC] WCSession is not paired
+2025-10-18 11:35:53.796617-0700 TodoTimers[94027:16090183] [library] load_eligibility_plist: Failed to open /Users/jeremywatt/Library/Developer/CoreSimulator/Devices/002673DD-F669-4F62-A9BB-B5009A96E818/data/Containers/Data/Application/08C528A0-009F-43EA-B394-D5BF1F5C8FB9/private/var/db/eligibilityd/eligibility.plist: No such file or directory(2)
+✅ [iPhone] WatchConnectivityService configured with modelContext
+✅ [iPhone] WCSession activation complete - State: 2
+🔍 [iPhone] isReachable: false, isPaired: false
+✅ [iPhone] Session is activated and ready
+
+Restarting after unexpected exit, crash, or test timeout; summary will include totals from previous launches.
+
+Test Suite 'Selected tests' started at 2025-10-18 11:35:53.990.
+Test Suite 'Selected tests' passed at 2025-10-18 11:35:53.990.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+◇ Test run started.
+↳ Testing Library Version: 124.4
+↳ Target Platform: arm64-apple-ios13.0-simulator
+◇ Suite "WatchConnectivityService Tests" started.
+◇ Test "Send timer update created type does not crash" started.
+2025-10-18 11:35:53.993808-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:53.993917-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+✔ Test "Send timer update created type does not crash" passed after 0.001 seconds.
+◇ Test "Send timer update updated type does not crash" started.
+2025-10-18 11:35:53.994413-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:53.994452-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+✔ Test "Send timer update updated type does not crash" passed after 0.001 seconds.
+◇ Test "Send timer update deleted type does not crash" started.
+2025-10-18 11:35:53.994631-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:53.994673-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+✔ Test "Send timer update deleted type does not crash" passed after 0.001 seconds.
+◇ Test "Send quick action todo toggled does not crash" started.
+✔ Test "Send quick action todo toggled does not crash" passed after 0.001 seconds.
+◇ Test "Send quick action note updated does not crash" started.
+✔ Test "Send quick action note updated does not crash" passed after 0.001 seconds.
+◇ Test "TimerDTO encoding and decoding round trip" started.
+✔ Test "TimerDTO encoding and decoding round trip" passed after 0.001 seconds.
+◇ Test "TimerSyncPayload encoding and decoding" started.
+✔ Test "TimerSyncPayload encoding and decoding" passed after 0.002 seconds.
+◇ Test "TimerUpdateMessage encoding and decoding" started.
+✔ Test "TimerUpdateMessage encoding and decoding" passed after 0.001 seconds.
+◇ Test "QuickActionMessage encoding and decoding" started.
+✔ Test "QuickActionMessage encoding and decoding" passed after 0.001 seconds.
+◇ Test "Send timer update with empty todos" started.
+2025-10-18 11:35:53.999550-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:53.999616-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+✔ Test "Send timer update with empty todos" passed after 0.001 seconds.
+◇ Test "Send timer update with many todos" started.
+2025-10-18 11:35:54.001841-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:54.001883-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+✔ Test "Send timer update with many todos" passed after 0.009 seconds.
+◇ Test "Send quick action with nil optional parameters" started.
+✔ Test "Send quick action with nil optional parameters" passed after 0.001 seconds.
+◇ Test "Multiple sendTimerUpdate calls handle gracefully" started.
+2025-10-18 11:35:54.009397-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:54.009439-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+2025-10-18 11:35:54.009509-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:54.009550-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+2025-10-18 11:35:54.009646-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:54.009694-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+2025-10-18 11:35:54.009817-0700 TodoTimers[94027:16090183] [WC] WCSession is not paired
+2025-10-18 11:35:54.009863-0700 TodoTimers[94027:16090183] [WC] -[WCSession updateApplicationContext:error:]_block_invoke failed due to WCErrorCodeDeviceNotPaired
+Failed to send timer update: Device is not paired.
+✔ Test "Multiple sendTimerUpdate calls handle gracefully" passed after 0.001 seconds.
+◇ Test "isReachable property is observable" started.
+✔ Test "isReachable property is observable" passed after 0.004 seconds.
+✔ Suite "WatchConnectivityService Tests" passed after 0.022 seconds.
+◇ Suite "Watch Payload Tests" started.
+◇ Test "TimerSyncPayload encodes successfully" started.
+✔ Test "TimerSyncPayload encodes successfully" passed after 0.001 seconds.
+◇ Test "TimerSyncPayload decodes successfully" started.
+✔ Test "TimerSyncPayload decodes successfully" passed after 0.001 seconds.
+◇ Test "TimerSyncPayload with empty timers succeeds" started.
+✔ Test "TimerSyncPayload with empty timers succeeds" passed after 0.001 seconds.
+◇ Test "TimerUpdateMessage .created encodes correctly" started.
+✔ Test "TimerUpdateMessage .created encodes correctly" passed after 0.001 seconds.
+◇ Test "TimerUpdateMessage .updated encodes correctly" started.
+✔ Test "TimerUpdateMessage .updated encodes correctly" passed after 0.001 seconds.
+◇ Test "TimerUpdateMessage .deleted has nil timer" started.
+✔ Test "TimerUpdateMessage .deleted has nil timer" passed after 0.001 seconds.
+◇ Test "QuickActionMessage todoToggled has all fields" started.
+✔ Test "QuickActionMessage todoToggled has all fields" passed after 0.001 seconds.
+◇ Test "QuickActionMessage noteUpdated has correct fields" started.
+✔ Test "QuickActionMessage noteUpdated has correct fields" passed after 0.001 seconds.
+◇ Test "TimerSyncPayload round trip preserves data" started.
+✔ Test "TimerSyncPayload round trip preserves data" passed after 0.001 seconds.
+✔ Suite "Watch Payload Tests" passed after 0.002 seconds.
+✔ Test run with 23 tests passed after 0.024 seconds.
+2025-10-18 11:35:54.320 xcodebuild[93960:16089240]  IDETestOperationsObserverDebug: Failure collecting diagnostics from simulator: Process exited with error 72:
+ xcrun: error: unable to find utility "simctl", not a developer tool or in PATH
+
+2025-10-18 11:35:54.339 xcodebuild[93960:16089235] [MT] IDETestOperationsObserverDebug: 5.012 elapsed -- Testing started completed.
+2025-10-18 11:35:54.339 xcodebuild[93960:16089235] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2025-10-18 11:35:54.339 xcodebuild[93960:16089235] [MT] IDETestOperationsObserverDebug: 5.012 sec, +5.012 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/jeremywatt/Library/Developer/Xcode/DerivedData/TodoTimers-hhkfosrtfdujgsaeyczcbhtfazrk/Logs/Test/Test-TodoTimers-2025.10.18_11-35-44--0700.xcresult
+
+Failing tests:
+	NotificationHandlerTests.markCompleteNotification_MarksAllTodosComplete()
+	SwiftDataIntegrationTests.multipleTodos_IndependentState()
+	SwiftDataIntegrationTests.multipleTodos_IndependentState()
+	WatchConnectivityServiceTests.sendFullSync_WithoutContext_HandlesGracefully()
+
+** TEST FAILED **
+
+Testing started
