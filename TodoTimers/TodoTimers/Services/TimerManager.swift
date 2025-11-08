@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import SwiftData
 
 @MainActor
 @Observable
@@ -8,15 +9,21 @@ class TimerManager {
 
     private var activeTimers: [UUID: TimerService] = [:]
     private(set) var runningTimerID: UUID?
+    private var modelContext: ModelContext?
 
     private init() {}
+
+    /// Configure the timer manager with model context for state persistence
+    func configure(modelContext: ModelContext) {
+        self.modelContext = modelContext
+    }
 
     func getTimerService(for timer: Timer) -> TimerService {
         if let existing = activeTimers[timer.id] {
             return existing
         }
 
-        let service = TimerService(timer: timer, manager: self)
+        let service = TimerService(timer: timer, manager: self, modelContext: modelContext)
         activeTimers[timer.id] = service
         return service
     }
@@ -69,6 +76,16 @@ class TimerManager {
         }
         activeTimers.removeAll()
         runningTimerID = nil
+    }
+
+    // MARK: - Lifecycle Management
+
+    /// Save state of all timers when app is about to background
+    func saveAllTimersState() {
+        for (_, service) in activeTimers {
+            service.saveStateForBackground()
+        }
+        print("💾 [TimerManager] Saved state for \(activeTimers.count) active timers")
     }
 
     // MARK: - Remote State Sync

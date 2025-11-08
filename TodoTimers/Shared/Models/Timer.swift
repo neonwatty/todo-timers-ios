@@ -21,6 +21,11 @@ final class Timer {
     @Relationship(deleteRule: .cascade, inverse: \TodoItem.timer)
     var todoItems: [TodoItem] = []
 
+    /// Runtime state for background execution and state restoration
+    /// Created on-demand when timer is started, deleted when timer is reset
+    @Relationship(deleteRule: .cascade)
+    var runtimeState: TimerRuntimeState?
+
     var notes: String?
 
     // Computed Properties

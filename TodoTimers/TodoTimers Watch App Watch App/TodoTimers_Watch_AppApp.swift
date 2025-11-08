@@ -18,7 +18,7 @@ struct TodoTimers_Watch_App_Watch_AppApp: App {
     init() {
         do {
             // Configure model container with migration support
-            let schema = Schema([Timer.self, TodoItem.self])
+            let schema = Schema([Timer.self, TodoItem.self, TimerRuntimeState.self])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
             do {

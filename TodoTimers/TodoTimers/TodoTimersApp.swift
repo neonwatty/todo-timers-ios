@@ -17,7 +17,7 @@ struct TodoTimersApp: App {
     init() {
         do {
             // Configure model container with migration support
-            let schema = Schema([Timer.self, TodoItem.self])
+            let schema = Schema([Timer.self, TodoItem.self, TimerRuntimeState.self])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
             let container: ModelContainer
@@ -46,6 +46,11 @@ struct TodoTimersApp: App {
             // Configure WatchConnectivityService with modelContext
             Task { @MainActor in
                 WatchConnectivityService.shared.configure(modelContext: container.mainContext)
+            }
+
+            // Configure TimerManager with modelContext
+            Task { @MainActor in
+                TimerManager.shared.configure(modelContext: container.mainContext)
             }
         } catch {
             fatalError("Failed to create ModelContainer: \(error)")
@@ -112,7 +117,35 @@ struct TodoTimersApp: App {
                     // Request notification permission on app launch
                     _ = await notificationService.requestPermission()
                 }
+                .onChange(of: scenePhase) { oldPhase, newPhase in
+                    handleScenePhaseChange(from: oldPhase, to: newPhase)
+                }
         }
         .modelContainer(modelContainer)
+    }
+
+    @Environment(\.scenePhase) private var scenePhase
+
+    private func handleScenePhaseChange(from oldPhase: ScenePhase, to newPhase: ScenePhase) {
+        switch newPhase {
+        case .background:
+            // App is moving to background - save timer state
+            Task { @MainActor in
+                TimerManager.shared.saveAllTimersState()
+                print("📱 [App] Moved to background, saved timer states")
+            }
+
+        case .active:
+            // App is coming to foreground - state will be restored automatically
+            // when TimerService instances are accessed (lazy restoration)
+            print("📱 [App] Moved to foreground, timers will restore on access")
+
+        case .inactive:
+            // App is transitioning state
+            break
+
+        @unknown default:
+            break
+        }
     }
 }
